@@ -1,0 +1,138 @@
+﻿@using System.Data
+@using Yamon.Module.UCenter.Entity
+<div class="row">
+    <div class="col-md-2">
+        <div id="menuTree" class="easyui-tree" style="text-align: left" url="">
+        </div>
+    </div>
+    <div class="col-md-10">
+        <form id="myForm" name="myForm" action="" method="post">
+            <div id="toolbar" style="padding: 5px; height: auto">
+
+                <a href="javascript:void(0)" id="Role_New" class="easyui-linkbutton" iconcls="icon-ok" plain="true" onclick="Role_SelectAllHandler();return false;">全选</a>
+                <a href="javascript:void(0)" id="Role_Delete" class="easyui-linkbutton" iconcls="icon-redo" plain="true" onclick="Role_SelectHandler();return false;">反选</a>
+                <a href="javascript:void(0)" id="A1" class="easyui-linkbutton" iconcls="icon-no" plain="true" onclick="Role_UnSelectAllHandler();return false;">不选</a>
+                <a id="btnSubmit" class="easyui-linkbutton" icon="icon-ok" href="javascript:saveData();">保存</a>
+            </div>
+            <ul id="RoleList">
+                @foreach (Role roleInfo in ViewBag.RoleList)
+                {
+                    <li>
+                        <input name="RoleID" type="checkbox" id="Role_@(roleInfo.RoleID)" value="@(roleInfo.RoleID)" /><label for="Role_@(roleInfo.RoleID)">@(roleInfo.RoleName)</label>
+                    </li>
+                }
+            </ul>
+        </form>
+    </div>
+
+</div>
+@section styles{
+    <style type="text/css">
+        #RoleList {
+            margin: 20px;
+        }
+
+            #RoleList li {
+                float: left;
+                width: 150px;
+                line-height: 1.5;
+            }
+    </style>
+}
+@section scripts
+{
+    <script src="~/Resources/JsLib/jquery.form.js"></script>
+    <script type="text/javascript">
+        var purview = "";
+        jQuery(function () {
+            var menuTree = jQuery('#menuTree');
+            menuTree.tree({
+                lines: true,
+                animate: true,
+                url: '/api/SiteManage/Menu/GetMenuTreeJson',
+                onBeforeLoad: function (node, param) {
+                    if (node) {
+                        menuTree.tree('options').url = '/api/SiteManage/ToolBar/GetToolBarJsonByMenu';
+                    }
+                },
+                onLoadSuccess: function (node, data) {
+                    //menuTree.tree("collapseAll");
+                },
+                onClick: function (node) {
+                    purview = node.id;
+                    menuTree.tree("toggle", node.target);
+                    loadMenuRole(node.id);
+
+                }
+            });
+        });
+
+        //保存 数据
+        function saveData() {
+            var win = jQuery.messager.progress({
+                title: '请稍候',
+                msg: '数据提交中...'
+            });
+            jQuery("#myForm").ajaxSubmit({
+                type: 'post',
+                dataType: 'json',
+                cache: false,
+                url: "/api/UCenter/Role/SaveRolePurviewByPurview?Purview=" + purview,
+                success: function (msg) {
+                    jQuery.messager.progress('close');
+                    if (msg.success == "1") {
+                        alert("保存成功");
+                    } else {
+                        alert("保存失败：" + msg.message);
+                    }
+                },
+                error: function (error) {
+                    jQuery.messager.progress('close');
+                    jQuery.messager.alert('提示', '保存失败：' + error.toString(), 'info');
+                    return false;
+                }
+            });
+        }
+
+        function loadMenuRole(menuId) {
+            jQuery.ajax({
+                url: '/api/UCenter/Role/GetRoleListByPurview?Purview=' + purview,
+                cache: false,
+                success: function (data) {
+                    Role_UnSelectAllHandler();
+                    try {
+                        var arrRoleId = data.split(',');
+                        for (var i = 0; i < arrRoleId.length; i++) {
+                            jQuery('#Role_' + arrRoleId[i]).prop("checked", true);
+                        }
+                    } catch (e) {
+                    }
+                }
+            })
+        }
+
+        //全选
+        function Role_SelectAllHandler() {
+            jQuery('input[name="RoleID"]').prop("checked", true);
+            return false;
+        }
+
+        //反选
+        function Role_SelectHandler() {
+            jQuery("input[name=RoleID]").each(function () {
+                if (jQuery(this).prop("checked")) {
+                    jQuery(this).removeProp("checked");
+                } else {
+                    jQuery(this).prop("checked", "checked");
+                }
+            });
+            return false;
+        }
+
+        //不选
+        function Role_UnSelectAllHandler() {
+            jQuery('input[name="RoleID"]').removeProp("checked");
+            return false;
+        }
+    </script>
+}

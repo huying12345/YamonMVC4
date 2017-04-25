@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>车辆导览</title> 
+		<meta content="telephone=no" name="format-detection" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="/assets/libs/weui/weui.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/libs/weui/jquery-weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/libs/swiper/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/libs/audio/audio.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/css/QRCode.css?20170413" />
+	</head>
+	<body>
+		<div class="weui_tab" id="QRCode">
+			<div class="weui_tab_bd">
+				<!--音频-->
+				<div class="audio">
+					<div class="weui-navbar">
+						<a class="weui-navbar__item" href="#">
+							<audio preload="auto" controls>
+								<source id="js_audioCon_1" src="assets/audio/CA770.mp3" />
+							</audio>
+						</a>
+					</div> 
+				</div>
+				<!--汽车展示-->
+				<div class="carDisplay">
+					<!-- Slider main container -->
+					<div class="swiper-container">
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+							<div class="swiper-slide"><img src="/assets/images/Cars/10.jpg" alt="img" name="pb1" class="pb1" /></div>
+							<div class="swiper-slide"><img src="/assets/images/Cars/9.jpg" alt="img" name="pb1" class="pb1" /></div>
+							<div class="swiper-slide"><img src="/assets/images/Cars/8.jpg" alt="img" name="pb1" class="pb1" /></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<!--简介-->
+				<div class="carText">
+					<h3>CA770</h3>
+					<div class="textarea">
+						<article>
+							<p>
+								CB770投入生产后，第一汽车制造厂认为这款车型存在车身过重、油耗较大等缺点，准备进一步改进。1968年文化大革命期间，一汽的设计科被迫撤消，全部设计人员被下放到车间劳动，这时总装车间的部分设计人员自行将CA770的车身结构进行了改变，撤消了车内的中隔墙，并减小了前悬及后行李箱尺寸，使全车自重有了略微减小，但这种车型的性能未经科学的试验考证，编号为CA773。CA773从1969-1976年间共计生产了291台后停产。因为CA770救护车、检阅车以及采用方形大灯的774系列都停留在图纸和样车阶段，所以CA773是最后一批量产的早期红旗轿车。
+							</p>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="/assets/libs/jquery-1.11.1.min.js"></script>
+		<script src="/assets/libs/swiper/swiper.jquery.min.js"></script>
+		<script src="/assets/libs/audio/audio.js"></script>
+		<script>
+			$(function() {
+				//audioJs初始化
+				$('audio').audioPlayer();
+				//车图展示轮播
+				var mySwiper = new Swiper('.swiper-container', {
+					speed: 400,
+					spaceBetween: 100,
+					pagination: '.swiper-pagination',
+					paginationClickable: true
+				});
+			});
+		</script>
+	</body>
+
+</html>

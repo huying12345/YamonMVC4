@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+
+	<head>
+		<title>我的预订</title>
+		<meta name="format-detection" content="telephone=no"> 
+		<link rel="import" href="include/headercss.html?__inline">
+	</head>
+
+	<body style="height: 100%;">
+		<div class="weui_tab" id="Orderlist">
+			<div class="weui_tab_bd" style="height: 100%;">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<ul class="ordertitle">
+					<li>
+						<a href="./order.html">预约</a>
+					</li>
+					<li class="f3">
+						<a>我的预约</a>
+					</li>
+					<li id="backlogin">
+						<a> 
+							<span id="backl">退出</span>
+						</a>
+					</li>
+				</ul>
+				<div data-bind="foreach:lines" class="ticketList orderlist">
+					<div class="listcontent">
+						<div class="listtitle">
+							<ul>
+								<li>预约单号:<span data-bind="text:ProductBookID">20161209144537</span><br /> 下单时间:
+									<span data-bind="text:CreateTime">2016-12-09 14:45:37</span>
+								</li>
+								<li>状态:<span>未取票</span><br />总金额:<span data-bind='text:TotalMoney'>0.00</span>元
+								</li>
+							</ul>
+						</div> 
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tbody data-bind="foreach:products">
+								<tr>
+									<td data-bind="text:TypeName"></td>
+									<td data-bind="text:ProductName"></td>
+									<td data-bind="text:Price"></td>
+									<td data-bind="text:MakeTime"></td>
+								</tr>
+							</tbody> 
+						</table>
+					</div> 
+				</div> 
+				<div style="height: 50px;"></div>
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+		<script>
+			$(function() { 
+				$.showLoading();
+				var viewModel = new index();
+				viewModel.init();
+			});
+		</script>
+	</body>
+
+</html>

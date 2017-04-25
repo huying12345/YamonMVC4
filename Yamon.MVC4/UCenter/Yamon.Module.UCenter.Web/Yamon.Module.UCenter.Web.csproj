@@ -1,0 +1,970 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51DC9A33-369F-46A5-AEBD-4D25BB458C65}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yamon.Module.UCenter.Web</RootNamespace>
+    <AssemblyName>Yamon.Module.UCenter.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="PrecompiledMvcViewEngineContrib">
+      <HintPath>..\..\packages\PrecompiledMvcViewEngineContrib.1.0\lib\net40\PrecompiledMvcViewEngineContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorGenerator.Mvc">
+      <HintPath>..\..\packages\RazorGenerator.Mvc.2.4.2\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.Common, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DAL, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DBUtility, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.Log4Net, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.NPOI, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Module.Common, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Module.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="Areas\UCenter\Views\Department\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\_\AsyncTreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsyncTreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\_\EditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Department\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Position\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\MenuRolePurview.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuRolePurview.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\SetRolePurview.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetRolePurview.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\SetUserRole.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetUserRole.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Role\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\Shortcut\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\UserConfig\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\ChangePwd.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePwd.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\User\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\UCenter\Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\RolePurviewController.cs" />
+    <Compile Include="App_Start\UCenterAreaRegistration.cs" />
+    <Compile Include="Controllers\UserConfigController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRoleController.cs" />
+    <Compile Include="Controllers\_\_DepartmentController.cs" />
+    <Compile Include="Controllers\_\_PositionController.cs" />
+    <Compile Include="Controllers\_\_RoleController.cs" />
+    <Compile Include="Controllers\_\_RolePurviewController.cs" />
+    <Compile Include="Controllers\_\_UserConfigController.cs" />
+    <Compile Include="Controllers\_\_UserController.cs" />
+    <Compile Include="Controllers\_\_UserRoleController.cs" />
+    
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\_ViewStart.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.DAL\Yamon.Module.SiteManage.DAL.csproj">
+      <Project>{5cf4b6f7-65ba-45b6-a890-e7a27e7833c9}</Project>
+      <Name>Yamon.Module.SiteManage.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.Entity\Yamon.Module.SiteManage.Entity.csproj">
+      <Project>{3a3ef8fc-896a-4179-982e-d38b26e7b6dc}</Project>
+      <Name>Yamon.Module.SiteManage.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Yamon.Framework.MVC\Yamon.Framework.MVC.csproj">
+      <Project>{df96655f-ef75-4eab-8335-cf27b90e46e9}</Project>
+      <Name>Yamon.Framework.MVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.UCenter.DAL\Yamon.Module.UCenter.DAL.csproj">
+      <Project>{70153d81-814a-4e37-8b1d-104cc038649a}</Project>
+      <Name>Yamon.Module.UCenter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.UCenter.Entity\Yamon.Module.UCenter.Entity.csproj">
+      <Project>{61269d27-dbef-4ee3-90a5-8aa003255aa5}</Project>
+      <Name>Yamon.Module.UCenter.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\_\AsyncTreeGrid.cshtml">
+      <LastGenOutput>AsyncTreeGrid.generated.cs</LastGenOutput>
+      <Generator>RazorGenerator</Generator>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\_\EditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Position\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\MenuRolePurview.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>MenuRolePurview.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\SetRolePurview.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>SetRolePurview.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Role\SetUserRole.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>SetUserRole.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Shortcut\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\ChangePwd.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ChangePwd.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\User\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\UserConfig\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\UCenter\Views\RolePurview\" />
+    <Folder Include="Areas\UCenter\Views\UserRole\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\UCenter\Views\Department\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Department\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Department\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Position\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Position\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Position\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Role\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Role\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\Role\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\User\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\User\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\User\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\UserConfig\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\UserConfig\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\UCenter\Views\UserConfig\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54578</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54578/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

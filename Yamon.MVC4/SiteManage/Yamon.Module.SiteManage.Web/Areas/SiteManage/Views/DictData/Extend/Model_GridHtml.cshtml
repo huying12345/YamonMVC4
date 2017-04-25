@@ -1,0 +1,20 @@
+﻿@using Yamon.Framework.Common
+
+<script type="text/javascript">
+    jQuery(function () {
+        Data.DictTypeID = "@(RequestHelper.GetString("DictTypeID"))";
+        $("#tt").wrap('<div id="FormDiv" class="col-md-10"></div>');
+        $("#FormDiv").wrap('<div class="row"></div>');
+        $("#FormDiv").after('<div class="col-md-2"><div id="groupTree" style="text-align:left"></div></div>');
+        LoadGrid();
+        jQuery('#groupTree').tree({
+            url: '/api/SiteManage/DictType/EditTree',
+            onSelect: function(node) {
+                location.href = '/SiteManage/DictData/Grid1?&Frame=@(RequestHelper.GetInt("Frame"))&Menu=Dictionary_List&DictTypeID=' + node.id;
+            },
+            onLoadSuccess:function(data) {
+                //jQuery('#groupTree').tree('collapseAll');
+            }
+        });
+    });
+</script>

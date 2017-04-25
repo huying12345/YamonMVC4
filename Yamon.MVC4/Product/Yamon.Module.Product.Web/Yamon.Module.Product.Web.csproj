@@ -1,0 +1,1879 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63C1FD84-8C30-4EC1-9CED-B4E071673A10}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yamon.Module.Product.Web</RootNamespace>
+    <AssemblyName>Yamon.Module.Product.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorGenerator.Mvc">
+      <HintPath>..\..\packages\RazorGenerator.Mvc.2.4.2\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.Common, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DAL">
+      <HintPath>..\..\..\Lib\Yamon.Framework.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.Log4Net, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.NPOI">
+      <HintPath>..\..\..\Lib\Yamon.Framework.NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Module.Common">
+      <HintPath>..\..\..\Lib\Yamon.Module.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Product\Views\web.config" />
+    <Content Include="Areas\Product\Views\_ViewStart.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductInfo\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductInfo\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductInfo\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductInfo\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="Areas\Product\Views\OrderDetail\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\_\ImportFromExcel.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImportFromExcel.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderDetail\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Payment.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Second.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Second.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Show.generated.cs">
+      <DependentUpon>Show.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Statistics.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Statistics.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\Summary.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Summary.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\_\Grid1_Models.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1_Models.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderInfo\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\OrderRefund\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBookDetail\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductBook\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\_\Grid1_CardID.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1_CardID.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCardRecord\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Card.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Card.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Extend\Model_FormHtml1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Extend\Model_FormJs1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Extend\Model_GridHtml1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Extend\Model_GridJs1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Extend\Model_ViewHtml1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\Extend\Model_ViewJs1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductCard\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductConfig\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductConfig\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductConfig\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductDiscount\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\CreateOrder.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateOrder.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\OrderInfoList.generated.cs">
+      <DependentUpon>OrderInfoList.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\CreateOrder_Good.generated.cs">
+      <DependentUpon>CreateOrder_Good.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\CreateOrder_Food.generated.cs">
+      <DependentUpon>CreateOrder_Food.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\CreateOrder_Ticket.generated.cs">
+      <DependentUpon>CreateOrder_Ticket.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\CreateOrder1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateOrder1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\_\Grid1_Models.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1_Models.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductInfo\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\EditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\EditTree_Models.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree_Models.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\ProductType\_\TreeGrid_Models.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid_Models.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\TicketVisitLog\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\Extend\Model_ViewHtml1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\_\Grid1_Models.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1_Models.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderDetail\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderRefund\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderRefund\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderRefund\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderRefund\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderRefund\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VOrderRefund\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBookDetail\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBook\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBook\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBook\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBook\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBook\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductBook\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\_\Grid1_Models.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1_Models.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\VProductInfo\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Product\Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ProductDiscountController.cs" />
+    <Compile Include="Controllers\ProductInfoController.cs" />
+    <Compile Include="Controllers\_\_ProductInfoController.cs" />
+    <Content Include="Areas\Product\Views\ProductType\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductType\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductType\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\ProductTypeController.cs" />
+    <Compile Include="Controllers\_\_ProductTypeController.cs" />
+    <Content Include="Areas\Product\Views\ProductInfo\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductType\_\EditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductType\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="bin\Debug\Yamon.Module.Product.Web.dll" />
+    <Content Include="bin\Debug\Yamon.Module.Product.Web.pdb" />
+    <Content Include="Areas\Product\Views\OrderDetail\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderDetail\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderDetail\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderDetail\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\OrderDetailController.cs" />
+    <Compile Include="Controllers\_\_OrderDetailController.cs" />
+    <Content Include="Areas\Product\Views\OrderInfo\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderInfo\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderInfo\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderInfo\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\OrderInfoController.cs" />
+    <Compile Include="Controllers\_\_OrderInfoController.cs" />
+    <Content Include="Areas\Product\Views\VOrderDetail\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\VOrderDetailController.cs" />
+    <Compile Include="Controllers\_\_VOrderDetailController.cs" />
+    <Content Include="Areas\Product\Views\VProductInfo\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\VProductInfoController.cs" />
+    <Compile Include="Controllers\_\_VProductInfoController.cs" />
+    <Content Include="Areas\Product\Views\OrderInfo\_\Grid1_Models.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1_Models.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductInfo\_\Grid1_Models.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1_Models.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductType\_\TreeGrid_Models.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid_Models.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductInfo\_\Grid1_Models.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1_Models.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductType\_\EditTree_Models.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree_Models.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductInfo\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBook\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBook\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBook\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBook\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\ProductBookController.cs" />
+    <Compile Include="Controllers\_\_ProductBookController.cs" />
+    <Content Include="Areas\Product\Views\ProductBookDetail\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBookDetail\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBookDetail\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBookDetail\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\ProductBookDetailController.cs" />
+    <Compile Include="Controllers\_\_ProductBookDetailController.cs" />
+    <Content Include="Areas\Product\Views\ProductType\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductBookDetail\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductBookDetail\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductBookDetail\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductBookDetail\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\VProductBookDetailController.cs" />
+    <Compile Include="Controllers\_\_VProductBookDetailController.cs" />
+    <Content Include="Areas\Product\Views\VProductBook\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VProductBook\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\VProductBookController.cs" />
+    <Compile Include="Controllers\_\_VProductBookController.cs" />
+    <Content Include="Areas\Product\Views\ProductCard\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCard\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCard\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCard\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\ProductCardController.cs" />
+    <Compile Include="Controllers\_\_ProductCardController.cs" />
+    <Content Include="Areas\Product\Views\ProductCardRecord\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCardRecord\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCardRecord\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCardRecord\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\ProductCardRecordController.cs" />
+    <Compile Include="Controllers\_\_ProductCardRecordController.cs" />
+    <Content Include="Areas\Product\Views\OrderRefund\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderRefund\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderRefund\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderRefund\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\OrderRefundController.cs" />
+    <Compile Include="Controllers\_\_OrderRefundController.cs" />
+    <Content Include="Areas\Product\Views\VOrderDetail\_\Grid1_Models.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1_Models.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductCardRecord\_\Grid1_CardID.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1_CardID.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\OrderDetail\_\ImportFromExcel.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ImportFromExcel.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VOrderDetail\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductConfig\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\ProductConfigController.cs" />
+    <Compile Include="Controllers\_\_ProductConfigController.cs" />
+    <Content Include="Areas\Product\Views\TicketVisitLog\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\TicketVisitLog\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\TicketVisitLog\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\TicketVisitLog\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\TicketVisitLogController.cs" />
+    <Compile Include="Controllers\_\_TicketVisitLogController.cs" />
+    <Content Include="Areas\Product\Views\ProductDiscount\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductDiscount\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\_\_ProductDiscountController.cs" />
+    <Content Include="Areas\Product\Views\VOrderRefund\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VOrderRefund\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VOrderRefund\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VOrderRefund\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VOrderRefund\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\VOrderRefund\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\VOrderRefundController.cs" />
+    <Compile Include="Controllers\_\_VOrderRefundController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProductAreaRegistration.cs" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderDetail._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo.Statistics.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo._.Grid1_Models.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderInfo._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderRefund.Refund.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderRefund._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderRefund._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderRefund._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.OrderRefund._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBook._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductBookDetail._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Card.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_FormHtml1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_FormJs1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_GridHtml1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_GridJs1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_ViewHtml1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard.Extend.Model_ViewJs1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCard._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductCardRecord._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.CreateOrder.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.CreateOrder_Food.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.CreateOrder_Good.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.CreateOrder_Ticket.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.Extend.Model_GridHtml1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo._.Grid1_Models.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductInfo._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.EditTree_Models.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.ProductType._.TreeGrid_Models.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VOrderDetail.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VOrderDetail.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VOrderDetail._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VOrderDetail._.Grid1_Models.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBook.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBook.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBook.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBook.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBook._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBook._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductBookDetail._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo._.Grid1_Models.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views.VProductInfo._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Product.Views._ViewStart.generated.cs.dll" />
+    <Content Include="obj\Debug\Yamon.Module.Product.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Yamon.Module.Product.Web.dll" />
+    <Content Include="obj\Debug\Yamon.Module.Product.Web.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.DAL\Yamon.Module.SiteManage.DAL.csproj">
+      <Project>{5cf4b6f7-65ba-45b6-a890-e7a27e7833c9}</Project>
+      <Name>Yamon.Module.SiteManage.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.Entity\Yamon.Module.SiteManage.Entity.csproj">
+      <Project>{3a3ef8fc-896a-4179-982e-d38b26e7b6dc}</Project>
+      <Name>Yamon.Module.SiteManage.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UCenter\Yamon.Module.UCenter.DAL\Yamon.Module.UCenter.DAL.csproj">
+      <Project>{70153d81-814a-4e37-8b1d-104cc038649a}</Project>
+      <Name>Yamon.Module.UCenter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Yamon.Framework.MVC\Yamon.Framework.MVC.csproj">
+      <Project>{df96655f-ef75-4eab-8335-cf27b90e46e9}</Project>
+      <Name>Yamon.Framework.MVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.Product.DAL\Yamon.Module.Product.DAL.csproj">
+      <Project>{b16f36d8-1a42-4b0a-bf16-f45703aacd3e}</Project>
+      <Name>Yamon.Module.Product.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.Product.Entity\Yamon.Module.Product.Entity.csproj">
+      <Project>{146a2164-3fc6-45f4-9af8-da4a9381295b}</Project>
+      <Name>Yamon.Module.Product.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="Areas\Product\Views\OrderInfo\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Product\Views\ProductBook\Show.cshtml">
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+      <Generator>RazorGenerator</Generator>
+    </Content>
+    <None Include="Areas\Product\Views\OrderDetail\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderDetail\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderDetail\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderDetail\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderDetail\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderDetail\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Payment.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Payment.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Second.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Second.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Statistics.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Statistics.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderInfo\Summary.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Summary.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\OrderRefund\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBookDetail\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBookDetail\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBookDetail\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBookDetail\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBookDetail\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBookDetail\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBook\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBook\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBook\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBook\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBook\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductBook\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCardRecord\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCardRecord\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCardRecord\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCardRecord\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCardRecord\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCardRecord\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Card.cshtml">
+      <SubType>Code</SubType>
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Card.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductCard\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductConfig\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductConfig\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\CreateOrder.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateOrder.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\OrderInfoList.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OrderInfoList.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\CreateOrder_Good.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateOrder_Good.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\CreateOrder_Food.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateOrder_Food.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\CreateOrder_Ticket.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateOrder_Ticket.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\CreateOrder1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateOrder1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductInfo\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductType\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductType\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductType\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductType\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductType\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\ProductType\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\TicketVisitLog\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\TicketVisitLog\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\TicketVisitLog\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\TicketVisitLog\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\TicketVisitLog\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\TicketVisitLog\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VOrderDetail\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VOrderDetail\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VOrderDetail\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VOrderDetail\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBookDetail\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBookDetail\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBookDetail\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBookDetail\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBookDetail\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBookDetail\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBook\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBook\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBook\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductBook\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductInfo\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductInfo\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductInfo\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\Product\Views\VProductInfo\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Yamon.Module.Product.Web.csprojResolveAssemblyReference.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

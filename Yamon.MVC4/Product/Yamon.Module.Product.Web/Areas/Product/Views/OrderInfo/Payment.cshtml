@@ -1,0 +1,51 @@
+﻿@section scripts{
+    <script src="/Static/Product/js/Payment.js?201609281523"></script>
+    <script src="/Resources/JsLib/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Resources/JsLib/jquery.query.js"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="/Resources/JsLib/artTemplate/template.js"></script>
+    <script src="/Resources/JsLib/jquery.tablesorter.js"></script>
+}
+
+@section styles{
+    <link href="~/Static/Product/css/Statistics.css" rel="stylesheet" />
+}
+
+<div>
+    <button class="btn btn-info" data-bind="click:ExportToExcel">导出Execl</button>
+
+    <span style="font-size:14px; font-weight:bold;">选择日期:</span>
+
+    <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="StarTime" name="StarTime" value="">
+    至
+    <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="EndTime" name="EndTime" value="">&nbsp;
+
+    <button class="btn btn-info" data-bind="click:clicklist"> 查询</button>
+</div>
+<div>
+    <table class="table table-striped tablesorter" id="tableList">
+        <thead>
+            <tr id="t_thead"></tr>
+        </thead>
+        <tbody id="t_body"></tbody>
+    </table>
+</div>
+
+
+<script type="text/html" id="tool">
+    &nbsp;&nbsp;<input type="checkbox" name="models" checked="checked" value="{{Value}}" /><span style="font-size:14px;font-weight:bold">{{Name}}</span>
+</script>
+
+<script type="text/html" id="t_payStyle">
+    <th>{{Name}}</th>
+</script>
+<script type="text/html" id="t_Models">
+    <tr>
+        <td>{{CreateTime}}</td>
+        @foreach (var item in ViewBag.list)
+        {
+            <td>{{Pay_@item.Value}}</td>
+        }
+        <td>{{Total}}</td>
+    </tr>
+</script>

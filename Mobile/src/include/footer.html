@@ -1,0 +1,26 @@
+<div class="footer" style="z-index:9;">
+	<div class="weui-row">
+		<div class="weui-col-80"></div>
+		<div class="weui-col-20 Shop">
+			<div data-bind="visible:linkShop().length>0">
+				<!--ko foreach:linkShop-->
+				<a data-bind="attr:{href:ColHref}" class="iconfont icon-gouwuche shop" target="_blank"></a>
+				<!--/ko-->
+			</div>
+
+			<p class="backUp">
+				<a href="#" class="iconfont icon-fanhuidingbu2"></a>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="weui_tabbar" id="link">
+	<div class="weui_tabbar_item weui_bar_item_on">
+		<p data-bind="visible: listLink().length > 0">友情链接：
+			<!--ko foreach:listLink-->
+			<a data-bind="attr:{href:linkURL},text:linkName"></a>
+			&nbsp;|&nbsp;
+			<!--/ko-->
+		</p>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\bin\Debug\Yamon.Module.App.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\bin\Debug\Yamon.Module.App.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\bin\Debug\Newtonsoft.Json.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\bin\Debug\Yamon.Framework.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\obj\Debug\Yamon.Module.App.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\obj\Debug\Yamon.Module.App.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.Entity\bin\Debug\Newtonsoft.Json.xml

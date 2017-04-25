@@ -1,0 +1,15 @@
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Module.Member.DAL.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Module.Member.DAL.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Newtonsoft.Json.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Framework.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Framework.DAL.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Framework.DBUtility.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Module.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Module.Member.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Framework.Log4Net.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\log4net.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Yamon.Module.Member.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\bin\Debug\Newtonsoft.Json.xml
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\obj\Debug\Yamon.Module.Member.DAL.csprojResolveAssemblyReference.cache
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\obj\Debug\Yamon.Module.Member.DAL.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.DAL\obj\Debug\Yamon.Module.Member.DAL.pdb

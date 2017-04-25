@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+
+	<head>
+		<title>馆藏名车</title>
+		<link rel="import" href="include/headercss.html?__inline">
+	</head> 
+	<body style="height: 100%;">
+		<div class="weui_tab" id="cars">
+			<div class="weui_tab_bd">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="content" style="background: url(assets/images/sprite/index/bg.jpg) repeat-y;background-size: cover;min-height: 800px;">
+					<div class="ablum">
+						<div class="listcontainer">
+							<div class="border1"></div>
+							<div class="border2"></div>
+							<div class="kwidth" id="infocontainer">
+								<!--ko foreach:listCars-->
+								<div class="kdiv">
+									<img data-bind="attr:{src:'http://www.shlycmuseum.com'+img,content:HTMLDecode(Content).length<=200?HTMLDecode(Content):HTMLDecode(Content).substring(0,200)+'...',id:id}" alt="" name="pb1" class="pb1">
+									<h2 data-bind="text:/[0-9]{4}/.exec(carsName)">1886</h2>
+									<div class="Carname" data-bind="text:carsName.split('（')[0]">
+										奔驰一号
+									</div>
+								</div>
+				 				<!--/ko-->
+								 <div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+					<div class="searchbarDiv" id="searchbarDiv">
+						<div class="searchbar">
+							<img alt="img" src="./assets/images/Cars/searchbar1.png" />
+						</div>
+						<div style="margin-top:30px;"></div>
+						<div class="searchform">
+							<div class="searchitem keywords clearfloat">
+								<div class="f1">
+									关键字：
+								</div>
+								<div class="serachinput">
+									<input type="text" name="keywords" id="carsName" />
+								</div>
+								<!--<a id="searchbtn" class="keyword" class="f1">关键词搜索</a>-->
+							</div>
+							<div class="searchitem">
+								<div class="f1">
+									年代：
+								</div>
+								<div class="serachinput">
+									<select name="startyear" id="year" class="brand year">
+										<option value="">请选择</option>
+										<!--ko foreach:listCarYear-->
+										<option data-bind="text:TagsName,attr:{value:id}">1886</option>
+										<!--/ko-->
+									</select>
+									年
+								</div>
+							</div>
+							<div class="searchitem clearfloat">
+								<div class="f1">
+									品牌：
+								</div>
+								<div class="serachinput">
+									<select name="brand" id="brand" class="brand">
+										<option value="">请选择</option>
+										<!--ko foreach:listCarName-->
+										<option data-bind="text:TagsName,attr:{value:id}">Mazda（马自达）</option>
+										<!--/ko-->
+									</select>
+								</div>
+							</div>
+							<div class="searchitem clearfloat">
+								<div class="f1">地区：</div>
+								<div class="serachinput">
+									<select name="city" id="city" class="brand">
+										<option value="">请选择</option>
+										<!--ko foreach:listCarArea-->
+										<option data-bind="text:TagsName,attr:{value:id}">德国</option>
+										<!--/ko-->
+									</select>
+								</div>
+							</div>
+							<div class="searchitem clearfloat">
+								<input type="button" data-bind='click:carSearch' id="submit" value="搜索" />
+							</div>
+						</div>
+					</div>
+				</div> 
+				<div class="backUp">
+					<!--<a href="#" class="iconfont icon-fanhuidingbu2"></a>-->
+				</div>
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+		<script src="http://jqweui.com/dist/js/swiper.js"></script>
+	</body> 
+	<script>
+		$(function() {
+			$.showLoading();
+			var culViewModel = new carListViewModel();
+			ko.applyBindings(culViewModel);
+			culViewModel.init();
+		});
+	</script>
+</html>

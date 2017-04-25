@@ -1,0 +1,136 @@
+﻿<script src="/Resources/JsLib/json2.js"></script>
+<script type="text/html" id="RequestParamHtml">
+    <div id="RequestParamDiv">
+        <table id="RequestParamTable" class="mytable" cellpadding="1" width="100%" cellspacing="0" align="center">
+            <thead>
+                <tr style="text-align: center">
+                    <th>参数名</th>
+                    <th>描述</th>
+                    <th>类型</th>
+                    <th>必需</th>
+                    <th>sign加密</th>
+                    <th>排序</th>
+                    <th>限制</th>
+                    <th />
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: params'>
+                <tr>
+                    <td><input class='required textbox' style="" data-bind='value: name, uniqueName: true, valueUpdate: "afterkeydown"' /></td>
+                    <td><input class='required textbox' data-bind='value: title, uniqueName: true, valueUpdate: "afterkeydown"' /></td>
+                    <td>
+                        <select data-bind='value: type, uniqueName: true, valueUpdate: "afterkeydown"'>
+                            <option>string</option>
+                            <option>int</option>
+                            <option>datetime</option>
+                            <option>double</option>
+                            <option>bool</option>
+                            <option>float</option>
+                            <option>byte[]</option>
+                            <option>object</option>
+                            <option>object[]</option>
+                        </select>
+                    </td>
+                    <td style="text-align: center"><input type="checkbox" data-bind='checked: required, uniqueName: true, valueUpdate: "afterkeydown"' /></td>
+                    <td style="text-align: center"><input type="checkbox" data-bind='checked: sign, uniqueName: true, valueUpdate: "afterkeydown"' /></td>
+                    <td><input class='required textbox' style="width: 40px;" data-bind='value: orderId, uniqueName: true, valueUpdate: " afterkeydown"' /></td>
+                    <td><textarea data-bind='value: desc, uniqueName: true, valueUpdate: "afterkeydown"' style="width: 90%; height: 40px;"></textarea></td>
+                    <td><a href='#' data-bind='click: $root.removeParam'>删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" data-bind='click: addParam'>增加</button>
+        <button type="button" data-bind='click: addEntityParam'>增加实体类参数</button>
+        <span data-bind="text: RequestJson" style="display: none;"> </span>
+    </div>
+</script>
+<script type="text/html" id="ResponseParamHtml">
+    <div id="ResponseParamDiv">
+        <table id="ResponseParamTable" class="mytable" cellpadding="1" width="100%" cellspacing="0" align="center">
+            <thead>
+                <tr>
+                    <th>参数名</th>
+                    <th>描述</th>
+                    <th>类型</th>
+                    <th>排序</th>
+                    <th>备注</th>
+                    <th />
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: params'>
+                <tr style="background-color: #DDEBF9">
+                    <td><input class='required textbox' style="" data-bind='value: name, uniqueName: true' /></td>
+                    <td><input class='required textbox' data-bind='value: title, uniqueName: true' /></td>
+                    <td>
+                        <select data-bind='value: type, uniqueName: true'>
+                            <option>string</option>
+                            <option>int</option>
+                            <option>datetime</option>
+                            <option>double</option>
+                            <option>bool</option>
+                            <option>float</option>
+                            <option>byte[]</option>
+                            <option>object</option>
+                            <option>object[]</option>
+                        </select>
+                    </td>
+                    <td><input class='required textbox' style="width: 40px;" data-bind='value: orderId, uniqueName: true, valueUpdate: " afterkeydown"' /></td>
+                    <td><textarea data-bind='value: desc, uniqueName: true' style="width: 90%; height: 40px;"></textarea></td>
+                    <td>
+                        <a href='#' data-bind='click: $root.removeParam'>删除</a>
+                        <a href='#' data-bind='click: $root.addChildParam'>添加子参数</a><br />
+                        <a href='#' data-bind='click: $root.addChildParamFromModel'>添加实体类参数</a>
+                    </td>
+                </tr>
+                <tr data-bind='visible: children().length>0'>
+                    <td colspan="5">
+                        <table class="mytable" cellpadding="1" width="100%" cellspacing="0" align="center">
+                            <tbody data-bind="foreach: children">
+                                <tr>
+                                    <td><input class='required textbox' style="" data-bind='value: name, uniqueName: true' /></td>
+                                    <td><input class='required textbox' data-bind='value: title, uniqueName: true' /></td>
+                                    <td>
+                                        <select data-bind='value: type, uniqueName: true'>
+                                            <option>string</option>
+                                            <option>int</option>
+                                            <option>datetime</option>
+                                            <option>double</option>
+                                            <option>float</option>
+                                            <option>byte[]</option>
+                                        </select>
+                                    </td>
+                                    <td><input class='required textbox' style="width: 40px;" data-bind='value: orderId, uniqueName: true, valueUpdate: " afterkeydown"' /></td>
+                                    <td><textarea data-bind='value: desc, uniqueName: true' style="width: 90%; height: 40px;"></textarea></td>
+                                    <td><a href='#' data-bind='click: $root.removeChildParam'>删除</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" data-bind='click: addParam'>增加</button>
+        <span data-bind="text: ResponseJson" style="display: none;"> </span>
+    </div>
+</script>
+<script type="text/html" id="ErrorCodeHtml">
+    <div id="ErrorCodeDiv">
+        <table id="ErrorCodeTable" class="mytable" cellpadding="1" width="100%" cellspacing="0" align="center">
+            <thead>
+                <tr style="text-align: center">
+                    <th>参数名</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: params'>
+                <tr>
+                    <td><input class='required textbox' style="" data-bind='value: name, uniqueName: true, valueUpdate: "afterkeydown"' /></td>
+                    <td><textarea data-bind='value: desc, uniqueName: true, valueUpdate: "afterkeydown"' style="width: 90%; height: 40px;"></textarea></td>
+                    <td><a href='#' data-bind='click: $root.removeParam'>删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" data-bind='click: addParam'>增加</button>
+        <span data-bind="text: RequestJson" style="display: none;"> </span>
+    </div>
+</script>

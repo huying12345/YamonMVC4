@@ -1,0 +1,29 @@
+﻿<script type="text/javascript">
+    jQuery(document).ready(function () {
+        if (jQuery('#Position').length > 0) {
+            jQuery('#Position').html(" <option value='0'>请选择</option>");
+            LoadPosition(jQuery("#DepartmentID").val());
+            jQuery("#DepartmentID").combotree({
+                onChange: function (newValue, oldValue) {
+                    LoadPosition(newValue);
+                }
+            });
+        }
+    });
+    //加载岗位列表
+    function LoadPosition(departmentId) {
+        jQuery.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/UCenter/Position/GetPositionByDepartmentIDAction?DepartmentID=' + departmentId,
+            success: function (msg) {
+                var ret = msg.rows;
+                var str = "";
+                for (var i = 0; i < ret.length; i++) {
+                    str += " <option value='" + ret[i].positionid + "'>" + ret[i].positionname + "</option>";
+                }
+                jQuery('#Position').html(str);
+            }
+        });
+    }
+</script>

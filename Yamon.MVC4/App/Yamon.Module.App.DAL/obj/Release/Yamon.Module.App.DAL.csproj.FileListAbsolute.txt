@@ -1,0 +1,17 @@
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.App.DAL.dll.config
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.App.DAL.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.App.DAL.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Newtonsoft.Json.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Framework.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Framework.DAL.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Framework.DBUtility.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.App.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.UCenter.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Framework.Log4Net.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\log4net.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.UCenter.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\bin\Release\Yamon.Module.App.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\obj\Release\Yamon.Module.App.DAL.csprojResolveAssemblyReference.cache
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\obj\Release\Yamon.Module.App.DAL.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\App\Yamon.Module.App.DAL\obj\Release\Yamon.Module.App.DAL.pdb

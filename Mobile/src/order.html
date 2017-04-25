@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<title>门票预订</title>
+		<meta name="format-detection" content="telephone=no">
+		<link rel="import" href="include/headercss.html?__inline"> 
+	</head>
+	<body style="height: 100%;">
+		<div class="weui_tab" id="Order">
+			<div class="weui_tab_bd" style="height: 100%;">
+			<link rel="import" href="include/header.html?__inline">
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<ul class="ordertitle">
+					<li class="f3">
+						<a>预约</a>
+					</li> 
+					<li> 
+						<a href="./orderList.html">我的预约</a>
+					</li>
+					<li id="backlogin">
+						<a>
+							<span id="backl">退出</span>
+						</a>
+					</li> 
+				</ul>
+				<div class="ticketList">
+					<div class="orderdate">
+						<span>选择浏览日期:</span>
+						<input type="text" data-toggle='date'  id="MakeTime" style="height:25px;font-size:12px;"/>
+					</div>
+					<table id="sample-table-2" border="0" cellspacing="0" cellpadding="0" class="table-bordered">
+						<thead>
+							<tr>
+								<th>票名</th>
+								<th>售价</th>
+								<th>总金额</th>
+								<th>票数</th>
+							</tr>
+						</thead>
+						<tbody data-bind="foreach: lines">
+							<tr>
+								<td data-bind="text: ProductName">全票价</td>
+								<td data-bind="text: SalePrice" class="saleprice">68</td>
+								<td data-bind='text:formatCurrency(TotalMoney())' class="price">0.00</td>
+								<td>
+									<a class="weui_btn weui_btn_mini weui_btn_default" data-bind='click:numMinus'>-</a>
+									<input data-bind='value:Num' type="number" value="0" class="num" />
+									<a class="weui_btn weui_btn_mini weui_btn_default" data-bind='click:numAdd'>+</a>
+								</td>
+							</tr>
+						</tbody>
+					</table> 
+				</div>
+				<div class="pay" style="margin-bottom: 50px;">
+					<p>总金额：￥<span data-bind='text:formatCurrency(grandTotal())' id="allpay">0.00</span></p>
+					<a data-bind='click:save' class="weui_btn weui_btn_primary" id="order" style="margin-top: 5px;padding: 0px 30px;">立即预定</a>
+				</div> 
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+		<script src="./assets/libs/rowspan.js"></script>
+		<script src="./assets/js/page/order.js"></script>
+		<script>
+			$("#MakeTime").calendar();
+			var viewModel = new indexViewModel();
+				viewModel.init();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,11 @@
+﻿<script type="text/javascript">
+
+    function setUserRole(value, row, index) {
+        return '<a href="javascript:OpenSetUserRoleDialog(\'' + row.RoleID + '\')" style="color:red">配置用户</a>';
+    }
+
+
+    function OpenSetUserRoleDialog(roleId) {
+        OpenMyDialog('/UCenter/Role/SetUserRole?RoleID=' + roleId, '配置用户', 800, 535);
+    }
+</script>

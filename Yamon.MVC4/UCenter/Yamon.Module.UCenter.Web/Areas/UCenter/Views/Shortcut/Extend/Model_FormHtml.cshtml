@@ -1,0 +1,19 @@
+﻿<script type="text/javascript">
+  var isLoad=false;
+jQuery(function(){
+  if(!isLoad){
+  jQuery('#LinkType').change(function(){
+     if(jQuery('#LinkType').val()==1){
+      jQuery("#LinkMenuID").combotree({
+        url:'Handler/MenuHandler.ashx?action=GetMenuTreeJsonByPurview'
+      }); 
+    }else if(jQuery('#LinkType').val()==2){
+      jQuery("#LinkMenuID").combotree({
+        url:'Handler/ShareNodesHandler.ashx?action=GetMyAsyncTreeJson'
+      }); 
+    }
+  });
+}
+  isLoad=true;
+});
+</script>

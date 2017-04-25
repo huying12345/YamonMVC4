@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B16F36D8-1A42-4B0A-BF16-F45703AACD3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yamon.Module.Product.DAL</RootNamespace>
+    <AssemblyName>Yamon.Module.Product.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Yamon.Framework.Common">
+      <HintPath>..\..\..\Lib\Yamon.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DAL">
+      <HintPath>..\..\..\Lib\Yamon.Framework.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DBUtility">
+      <HintPath>..\..\..\Lib\Yamon.Framework.DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Module.Common">
+      <HintPath>..\..\..\Lib\Yamon.Module.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OrderDetailDAL.cs" />
+    <Compile Include="OrderInfoDAL.cs" />
+    <Compile Include="ProductInfoDAL.cs" />
+    <Compile Include="VOrderDetailDAL.cs" />
+    <Compile Include="VProductInfoDAL.cs" />
+    <Compile Include="_\_OrderDetailDAL.cs" />
+    <Compile Include="_\_OrderInfoDAL.cs" />
+    <Compile Include="_\_ProductInfoDAL.cs" />
+    <Compile Include="ProductTypeDAL.cs" />
+    <Compile Include="_\_ProductTypeDAL.cs" />
+    <Compile Include="ProductBookDAL.cs" />
+    <Compile Include="_\_ProductBookDAL.cs" />
+    <Compile Include="ProductBookDetailDAL.cs" />
+    <Compile Include="_\_ProductBookDetailDAL.cs" />
+    <Compile Include="VProductBookDetailDAL.cs" />
+    <Compile Include="_\_VProductBookDetailDAL.cs" />
+    <Compile Include="VProductBookDAL.cs" />
+    <Compile Include="_\_VProductBookDAL.cs" />
+    <Compile Include="ProductCardDAL.cs" />
+    <Compile Include="_\_ProductCardDAL.cs" />
+    <Compile Include="ProductCardRecordDAL.cs" />
+    <Compile Include="_\_ProductCardRecordDAL.cs" />
+    <Compile Include="OrderRefundDAL.cs" />
+    <Compile Include="_\_OrderRefundDAL.cs" />
+    <Compile Include="ProductConfigDAL.cs" />
+<Compile Include="_\_ProductConfigDAL.cs" />
+<Compile Include="TicketVisitLogDAL.cs" />
+<Compile Include="_\_TicketVisitLogDAL.cs" />
+<Compile Include="ProductDiscountDAL.cs" />
+<Compile Include="_\_ProductDiscountDAL.cs" />
+<Compile Include="VOrderRefundDAL.cs" />
+<Compile Include="_\_VOrderRefundDAL.cs" />
+<Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_\_VOrderDetailDAL.cs" />
+    <Compile Include="_\_VProductInfoDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Member\Yamon.Module.Member.DAL\Yamon.Module.Member.DAL.csproj">
+      <Project>{cb183738-dcd8-4ede-8197-3ac6845799d7}</Project>
+      <Name>Yamon.Module.Member.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.DAL\Yamon.Module.SiteManage.DAL.csproj">
+      <Project>{5cf4b6f7-65ba-45b6-a890-e7a27e7833c9}</Project>
+      <Name>Yamon.Module.SiteManage.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.Entity\Yamon.Module.SiteManage.Entity.csproj">
+      <Project>{3a3ef8fc-896a-4179-982e-d38b26e7b6dc}</Project>
+      <Name>Yamon.Module.SiteManage.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UCenter\Yamon.Module.UCenter.DAL\Yamon.Module.UCenter.DAL.csproj">
+      <Project>{70153d81-814a-4e37-8b1d-104cc038649a}</Project>
+      <Name>Yamon.Module.UCenter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UCenter\Yamon.Module.UCenter.Entity\Yamon.Module.UCenter.Entity.csproj">
+      <Project>{61269d27-dbef-4ee3-90a5-8aa003255aa5}</Project>
+      <Name>Yamon.Module.UCenter.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.Product.Entity\Yamon.Module.Product.Entity.csproj">
+      <Project>{146a2164-3fc6-45f4-9af8-da4a9381295b}</Project>
+      <Name>Yamon.Module.Product.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

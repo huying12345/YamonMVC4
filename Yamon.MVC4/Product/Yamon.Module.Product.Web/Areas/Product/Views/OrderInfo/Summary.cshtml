@@ -1,0 +1,46 @@
+﻿@section styles{
+    <link href="~/Static/Product/css/Statistics.css" rel="stylesheet" />
+}
+@section scripts{
+
+    <script src="~/Static/Product/js/Summary.js?201609281507"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="/Resources/JsLib/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Resources/JsLib/jquery.query.js"></script>
+    <script src="/Resources/JsLib/artTemplate/template.js"></script>
+    <script src="/Resources/JsLib/jquery.tablesorter.js"></script>
+    <script id="t-list" type="text/html">
+        <tr>
+           
+            <td>{{name}}</td>
+            <td>{{totalmoney}}</td>
+            <td>{{refundmoney}}</td>
+            <td>{{total}}</td>
+        </tr>
+    </script>
+}
+<div>
+    <div>
+        <span style="font-size:14px; font-weight:bold;">选择日期:</span>
+
+        <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="StartTime" name="StartTime" value="">
+        至
+        <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="EndTime" name="EndTime" value="">&nbsp;
+        <button class="btn btn-info" data-bind="click:clicklist"> 查询</button>
+    </div>
+    <div>
+
+        <table class="table table-striped tablesorter" id="tableList">
+            <thead>
+                <tr>
+                    
+                    <th>名称</th>
+                    <th>收入</th>
+                    <th>退款</th>
+                    <th>合计</th>
+                </tr>
+            </thead>
+            <tbody id="lines"></tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>汽车文化</title>
+		<link rel="import" href="include/headercss.html?__inline">
+	</head> 
+	<body>  
+		<div class="weui_tab" id="culture">
+			<div class="weui_tab_bd">
+			<link rel="import" href="include/header.html?__inline">
+			<div style="height: 10px;"></div>
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<div class="weui_item" style="margin-top:10px;" id="message">
+					<img alt="img" src="./assets/images/culture/mtzx-2.png" alt="classic car infomation" style="width:160%;margin-left:10px;" />
+					<img alt="img" src="./assets/images/culture/1.jpg" style="border-top: 3px solid #888A86;" />
+					<!--ko foreach:listcarculture3-->
+					<ul class="post">
+						<li> 
+							<a data-bind="text:'◆&nbsp;'+title,attr:{href:'./conductList.html?ID='+id}">国际资讯丨2015美国圆石滩优雅竞赛"Best of Show"出炉</a>
+						</li>
+					</ul>
+					<!--/ko-->
+				</div>
+				<div class="weui_item" id="history">
+					<img alt="img" src="./assets/images/culture/mtzx-3.png" alt="classic car history" style="width:160%;margin-left: 10px;" />
+					<img alt="img" src="./assets/images/culture/2.jpg" style="border-top: 3px solid #888A86;" />
+					<!--ko foreach:listcarculture-->
+					<ul class="prev">
+						<li> 
+							<a data-bind="text:'◆&nbsp;'+title,attr:{href:'./conductList.html?ID='+id}">历史记丨曾经的亡命之途 泛美公路拉力赛</a>
+						</li>
+					</ul>
+					<!--/ko-->
+				</div>
+				<div class="weui_item" style="padding-bottom: 50px;">
+					<ul class="pageTurn" style="display: none;">
+						<li>
+							<a data-bind="click:$root.firstPage">首页</a>
+						</li>
+						<li> 
+							<a data-bind="click:$root.prevPage">上一页</a>
+						</li>
+					</ul>
+					<ul class="Page">
+						<!--ko foreach:pageList-->
+						<li>
+							<a data-bind="text:page,click:$root.pageClick,css: { active: page==currentPage}">1</a>
+						</li>
+						<!--/ko-->
+					</ul> 
+					<ul class="pageTurn">
+						<li>
+							<a data-bind="click:$root.nextPage">下一页</a>
+						</li>
+						<li>
+							<a data-bind="click:$root.lastPage">末页</a>
+						</li>
+					</ul> 
+				</div>
+			</div> 
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+		<script src="./assets/js/page/carCulture.js"></script>
+	</body>
+	<script>
+		$(function() {
+			$.showLoading();
+			var culViewModel = new carCulViewModel();
+			ko.applyBindings(culViewModel);
+			culViewModel.init();
+		})
+	</script>
+</html>

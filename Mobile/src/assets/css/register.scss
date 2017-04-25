@@ -1,0 +1,55 @@
+#Register {
+    .btn_register {
+        width: 100%;
+    }
+    .btn_checkbox{
+        margin: 10px 10px;
+        font-size: 14px;
+        input[type=checkbox]{
+            width: 10px;
+        }
+        .open-popup{
+            text-decoration: underline;
+        }
+    }
+    .weui-popup-modal{
+        p{
+            padding: 10px 10px;
+            color: #5F5F61;
+        }
+        h4{
+            padding:20px 10px 0px;
+        }
+        a{
+            margin-bottom: 10px;
+        }
+    }
+    .weui_cells_form {
+        .weui_cell {
+            padding: 15px;
+        }
+        .weui_vcode {
+            padding: 10px 15px;
+            .weui_cell_ft {
+                 img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .bottom {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        list-style: none;
+        margin-top: 10px;
+        font-size: 15px;
+        li {
+            float: right;
+            margin-right: 10px;
+        }
+        a {
+            text-decoration: underline;
+        }
+    }
+}

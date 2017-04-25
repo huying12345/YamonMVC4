@@ -1,0 +1,164 @@
+﻿@{
+    Layout = null;
+    string apiKey = CookieHelper.GetCookie("UserName");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>数据接口开放平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/Resources/JsLib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Resources/JsLib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Resources/JsLib/highlight/default.min.css" rel="stylesheet" />
+    <link href="/Resources/JsLib/metisMenu/metisMenu.css" rel="stylesheet" />
+    <link href="/Static/SiteManage/css/apidoc.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">数据接口开放平台</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="Nav_DocIndex"><a href="/SiteManage/API/DocIndex/@(ViewBag.APIID)?AppID=@(ViewBag.AppID)">接口文档</a></li>
+                    <li id="Nav_APITool"><a href="/SiteManage/API/APITool/@(ViewBag.APIID)?AppID=@(ViewBag.AppID)">接口测试</a></li>
+                    <li><a data-toggle="modal" data-target="#myModal">应用信息</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">你好：@(apiKey)</a></li>
+                    <li>
+                        当前应用：
+                        <select id="AppList">
+                            @foreach (Yamon.Module.SiteManage.Entity.Application app in ViewBag.AppList)
+                            {
+                                if (ViewBag.AppID == app.AppID)
+                                {
+                                    <option value="@(app.AppID)" selected>@(app.AppName)</option>
+                                }
+                                else
+                                {
+                                    <option value="@(app.AppID)">@(app.AppName)</option>
+                                }
+                            }
+                        </select>
+                    </li>
+                    <li><a href="/api/UCenter/User/Logout">退出</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav" id="side-menu">
+                @foreach (API model1 in ViewBag.APIList)
+                {
+                    if (!ViewBag.MyAPIList.Contains(model1.APIID))
+                    {
+                        continue;
+                    }
+                    <li data-apiid="@(model1.APIID)">
+                        @if (model1.Children != null && model1.Children.Count > 0)
+                        {
+                            <a href="#"> <span class="nav-label">@(model1.APIName)</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                @foreach (API model2 in model1.Children)
+                                {
+                                    if (!ViewBag.MyAPIList.Contains(model2.APIID))
+                                    {
+                                        continue;
+                                    }
+                                    if (model2.APIType == 2 && ViewBag.PageName == "APITool")
+                                    {
+                                        continue;
+                                    }
+                                   
+                                    if (model2.Children != null && model2.Children.Count > 0)
+                                    {
+                                        <li data-apiid="@(model2.APIID)">
+                                            <a href="#"> <span class="nav-label">@(model2.APIName)</span><span class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                @foreach (API model3 in model2.Children)
+                                                {
+                                                    if (!ViewBag.MyAPIList.Contains(model3.APIID))
+                                                    {
+                                                        continue;
+                                                    }
+                                                    if (model3.APIType == 2 && ViewBag.PageName == "APITool")
+                                                    {
+                                                        continue;
+                                                    }
+                                                    <li data-apiid="@(model3.APIID)" style="padding-left:15px;"><a href="/SiteManage/API/@(ViewBag.PageName)/@(model3.APIID)?AppID=@(ViewBag.AppID)">@(model3.APIName)</a></li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li data-apiid="@(model2.APIID)"><a href="/SiteManage/API/@(ViewBag.PageName)/@(model2.APIID)?AppID=@(ViewBag.AppID)">@(model2.APIName)</a></li>
+                                    }
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <a href="/SiteManage/API/@(ViewBag.PageName)/@(model1.APIID)?AppID=@(ViewBag.AppID)"> <span class="nav-label">@(model1.APIName)</span></a>
+                        }
+                    </li>
+                }
+            </ul>
+        </nav>
+    </aside>
+    <section class="content">
+        @RenderBody()
+    </section>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@(ViewBag.AppInfo.AppName)</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>应用ApiKey：</label>
+                        <label>@(ViewBag.AppInfo.AppKey)</label>
+                    </div>
+                    <div class="form-group">
+                        <label>应用SecretKey：</label>
+                        <label>@(ViewBag.AppInfo.AppSecretKey)</label>
+                    </div>
+                    <div class="form-group">
+                        <label>备注：</label>
+                        <label>@(ViewBag.AppInfo.AppMemo)</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script src="/Resources/JsLib/jquery.min.js"></script>
+    <script src="/Resources/JsLib/jquery.cookie.js"></script>
+    <script src="/Resources/JsLib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Resources/JsLib/jquery.bootstrap-growl.min.js"></script>
+    <script src="/Resources/JsLib/jquery.goup.min.js"></script>
+    <script src="/Resources/JsLib/highlight/highlight.min.js"></script>
+    <script src="/Resources/JsLib/metisMenu/metisMenu.min.js"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

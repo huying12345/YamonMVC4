@@ -1,0 +1,76 @@
+<!doctype html>
+<html style="height: 100%;">
+	<head>
+		<title>注册</title>
+		<link rel="import" href="include/headercss.html?__inline"> 
+	</head>
+	<body style="height: 100%;">
+		<div class="weui_tab" id="Register">
+			<div class="weui_tab_bd" style="height: 100%;">
+				<link rel="import" href="include/header.html?__inline" />
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<!--表单验证-->
+				<div class="weui_cells weui_cells_form">
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">用户名：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input id="Phone" class="weui_input" type="tel" placeholder="请输入手机号">
+						</div>
+					</div>
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">密码：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input id="password" class="weui_input" type="password" placeholder="请输入密码">
+						</div>
+					</div> 
+					<div class="weui_cell weui_vcode">
+						<!--<div class="weui_cell_hd"><label class="weui_label">验证码：</label></div>-->
+						<div class="weui_cell_bd weui_cell_primary">
+							<input id="validate" placeholder="验证码" class="weui_input" type="number">
+						</div>
+						<div class="weui_cell_ft">
+							<img alt="img" id="changeImg" data-bind="click:img" alt="2567">
+						</div>
+					</div>
+				</div>
+				<!--协议-->
+				<div class="btn_checkbox">
+					<input type="checkbox" checked="checked"/> 我已阅读并同意
+					<a class="open-popup" data-target="">服务条款</a>
+				</div>
+				<div id="popup" class="weui-popup-container" style="z-index:99999;margin-bottom: 30px;">
+					<div class="weui-popup-overlay"></div>
+					<div class="weui-popup-modal">
+						<h4>三和老爷车博物馆网上订票系统用户服务协议</h4>
+						<p>三和老爷车博物馆网上订票系统用户服务协议双方为三和老爷车博物馆与三和老爷车博物馆网上订票系统用户，本服务协议具有合同效力。 本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。 用户在同意接受所有的服务条款并完成注册程序后，表示用户同意并签署了本服务协议，将成为本站的正式用户。 用户在使用网上订票系统提供的各项服务的同时，接受并遵守各项操作规则的规定。 您确认下单的同时，您同时也承认了您的拥有的购买订单中所有产品的权利能力和行为能力，并且将对您在订单中提供的所有信息的真实性负责。 本协议服务条款是处理双方权利和义务的约定，始终具备法律效力。并且，三和老爷车博物馆有权根据需要不定时的增加、修改本协议或各项规则，经修订后的协议，将立即自动生效，并且具有法律效力。 用户登录后继续使用网上订票系统的各项服务将表示用户已经接受经修订的协议。
+						</p> 
+						<a href="javascript:;" class="weui_btn weui_btn_primary close-popup">关闭</a>
+					</div>
+				</div> 
+				<div class="btn_register">
+					<button id="btn_submit" data-bind="click:submit" class="weui_btn weui_btn_primary">注册</button>
+				</div>
+				<ul class="bottom" style="margin-bottom: 30px;">
+					<li>
+						<a href="./login.html">直接登录</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<link rel="import" href="include/footer.html?__inline">
+		<link rel="import" href="include/footerjs.html?__inline">
+		<script>
+			$(function() {
+				var RegisterViewModel = new registerViewModel();
+					ko.applyBindings(RegisterViewModel);
+					RegisterViewModel.init();
+					
+				$('.open-popup').click(function() {
+					$("#popup").popup();
+				});
+			})
+		</script>
+	</body>
+
+</html>

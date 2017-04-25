@@ -1,0 +1,62 @@
+﻿@section styles{
+    <link href="~/Static/Product/css/Statistics.css" rel="stylesheet" />
+}
+@section scripts{
+
+    <script src="~/Static/Product/js/Second.js?201609290954"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="/Resources/JsLib/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Resources/JsLib/jquery.query.js"></script>
+    <script src="/Resources/JsLib/artTemplate/template.js"></script>
+    <script src="/Resources/JsLib/jquery.tablesorter.js"></script>
+    <script id="t-list" type="text/html">
+        <tr>
+            {{if TypeName.length>0}}
+                <td style="text-align:left">({{TypeName}}){{ProductName}}</td>
+            {{/if}}
+            {{if TypeName.length==0}}
+                <td style="text-align:left">{{ProductName}}</td>
+            {{/if}}
+            <td>{{counts}}</td>
+            <td>{{TotalMoney}}</td>
+            <td>{{CountsPercent}}</td>
+            <td>{{TotalMoneyPercent}}</td>
+        </tr>
+    </script>
+    <script id="t-select" type="text/html">
+        <option value="{{ProductTypeId}}">{{TypeName}}</option>
+    </script>
+    <script id="t-type" type="text/html">
+        <option value="{{Value}}">{{Name}}</option>
+    </script>
+}
+<div>
+    <div>
+        <span style="font-size:14px; font-weight:bold;">选择日期:</span>
+
+        <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="StarTime" name="StarTime" value="">
+        至
+        <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="EndTime" name="EndTime" value="">&nbsp;
+        <span style="font-size:14px; font-weight:bold;" class="typeproduct">选择类型:</span>
+        <select id="selectType" class="typeproduct"></select>&nbsp;
+        <span style="font-size:14px; font-weight:bold;display:none">选择产品:</span>
+            <select id="selectlist" style="display:none"></select>
+        <button class="btn btn-info" data-bind="click:clicklist"> 查询</button>
+    </div>
+    <div>
+
+        <table class="table table-striped tablesorter" id="tableList">
+            <thead>
+                <tr>
+                    
+                    <th>名称</th>
+                    <th>数量</th>
+                    <th>总金额</th>
+                    <th>数量占比</th>
+                    <th>金额占比</th>
+                </tr>
+            </thead>
+            <tbody id="lines"></tbody>
+        </table>
+    </div>
+</div>

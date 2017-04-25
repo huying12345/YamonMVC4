@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70153D81-814A-4E37-8B1D-104CC038649A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yamon.Module.UCenter.DAL</RootNamespace>
+    <AssemblyName>Yamon.Module.UCenter.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Yamon.Framework.Common">
+      <HintPath>..\..\..\Lib\Yamon.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DAL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DBUtility">
+      <HintPath>..\..\..\Lib\Yamon.Framework.DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Module.Common">
+      <HintPath>..\..\..\Lib\Yamon.Module.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DepartmentDAL.cs" />
+    <Compile Include="PositionDAL.cs" />
+    <Compile Include="RoleDAL.cs" />
+    <Compile Include="RolePurviewDAL.cs" />
+    <Compile Include="ShortcutDAL.cs" />
+    <Compile Include="UserConfigDAL.cs" />
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="UserRoleDAL.cs" />
+    <Compile Include="_\_DepartmentDAL.cs" />
+    <Compile Include="_\_PositionDAL.cs" />
+    <Compile Include="_\_RoleDAL.cs" />
+    <Compile Include="_\_RolePurviewDAL.cs" />
+    <Compile Include="_\_ShortcutDAL.cs" />
+    <Compile Include="_\_UserDAL.cs" />
+    <Compile Include="_\_UserConfigDAL.cs" />
+    <Compile Include="_\_UserRoleDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.DAL\Yamon.Module.SiteManage.DAL.csproj">
+      <Project>{5cf4b6f7-65ba-45b6-a890-e7a27e7833c9}</Project>
+      <Name>Yamon.Module.SiteManage.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SiteManage\Yamon.Module.SiteManage.Entity\Yamon.Module.SiteManage.Entity.csproj">
+      <Project>{3a3ef8fc-896a-4179-982e-d38b26e7b6dc}</Project>
+      <Name>Yamon.Module.SiteManage.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.UCenter.Entity\Yamon.Module.UCenter.Entity.csproj">
+      <Project>{61269d27-dbef-4ee3-90a5-8aa003255aa5}</Project>
+      <Name>Yamon.Module.UCenter.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

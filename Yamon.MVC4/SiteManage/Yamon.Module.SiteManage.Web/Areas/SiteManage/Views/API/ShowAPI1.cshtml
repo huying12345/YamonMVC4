@@ -1,0 +1,99 @@
+﻿<div class="" style="padding-top: 10px;">
+    <p>
+        @(Model.Remark)
+    </p>
+    <h4>一、请求URL</h4>
+    <ul>
+        <li><code>@(Model.Url)</code></li>
+    </ul>
+    <h4>二、请求方式</h4>
+    <ul>
+        <li>@(Model.RequestType)</li>
+    </ul>
+    <h4>三、是否需要登录</h4>
+    <ul>
+        <li>@(Model.NeedUserLogin_ShowValue)</li>
+    </ul>
+    <h4>四、请求参数</h4>
+    <input type="hidden" id="RequestParam" autocomplete="off" value="@(Model.RequestParam)" />
+    <div id="RequestParamDiv">
+        <table id="RequestParamTable">
+            <thead>
+                <tr style="text-align: center">
+                    <th style="width: 20%">参数名</th>
+                    <th style="width: 20%">描述</th>
+                    <th style="width: 10%">类型</th>
+                    <th style="width: 10%">必需</th>
+                    <th style="width: 10%">sign加密</th>
+                    <th style="width: 30%">限制</th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: params'>
+                <tr>
+                    <td data-bind='text: name'></td>
+                    <td data-bind='text: title'></td>
+                    <td data-bind='text: type'></td>
+                    <td data-bind='text: required'></td>
+                    <td data-bind='text: sign'></td>
+                    <td data-bind='text: desc'></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>五、返回参数</h4>
+    <input type="hidden" id="ResponseParam" autocomplete="off" value="@(Model.ResponseParam)" />
+    <div id="ResponseParamDiv">
+        <table id="ResponseParamTable">
+            <thead>
+                <tr style="text-align: center">
+                    <th style="width: 20%">参数名</th>
+                    <th style="width: 20%">描述</th>
+                    <th style="width: 20%">类型</th>
+                    <th style="width: 40%">说明</th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: params'>
+                <tr>
+                    <td data-bind='text: name'></td>
+                    <td data-bind='text: title'></td>
+                    <td data-bind='text: type'></td>
+                    <td data-bind='text: desc'></td>
+                </tr>
+                <tr data-bind='visible: children().length>0'>
+                    <td colspan="5">
+                        <table>
+                            <tbody data-bind="foreach: children">
+                                <tr>
+                                    <td style="width: 20%" data-bind='text: name'></td>
+                                    <td style="width: 20%" data-bind='text: title'></td>
+                                    <td style="width: 20%" data-bind='text: type'></td>
+                                    <td style="width: 40%" data-bind='text: desc'></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>六、错误码</h4>
+    <input type="hidden" id="ErrorCodeParam" autocomplete="off" value="@(Model.ErrorCodeParam)" />
+    <div id="ErrorCodeDiv">
+        <table id="ErrorCodeTable">
+            <thead>
+                <tr style="text-align: center">
+                    <th style="width: 30%">参数名</th>
+                    <th style="width: 70%">描述</th>
+                </tr>
+            </thead>
+            <tbody data-bind='foreach: params'>
+                <tr>
+                    <td data-bind='text: name'></td>
+                    <td data-bind='text: desc'></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>七、返回示例</h4>
+    <pre><code>@(Model.ResponseBody)</code></pre>
+</div>

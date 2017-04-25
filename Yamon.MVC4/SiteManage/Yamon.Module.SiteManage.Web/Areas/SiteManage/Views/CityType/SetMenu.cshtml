@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.BodyClass = "";
+}
+<form id="myForm" name="myForm" action="" method="post">
+    <table id="test"></table>
+</form>
+@section scripts{
+<script src="~/Resources/JsLib/jquery.form.js"></script>
+    <script type="text/javascript">
+        function setGridHeight() {
+            var w = (window.innerWidth || (window.document.documentElement.clientWidth || window.document.body.clientWidth || document.body.offsetWidth));
+            var h = (window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight || document.body.offsetHeight));
+            jQuery('#test').treegrid('resize', {
+//给datagrid加属性
+                height: h,
+                width: '100%',
+                margin: 'auto'
+            });
+        }
+
+        $(function () {
+            
+            $('#test').treegrid({
+                iconCls: 'icon-save',
+                checkbox: false,
+                nowrap: false,
+                rownumbers: true,
+                singleSelect: true, //单选一行
+                animate: true,
+                collapsible: true,
+                idField: 'MenuID',
+                treeField: 'MenuName',
+                columns: [
+                    [
+                        { field: 'MenuID', title: 'ID', sortable: true, width: 100, hidden: true },
+                        { field: 'PageCode', title: '权限', sortable: true, width: 30 },
+                        { field: 'MenuName', title: '菜单名称', sortable: true, width: 300 },
+                        { field: 'ToolBar', title: '工具栏权限', sortable: true, width: 400 }
+                    ]
+                ],
+                onBeforeLoad: function (row, param) {
+                    jQuery(this).treegrid('options').url = '/SiteManage/CityType/CityTypePurivewGridTreeJsonAction/' + myPage.id;
+                },
+                toolbar: [
+                    {
+                        id: 'btncut',
+                        text: '保存',
+                        iconCls: 'icon-save',
+                        handler: function() {
+                            saveData();
+                        }
+                    }, {
+                        id: 'btncut',
+                        text: '刷新',
+                        iconCls: 'icon-reload',
+                        handler: function() {
+                            reloadData();
+                        }
+                    }, {
+                        id: 'btqx',
+                        text: '全选',
+                        iconCls: 'icon-ok',
+                        handler: function() {
+                            jQuery("td").find("input[name=Purview]").each(function() {
+                                jQuery(this).prop("checked", "checked");
+                            });
+                        }
+                    }, {
+                        id: 'btnfx',
+                        text: '反选',
+                        iconCls: 'icon-redo',
+                        handler: function() {
+                            jQuery("td").find("input[name=Purview]").each(function() {
+                                if ($(this).prop("checked")) {
+                                    $(this).removeProp("checked");
+                                } else {
+                                    $(this).prop("checked", "checked");
+                                }
+                            });
+                        }
+                    }, {
+                        id: 'btnbx',
+                        text: '不选',
+                        iconCls: 'icon-no',
+                        handler: function() {
+                            jQuery("td").find("input[name=Purview]").each(function() {
+                                jQuery(this).removeProp("checked");
+                            });
+                        }
+                    }, {
+                        id: 'btnbx',
+                        text: '返回',
+                        iconCls: 'icon-back',
+                        handler: function() {
+                            history.go(-1);
+                        }
+                    }
+                ]
+            });
+
+            window.onresize = setGridHeight;
+            setGridHeight();
+
+        });
+
+        function reloadData() {
+            $('#test').treegrid('reload');
+        }
+
+        // 选中一行
+        function getSelectId() {
+            var rows = $('#test').treegrid('getSelections');
+            if (rows == null || rows.length < 1) {
+                jQuery.messager.alert('提示', '至少请选择一行！', 'info');
+                return;
+            } else if (rows.length > 1) {
+                jQuery.messager.alert('提示', '只能选择一行！', 'info');
+                return;
+            } else {
+                if (rows) {
+                    var selected = $('#test').treegrid('getSelected');
+                    if (selected) {
+                        return selected.MenuID;
+                    }
+                }
+            }
+            return "";
+        }
+
+// 选中多行
+        function getSelectIds() {
+            var ids = [];
+            var rows = $('#test').treegrid('getSelections');
+            if (rows == null || rows.length < 1) {
+                jQuery.messager.alert('提示', '至少请选择一行！', 'info');
+                return;
+            } else {
+                for (var i = 0; i < rows.length; i++) {
+                    ids.push(rows[i].MenuID);
+                }
+            }
+            return ids.join(",");
+        }
+
+        var options = {
+            type: 'post',
+            dataType: 'text',
+            url: "/SiteManage/CityType/SaveCityTypePurviewAction/" + myPage.id,
+            success: function(msg) {
+                if (msg == "1") {
+                    alert("保存成功");
+                } else {
+                    alert("保存失败：" + msg);
+                }
+            },
+            error: function(error) {
+                jQuery.messager.alert('提示', '保存失败：' + error.toString(), 'info');
+                return false;
+            }
+        };
+
+//保存 数据
+        function saveData(id) {
+            jQuery("#myForm").ajaxSubmit(options);
+            return false;
+        }
+
+
+        function setPurview(obj) {
+            var checked = jQuery(obj).prop("checked");
+            jQuery(obj).parent().parent().siblings("td").find("input").prop("checked", checked);
+            var parentPath = jQuery(obj).attr("ParentPath");
+            var allChildId = jQuery(obj).attr("AllChildID");
+            if (checked) {
+                if (parentPath != "") {
+                    var arrParentId = parentPath.split(',');
+                    for (var i = 0; i < arrParentId.length; i++) {
+                        jQuery('#Purview' + arrParentId[i]).prop("checked", checked);
+                        setToolPurview1('#Purview' + arrParentId[i]);
+                    }
+                }
+            }
+
+            if (allChildId != '') {
+                var arrChildId = allChildId.split(',');
+                for (var i = 0; i < arrChildId.length; i++) {
+                    if (checked) {
+                        jQuery('#Purview' + arrChildId[i]).prop("checked", checked);
+                    } else {
+                        jQuery('#Purview' + arrChildId[i]).removeProp("checked");
+                    }
+                    setToolPurview1('#Purview' + arrChildId[i]);
+                }
+            }
+        }
+
+        function setToolPurview1(obj) {
+            if (jQuery(obj).prop('checked')) {
+                jQuery(obj).parent().parent().siblings("td").find("input").prop("checked", jQuery(obj).prop('checked'));
+            } else {
+                jQuery(obj).parent().parent().siblings("td").find("input").removeProp("checked");
+            }
+        }
+
+        function setToolPurview(obj) {
+            if (jQuery(obj).prop("checked")) {
+                jQuery(obj).parent().parent().siblings("td").find("input").prop("checked", "checked");
+            }
+        }
+
+
+
+    </script>
+}

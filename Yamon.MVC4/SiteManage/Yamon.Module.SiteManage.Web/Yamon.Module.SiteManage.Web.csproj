@@ -1,0 +1,1896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14A531B1-0E9E-4702-B05A-06424E3851E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yamon.Module.SiteManage.Web</RootNamespace>
+    <AssemblyName>Yamon.Module.SiteManage.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorGenerator.Mvc">
+      <HintPath>..\..\packages\RazorGenerator.Mvc.2.4.2\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.Common">
+      <HintPath>..\..\..\Lib\Yamon.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.DAL">
+      <HintPath>..\..\..\Lib\Yamon.Framework.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.Log4Net, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Yamon.Framework.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.NPOI">
+      <HintPath>..\..\..\Lib\Yamon.Framework.NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Framework.NVelocity">
+      <HintPath>..\..\..\Lib\Yamon.Framework.NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="Yamon.Module.Common">
+      <HintPath>..\..\..\Lib\Yamon.Module.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="Areas\SiteManage\Views\APILog\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\APILog\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\APITool.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>APITool.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\DocIndex.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocIndex.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\SetAPIPurview.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetAPIPurview.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\ShowAPI1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowAPI1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\ShowAPI2.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowAPI2.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_Layout.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_\EditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_\ImportFromExcel.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImportFromExcel.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\API\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Application\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Cache\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\SetMenu.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetMenu.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\_\EditGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\CityType\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\_\EditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\City\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictData\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\_\EditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\DictType\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\_\AsyncEditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsyncEditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\_\AsyncTreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsyncTreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\District\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Dropzone\MultipleFileUpload.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultipleFileUpload.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Log\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Log\_\GridView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridView.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Log\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\AsyncEditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsyncEditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\AsyncTreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AsyncTreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\EditTree.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditTree.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\ImportFromExcel.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImportFromExcel.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\Menu\_\TreeGrid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeGrid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SubPlan\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\SystemConfig\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\Extend\Model_FormJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\Extend\Model_GridJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\Extend\Model_ViewJs.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\_\Grid.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\ToolBar\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_FormHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_FormJs1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_FormJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_GridHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_GridJs1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GridJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_ViewHtml.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewHtml.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_ViewJs1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ViewJs.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\Version.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Version.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\_\Create.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\_\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\_\Grid1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Grid1.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\VersionInfo\_\Show.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Show.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\SiteManage\Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DistrictController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\SubPlanController.cs" />
+    <Compile Include="Controllers\SystemConfigController.cs" />
+    <Compile Include="Controllers\ToolBarController.cs" />
+    <Compile Include="Controllers\VersionInfoController.cs" />
+    <Compile Include="Controllers\APILogController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\CacheController.cs" />
+    <Compile Include="Controllers\_\_APILogController.cs" />
+    <Compile Include="Controllers\_\_ApplicationController.cs" />
+    <Compile Include="Controllers\_\_DictDataController.cs" />
+    <Compile Include="Controllers\_\_DictTypeController.cs" />
+    <Compile Include="Controllers\_\_DistrictController.cs" />
+    <Compile Include="Controllers\_\_LogController.cs" />
+    <Compile Include="Controllers\_\_MenuController.cs" />
+    <Compile Include="Controllers\_\_SubPlanController.cs" />
+    <Compile Include="Controllers\_\_SystemConfigController.cs" />
+    <Compile Include="Controllers\_\_ToolBarController.cs" />
+    <Compile Include="Controllers\_\_VersionInfoController.cs" />
+    <Compile Include="Controllers\DropzoneController.cs" />
+    <Compile Include="Controllers\DictDataController.cs" />
+    <Compile Include="Controllers\DictTypeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="App_Start\WebApiHelper.cs" />
+    <Content Include="bin\Debug\Yamon.Module.SiteManage.Web.dll" />
+    <Content Include="bin\Debug\Yamon.Module.SiteManage.Web.pdb" />
+    <Content Include="bin\Release\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Release\log4net.dll" />
+    <Content Include="bin\Release\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Release\Microsoft.Web.Infrastructure.xml" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\NPOI.dll" />
+    <Content Include="bin\Release\NPOI.OOXML.dll" />
+    <Content Include="bin\Release\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\Release\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\Release\NVelocity.dll" />
+    <Content Include="bin\Release\RazorGenerator.Mvc.dll" />
+    <Content Include="bin\Release\System.Web.Helpers.dll" />
+    <Content Include="bin\Release\System.Web.Helpers.xml" />
+    <Content Include="bin\Release\System.Web.Mvc.dll" />
+    <Content Include="bin\Release\System.Web.Mvc.xml" />
+    <Content Include="bin\Release\System.Web.Razor.dll" />
+    <Content Include="bin\Release\System.Web.Razor.xml" />
+    <Content Include="bin\Release\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\Release\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\Release\System.Web.WebPages.dll" />
+    <Content Include="bin\Release\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\Release\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\Release\System.Web.WebPages.xml" />
+    <Content Include="bin\Release\WebActivatorEx.dll" />
+    <Content Include="bin\Release\Yamon.Framework.Common.dll" />
+    <Content Include="bin\Release\Yamon.Framework.DAL.dll" />
+    <Content Include="bin\Release\Yamon.Framework.DBUtility.dll" />
+    <Content Include="bin\Release\Yamon.Framework.Log4Net.dll" />
+    <Content Include="bin\Release\Yamon.Framework.MVC.dll" />
+    <Content Include="bin\Release\Yamon.Framework.MVC.pdb" />
+    <Content Include="bin\Release\Yamon.Framework.NPOI.dll" />
+    <Content Include="bin\Release\Yamon.Framework.NVelocity.dll" />
+    <Content Include="bin\Release\Yamon.Module.Common.dll" />
+    <Content Include="bin\Release\Yamon.Module.SiteManage.DAL.dll" />
+    <Content Include="bin\Release\Yamon.Module.SiteManage.DAL.pdb" />
+    <Content Include="bin\Release\Yamon.Module.SiteManage.Entity.dll" />
+    <Content Include="bin\Release\Yamon.Module.SiteManage.Entity.pdb" />
+    <Content Include="bin\Release\Yamon.Module.SiteManage.Web.dll" />
+    <Content Include="bin\Release\Yamon.Module.SiteManage.Web.pdb" />
+    <Content Include="bin\Release\Yamon.Module.UCenter.DAL.dll" />
+    <Content Include="bin\Release\Yamon.Module.UCenter.DAL.pdb" />
+    <Content Include="bin\Release\Yamon.Module.UCenter.Entity.dll" />
+    <Content Include="bin\Release\Yamon.Module.UCenter.Entity.pdb" />
+    <Content Include="bin\Release\zh-Hans\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\Release\zh-Hans\System.Web.Razor.resources.dll" />
+    <Content Include="bin\Release\zh-Hans\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\Release\zh-Hans\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\Release\zh-Hans\System.Web.WebPages.resources.dll" />
+    <Content Include="Areas\SiteManage\Views\API\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\API\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\API\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\API\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\_\_APIController.cs" />
+    <Content Include="Areas\SiteManage\Views\API\_\EditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\API\_\ImportFromExcel.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ImportFromExcel.generated.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controllers\SiteManageAreaRegistration.cs" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.APITool.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.DocIndex.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.SetAPIPurview.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.ShowAPI1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API.ShowAPI2.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.API._Layout.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.APILog._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Application._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Cache.Index.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.City._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType.SetMenu.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType._.EditGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType._.Grid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.CityType._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictData._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.DictType._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District._.AsyncEditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District._.AsyncTreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.District._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Dropzone.MultipleFileUpload.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log._.GridView.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Log._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.AsyncEditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.AsyncTreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.ImportFromExcel.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.Menu._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan.SubPlanForm.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan._.Grid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SubPlan._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig._.Grid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.SystemConfig._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar._.Grid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.ToolBar._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo.Version.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo._.Create.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo._.Edit.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo._.Grid.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views.VersionInfo._.Show.generated.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.SiteManage.Views._ViewStart.generated.cs.dll" />
+    <Content Include="obj\Debug\Yamon.Module.SiteManage.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Yamon.Module.SiteManage.Web.dll" />
+    <Content Include="obj\Debug\Yamon.Module.SiteManage.Web.pdb" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.APITool.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.DocIndex.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.SetAPIPurview.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.ShowAPI1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API.ShowAPI2.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.API._Layout.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.APILog._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Application._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Cache.Index.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.City._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType.SetMenu.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType._.EditGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType._.Grid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.CityType._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictData._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.DictType._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District._.AsyncEditTree.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District._.AsyncTreeGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.District._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Dropzone.MultipleFileUpload.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log._.GridView.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Log._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.AsyncEditTree.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.AsyncTreeGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.EditTree.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.ImportFromExcel.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.Menu._.TreeGrid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan.SubPlanForm.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan._.Grid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SubPlan._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig._.Grid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.SystemConfig._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar._.Grid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.ToolBar._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_FormHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_FormJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_GridHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_GridJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_ViewHtml.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Extend.Model_ViewJs.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo.Version.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo._.Create.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo._.Edit.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo._.Grid.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo._.Grid1.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views.VersionInfo._.Show.generated.cs.dll" />
+    <Content Include="obj\Release\TempPE\Areas.SiteManage.Views._ViewStart.generated.cs.dll" />
+    <Content Include="obj\Release\Yamon.Module.SiteManage.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\Yamon.Module.SiteManage.Web.dll" />
+    <Content Include="obj\Release\Yamon.Module.SiteManage.Web.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UCenter\Yamon.Module.UCenter.DAL\Yamon.Module.UCenter.DAL.csproj">
+      <Project>{70153d81-814a-4e37-8b1d-104cc038649a}</Project>
+      <Name>Yamon.Module.UCenter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UCenter\Yamon.Module.UCenter.Entity\Yamon.Module.UCenter.Entity.csproj">
+      <Project>{61269d27-dbef-4ee3-90a5-8aa003255aa5}</Project>
+      <Name>Yamon.Module.UCenter.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Yamon.Framework.MVC\Yamon.Framework.MVC.csproj">
+      <Project>{df96655f-ef75-4eab-8335-cf27b90e46e9}</Project>
+      <Name>Yamon.Framework.MVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.SiteManage.DAL\Yamon.Module.SiteManage.DAL.csproj">
+      <Project>{5cf4b6f7-65ba-45b6-a890-e7a27e7833c9}</Project>
+      <Name>Yamon.Module.SiteManage.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yamon.Module.SiteManage.Entity\Yamon.Module.SiteManage.Entity.csproj">
+      <Project>{3a3ef8fc-896a-4179-982e-d38b26e7b6dc}</Project>
+      <Name>Yamon.Module.SiteManage.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Areas\SiteManage\Views\APILog\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\APILog\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\APILog\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\APITool.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>APITool.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\DocIndex.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>DocIndex.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\Extend\Model_FormHtml.cshtml">
+      <SubType>Code</SubType>
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\Extend\Model_FormJs.cshtml">
+      <SubType>Code</SubType>
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\SetAPIPurview.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>SetAPIPurview.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\ShowAPI2.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ShowAPI2.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\ShowAPI1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ShowAPI1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\API\_Layout.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Application\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Application\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Application\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Cache\Index.cshtml">
+      <SubType>Code</SubType>
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\SetMenu.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>SetMenu.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\_\EditGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditGrid.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\CityType\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\_\EditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\City\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\DictData\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\DictData\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\DictData\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\DictType\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\DictType\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\DictType\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\District\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\District\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\District\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Dropzone\MultipleFileUpload.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>MultipleFileUpload.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Log\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Log\Extend\Model_GridHtml.cshtml" />
+    <None Include="Areas\SiteManage\Views\Log\Extend\Model_GridJs.cshtml" />
+    <None Include="Areas\SiteManage\Views\Log\Extend\Model_ViewHtml.cshtml" />
+    <None Include="Areas\SiteManage\Views\Log\Extend\Model_ViewJs.cshtml" />
+    <None Include="Areas\SiteManage\Views\Menu\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Menu\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\Menu\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SubPlan\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SubPlan\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SubPlan\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SubPlan\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SubPlan\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\ToolBar\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\ToolBar\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\ToolBar\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_FormJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormJs1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_GridJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridJs1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_ViewJs.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewJs1.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Areas\SiteManage\Views\VersionInfo\Version.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Version.generated.cs</LastGenOutput>
+    </None>
+    <None Include="bin\Release\Yamon.Module.SiteManage.Web.dll.config" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Yamon.Module.SiteManage.Web.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\Yamon.Module.SiteManage.Web.csprojResolveAssemblyReference.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Areas\SiteManage\Views\APILog\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\APILog\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\APILog\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\APILog\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\APILog\_\Grid1.cshtml">
+      <SubType>Code</SubType>
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\APILog\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Application\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictData\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\_\EditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\DictType\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\_\AsyncEditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>AsyncEditTree.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\_\AsyncTreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>AsyncTreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\District\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Log\_\GridView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>GridView.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Log\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\AsyncEditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>AsyncEditTree.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\AsyncTreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>AsyncTreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\EditTree.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditTree.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\ImportFromExcel.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ImportFromExcel.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\Menu\_\TreeGrid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>TreeGrid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SubPlan\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SystemConfig\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SystemConfig\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\SystemConfig\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\_\Grid.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\ToolBar\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_FormHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_FormHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_GridHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_GridHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\Extend\Model_ViewHtml.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Model_ViewHtml.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\_\Create.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Create.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\_\Edit.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Edit.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\_\Grid1.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Grid1.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\VersionInfo\_\Show.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Show.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\SiteManage\Views\web.config" />
+    <Content Include="Areas\SiteManage\Views\_ViewStart.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

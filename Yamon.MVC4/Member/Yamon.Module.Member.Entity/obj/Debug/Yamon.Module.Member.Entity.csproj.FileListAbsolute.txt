@@ -1,0 +1,8 @@
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\bin\Debug\Yamon.Module.Member.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\bin\Debug\Yamon.Module.Member.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\bin\Debug\Newtonsoft.Json.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\bin\Debug\Yamon.Framework.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\bin\Debug\Newtonsoft.Json.xml
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\obj\Debug\Yamon.Module.Member.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\obj\Debug\Yamon.Module.Member.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\Member\Yamon.Module.Member.Entity\obj\Debug\Yamon.Module.Member.Entity.csprojResolveAssemblyReference.cache

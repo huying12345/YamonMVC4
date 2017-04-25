@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>注册-三和老爷车博物馆网上预约系统</title>
+		<link rel="stylesheet" href="assets/css/page/common.css" />
+<link href="assets/libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="assets/libs/bootstrap/css/bootstrapValidator.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/page/home.css" />
+	</head>
+
+	<body>
+		<div class="header">
+	<div class="header-content ">
+		<div class="row">
+			<div class="col-xs-8">
+				<img src="assets/images/sprite/index/LOGO.png" />
+			</div>
+			<div class="col-xs-3" style="height:70px; line-height: 70px;" id="backlogin">
+				<span id="phonename"></span>
+				<a id="backl">[退出登录]</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="top-menu">
+	<div style="width: 1000px; ">
+		<ul class="nav ">
+			<li role="presentation" class="active" id="vbook">
+				<a href="" style="color:#fff" id="yuyue">预约</a>
+			</li>
+			<li role="presentation" class="active" id="vbookd">
+				<a href="" style="color:#fff" id="myyy">我的预约</a>
+			</li>
+		</ul>
+	</div>
+</div>
+		<div class="content">
+			<div class="tab">
+				<ul class="nav nav-pills">
+					<li role="presentation" class="active">
+						<a href="#" style="color:#fff !important;">个人注册</a>
+					</li>
+					<li role="presentation" style="background-color: #eee;">
+						<a href="login.html"style="color:#000 !important;">登录</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="content-table">
+				<form>
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">手机号码:</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="phone" name="phone" data-bind='textInput: phone'>
+						</div>
+						<div class="col-sm-2  hidden">
+							<input type="button" class="btn btn-default" id="btn" value="发送短信验证" onclick="settime(this)" />
+						</div>
+
+					</div>
+					<div class="form-group hidden">
+						<label for="inputEmail3" class="col-sm-2 control-label">短信验证码:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="dxyzm" data-bind='textInput: dxyzm' name="dxyzm" value="8888">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">登录密码:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="MemberPassword" data-bind='textInput: MemberPassword' name="MemberPassword">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">确认登录密码:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="password1" data-bind='textInput: password1' name="password1">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">验证码:</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="validate" name='validate' data-bind='textInput: validate'>
+						</div>
+						<div class="col-sm-2">
+							<div class="content-img"><img data-bind="click: validatecode" style="height:31px;width:100%" /></div>
+						</div>
+						<div class="col-sm-5">
+							<a href="#" data-bind='click: validatecode'>看不清楚,换一张</a>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-2"></div>
+
+						<div class="col-xs-10" style="text-align:left;">
+							<div class="checkbox">
+								<label>
+                        <input type="checkbox" >我已阅读以下协议并同意
+
+                    </label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-2"></div>
+						<div class="col-xs-10">
+							<button type="submit" id='btn_login' data-bind='click: submit' class="btn btn-primary" disabled>立即注册</button>
+
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="content-agreement">
+				<h4>三和老爷车博物馆网上订票系统用户服务协议</h4>
+				<p>三和老爷车博物馆网上订票系统用户服务协议双方为三和老爷车博物馆与三和老爷车博物馆网上订票系统用户，本服务协议具有合同效力。 本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。 用户在同意接受所有的服务条款并完成注册程序后，表示用户同意并签署了本服务协议，将成为本站的正式用户。用户在使用网上订票系统提供的各项服务的同时，接受并遵守各项操作规则的规定。 您确认下单的同时，您同时也承认了您的拥有的购买订单中所有产品的权利能力和行为能力，并且将对您在订单中提供的所有信息的真实性负责。 本协议服务条款是处理双方权利和义务的约定，始终具备法律效力。并且，三和老爷车博物馆有权根据需要不定时的增加、修改本协议或各项规则，经修订后的协议，将立即自动生效，并且具有法律效力。 用户登录后继续使用网上订票系统的各项服务将表示用户已经接受经修订的协议。
+
+				</p>
+			</div>
+		</div>
+
+		<div class="footer">
+	<div class="footer-content">
+		<div class="rows">
+			<div class="col-xs-8">
+				<p>四川省成都市高新区机场路新加坡工业园区新园南一路2号 邮编：610000 联系电话：028-83165566</p>
+				<p>Copyright ©2014-2015 三和老爷车博物馆 版权所有 蜀ICP备16021836号</p>
+			</div>
+			<div class="col-xs-3">
+
+				<span><img src="assets/images/sprite/index/ewm-1.png" /></span>
+				<span> <img src="assets/images/sprite/index/ewm-2.png" /></span>
+			</div>
+			<div class="col-xs-1">
+				<select>
+					<option>友情链接</option>
+					<option value="http://www.sanhegroup.com/">三和集团</option>
+					<option value="http://www.sanhegroup.com/">上海汽车博物馆</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<script src="assets/libs/jquery-1.11.1.min.js"></script>
+<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/libs/jquery.cookie.js"></script>
+<script src="assets/js/YamonAPI.js"></script>
+
+<script src="assets/libs/knockout.js"></script>
+<script src="assets/libs/knockout.validation.min.js"></script>
+<script src="assets/js/page/public.js"></script>
+		<script src="assets/js/page/home.js"></script>
+		<script>
+			$(function() {
+				$("#top-menu").hide();
+				ko.applyBindings(viewModel);
+				var registers = new register();
+				registers.init();
+			})
+		</script>
+	</body>
+
+</html>

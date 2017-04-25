@@ -1,0 +1,46 @@
+#address {
+    .weui_tab_bd {
+        margin-top: 10px;
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+        .wui_content {
+            margin-left: 10px;
+        }
+        .map {
+            height: 400px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        .weui-title p {
+            border-bottom: 2px solid #000;
+            font-size: 18px!important;
+            margin-bottom: 20px;
+        }
+        .weui_item {
+            width: 100%;
+            p {
+                line-height: 20px;
+                margin-left: 25px;
+            }
+            .title {
+                line-height: 60px;
+            }
+            .f2 {
+                margin: 10px 5px;
+                font-size: 18px;
+            }
+        }
+        .map {
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        .weui-title p {
+            font-size: 22px;
+        }
+        .weui-title i {
+            font-size: 20px;
+            color: #000;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+﻿<div region="center" border="true" style="padding: 10px;background: #F6F6F6;border: 1px solid #ccc;">
+    <form id="myForm" name="myForm" action="/api/UCenter/User/ChangePwd" method="post">
+        <table cellpadding="3" class="mytable" style="width: 100%">
+            <tr>
+                <td>
+                    原密码：
+                </td>
+                <td>
+                    <input id="OldPassword" name="OldPassword" type="password" class="easyui-validatebox" required="true" missingmessage="原密码不能为空！" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    新密码：
+                </td>
+                <td>
+                    <input id="NewPassword" name="NewPassword" type="password" class="easyui-validatebox" required="true" missingmessage="新密码不能为空！" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    确认密码：
+                </td>
+                <td>
+                    <input id="NewPassword1" name="NewPassword1" type="password" class="easyui-validatebox" required="true" missingmessage="确认密码不能为空！" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div region="south" border="false" style="text-align: right;background: #F6F6F6; height: 30px; line-height: 30px;">
+    <a id="btnSubmit" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)">确定</a>
+    <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript: MyForm.CancelDialog();">
+        取消
+    </a>
+</div>
+@section scripts
+{
+    <script src="~/Resources/JsLib/jquery.form.js"></script>
+    <script src="~/Static/v1/js/form.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            MyForm.validate = function (formData, jqForm, options) {
+                if (jQuery("#NewPassword").val() != jQuery("#NewPassword1").val()) {
+                    jQuery.messager.alert('提示', '两次输入的密码不一致!', 'info');
+                    return false;
+                }
+                if (jQuery("#myForm").form('validate')) {
+                    var win = jQuery.messager.progress({
+                        title: '请稍候',
+                        msg: '数据提交中...'
+                    });
+                    return true;
+                }
+                return false;
+            }
+
+            MyForm.onSubmitSuccess = function(msg) {
+                jQuery.messager.progress('close');
+                if (msg.success) {
+                    jQuery.messager.alert('提示', '保存成功！', 'info');
+                    CloseDialog();
+                } else {
+                    jQuery.messager.alert('提示', '保存失败：' + msg.message, 'info');
+                    return false;
+                }
+            }
+        });
+    </script>
+}

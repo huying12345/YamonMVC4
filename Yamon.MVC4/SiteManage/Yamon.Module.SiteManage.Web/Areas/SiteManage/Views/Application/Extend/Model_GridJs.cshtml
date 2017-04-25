@@ -1,0 +1,11 @@
+﻿<script type="text/javascript">
+    function SetAPIPurview(value, row, index) {
+        return "<a href='#' style='color:red;' onclick=\"OpenDialog_SetAPIPurviewByID('" + row[Data.PrimaryKey] + "')\">接口权限</a>";
+    }
+
+    function OpenDialog_SetAPIPurviewByID(id) {
+        if (id == "" || id == undefined)
+            return;
+        OpenMyDialog('/SiteManage/API/SetAPIPurview/' + id, '设置接口权限', 400, 500);
+    }
+</script>

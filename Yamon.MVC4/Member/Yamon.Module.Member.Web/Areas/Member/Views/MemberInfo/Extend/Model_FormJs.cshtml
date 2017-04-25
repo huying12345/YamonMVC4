@@ -1,0 +1,27 @@
+﻿<script src="~/Static/Member/js/DatePicker.js?201609231748"></script>
+<script src="~/Static/Member/js/Member.js?201609231700"></script>
+<script>
+    MyForm.onBeforeSubmit = function () {
+
+        $("#BirthdayYear").val($(".BirthdayYear").val())
+
+        var month = "";
+
+        if ($('.BirthdayMonth').val().length == 1) {
+            month = "0" + $('.BirthdayMonth').val() + "-";
+        }
+        else {
+            month = $('.BirthdayMonth').val() + "-";
+        }
+
+
+        if ($(".Birthdaydays").val().length == 1) {
+            month = month + "0" + $(".Birthdaydays").val();
+        }
+        else {
+            month = month + $(".Birthdaydays").val();
+        }
+        $("#BirthdayMonthDay").val(month)
+        return true;
+    }
+</script>

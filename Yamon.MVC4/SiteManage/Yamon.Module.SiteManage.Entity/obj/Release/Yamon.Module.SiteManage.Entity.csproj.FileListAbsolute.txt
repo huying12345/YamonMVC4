@@ -1,0 +1,8 @@
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\bin\Release\Yamon.Module.SiteManage.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\bin\Release\Yamon.Module.SiteManage.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\bin\Release\Newtonsoft.Json.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\bin\Release\Yamon.Framework.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\bin\Release\Newtonsoft.Json.xml
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\obj\Release\Yamon.Module.SiteManage.Entity.csprojResolveAssemblyReference.cache
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\obj\Release\Yamon.Module.SiteManage.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\SiteManage\Yamon.Module.SiteManage.Entity\obj\Release\Yamon.Module.SiteManage.Entity.pdb

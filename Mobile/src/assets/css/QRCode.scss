@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+}
+#QRCode {
+    .weui_tab_bd {
+        background: #000;
+        height: 100%;
+        //音频
+        .audio {
+            position: fixed;
+            background: #000;
+            width: 100%;
+            z-index: 99;
+            .audioplayer-bar {
+                height: 0.4rem;
+            }
+            .audioplayer-bar-played {
+                background: yellow;
+            }
+            .audioplayer-volume-adjust div div {
+                width: 0.5rem;
+            }
+            .audioplayer-volume-adjust div div {
+                background: yellow;
+            }
+        }
+        //图片
+        .carDisplay {
+            padding-top: 100px;
+            .swiper-slide {
+                img {
+                    width: 100%;
+                    max-height: 200px;
+                }
+            }
+            .swiper-pagination-bullet-active {
+                background: orange;
+            }
+        }
+        //文字
+        .carText {
+            height: auto;
+            padding-top: 20px;
+            color: #fff;
+            h3 {
+                width: 100%;
+                text-align: center;
+                font-family: "arial narrow";
+            }
+            .textarea {
+                margin-top: 10px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                p {
+                    font-size: 15px;
+                    text-indent: 30px;
+                    padding: 10px;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}

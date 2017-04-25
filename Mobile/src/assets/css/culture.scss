@@ -1,0 +1,76 @@
+#culture,
+#page {
+    .weui_tab_bd {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+        .weui_item {
+            width: 100%;
+            float: left;
+            img {
+                width: 100%;
+            }
+        }
+        .post,
+        .prev,
+        .firstpage,
+        .Page,
+        .pageTurn,
+        .page2,
+        .firstpage,
+        .fivepage{
+            width: 100%;
+            list-style: none;
+            li {
+                width: 100%;
+                float: left;
+                line-height: 20px;
+                overflow: hidden;
+                text-align: left;
+                list-style: none;
+                margin-left: 10px;
+                a {
+                    width: 100%;
+                    font-size: 13px;
+                }
+            }
+        }
+        .Page,
+        .pageTurn {
+            width: 100%;
+            li {
+                display: inline-block;
+                float: left;
+                width: auto;
+            }
+        }
+        .active {
+            color: red;
+            text-decoration: underline;
+        }
+        .firstpage,
+        .secondpage,
+        .thirdpage,
+        .fourpage,
+        .fivepage {
+            a {
+                color: #000;
+            }
+        }
+        .post,
+        .prev,
+        .next {
+            a {
+                color: #000;
+            }
+        }
+    }
+    .footer{
+        .icon-fanhuidingbu2{
+            background:rgb(136, 136, 136);
+        }
+       .weui-col-40 .shopLogo i {
+            color:rgb(136, 136, 136);
+        }
+    }
+}

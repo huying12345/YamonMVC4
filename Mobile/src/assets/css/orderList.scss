@@ -1,0 +1,66 @@
+#Orderlist {
+    .orderdate {
+        width: 100%;
+        text-align: right;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+//  .ordertitle{
+//      margin-top: 10px;
+//      li{
+//          display: ;
+//      }
+//  }
+    .ticketList {
+        .listtitle {
+            background: #D1E7FA;
+            color: #000;
+            font-size: 15px;
+            ul {
+                list-style: none;
+                width: 100%;
+                li {
+                    display: inline-block;
+                    height: 100%;
+                    margin-left: 5px;
+                    padding: 5px 0px;
+                }
+                li:last-child {
+                    float: right;
+                    margin-right: 10px;
+                    text-align: right;
+                }
+            }
+        }
+        .list_table tbody tr td {
+            width: 25%;
+            word-break: break-all;
+        }
+    }
+    .listcontent {
+        border: 1px solid #337ab7;
+        border-radius: 5px;
+        margin-bottom: 3px;
+        margin-top: 8px;
+        ul {
+            margin-left: 5px;
+            width: 100%;
+            list-style: none;
+        }
+        .ordermark,
+        .ordertime {
+            li {
+                display: inline-block;
+            }
+        }
+        .ordertype,
+        .orderpay {
+            width: 50%;
+        }
+        table>tbody>tr>td {
+            text-align: center;
+            width: 20%;
+            word-break: break-all;
+        }
+    }
+}

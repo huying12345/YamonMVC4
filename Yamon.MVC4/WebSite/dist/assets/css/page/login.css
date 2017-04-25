@@ -1,0 +1,226 @@
+* {
+  margin: 0px auto;
+  padding: 0px;
+}
+
+body {
+  width: 100%;
+  background: #0094ff url("../../images/sprite/index/bg.jpg");
+  height: 100%;
+}
+
+.header {
+  border-bottom: 2px solid #000;
+}
+
+.header-content {
+  height: 75px;
+  width: 1000px;
+  margin: 0px auto;
+}
+
+.nav li {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.nav li a {
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  color: #3A3A3A !important;
+}
+
+#top-menu {
+  height: 45px;
+  background-color: #000;
+}
+
+#vcolor {
+  color: #3A3A3A;
+}
+
+.active {
+  background-color: #eee;
+}
+
+.active a {
+  color: #3A3A3A !important;
+}
+
+a {
+  cursor: pointer;
+}
+
+.footer {
+  border-top: 2px solid #000;
+  background: #0094ff url("../../images/sprite/index/overlay[1].png");
+  width: 100%;
+  height: 120px;
+  color: #fff;
+  margin-top: 30px;
+}
+
+.footer-content {
+  width: 1000px;
+}
+
+.footer-content div {
+  padding-top: 15px;
+}
+
+.footer select {
+  color: #000;
+}
+
+.footer-content span {
+  padding: 5px;
+}
+
+.content {
+  background-color: #fff;
+  width: 1000px;
+  min-height: 500px;
+  margin-top: 20px;
+  border: 1px solid #000;
+}
+
+.tab {
+  width: 90%;
+  border-bottom: 2px solid #E7E7DD;
+  padding-top: 15px;
+}
+
+.tab ul {
+  margin-left: 25px;
+}
+
+.content-table {
+  width: 80%;
+  min-height: 200px;
+  margin: 0px auto;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.content-table .col-sm-10 input {
+  width: 245px;
+}
+
+.content-table .col-sm-5 input {
+  width: 145px;
+}
+
+.content-table .form-group {
+  height: 50px;
+}
+
+.content-agreement h4 {
+  text-align: center;
+}
+
+.content-agreement {
+  border: 1px solid #000;
+  width: 70%;
+  padding: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: left;
+  text-indent: 2em;
+  line-height: 25px;
+  background: #0094ff url("../../images/sprite/index/bg.jpg");
+}
+
+.content-img {
+  height: 33px;
+  padding-left: 0px !important;
+}
+
+.content .col-sm-1 {
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+}
+
+.content .col-sm-5 {
+  height: 33px;
+  line-height: 33px;
+}
+
+.form-group label {
+  text-align: right !important;
+}
+
+.validationMessage {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tab-login {
+  width: 1000px;
+  padding-top: 15px;
+}
+
+.content {
+  min-height: 390px;
+}
+
+.content-login {
+  margin-top: 0px;
+  background: #0094ff url("../../images/sprite/login/bg1.png");
+  margin-bottom: 10px;
+}
+
+.content-table {
+  width: 90% !important;
+  margin-left: 5% !important;
+}
+
+.tab-login ul li {
+  width: 100px;
+  text-align: center;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background: #0094ff url("../../images/sprite/login/tab.png");
+  color: #fff !important;
+}
+
+.xs2 {
+  border: 2px solid #CCC9C2;
+  width: 100%;
+  height: 180px;
+  background: #0094ff url("../../images/sprite/login/tab.png");
+  border-radius: 6px;
+  margin-top: 30px;
+  text-align: center;
+  padding-top: 40px;
+  line-height: 40px;
+  color: #fff;
+}
+
+.xs2 button {
+  width: 80%;
+  font-size: 16px;
+}
+
+.content-table .col-sm-9 input {
+  width: 245px;
+}
+
+.content .col-sm-2 {
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+}
+
+.content .col-sm-3 {
+  height: 33px;
+  line-height: 33px;
+}
+
+.btn {
+  width: 60%;
+}

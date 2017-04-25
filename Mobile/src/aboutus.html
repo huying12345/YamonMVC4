@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<title>关于我们</title>
+		<link rel="import" href="include/headercss.html?__inline">
+	</head>  
+	<body style="height: 100%;">
+		<div class="weui_tab" id="aboutUS" style="overflow-y: auto;">
+			<div class="weui_tab_bd" style="height: 100%;">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<div class="museum" >
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" style="background:url(./assets/images/other/1.jpg)50%;background-size: cover;;"></div>
+							<div class="swiper-slide" style="background:url(./assets/images/other/6.jpg)80%;background-size: cover;;"></div>
+						</div> 
+					</div>
+					<div class="text-content">
+						<div class="title">
+							<span>场馆概况</span><i class="iconfont icon-shouzhiicon"></i>
+						</div>
+						<div class="about">
+							<h3>场馆概况</h3>
+							<p>成都三和老爷车博物馆位于成都市机场路新园南一路2号，升级扩建后的新馆是集老爷车陈列馆、复古文化街、游乐体验区、艺术品画廊、多媒体影视中心、咖啡馆、纪念品商店等于一体的综合性场馆，是目前全国最具规模、最具影响力的民办老爷车博物馆。<br/> 　　 三和老爷车收藏始于上世纪九十年代，百余件藏品汇集了国内外30余个知名汽车品牌。二十多年来，三和始终致力于以老爷车为载体推广汽车文化，广泛参与国内外各大车展、老爷车盛典及赛事、博览会、音乐节、影视剧拍摄等，让民众在近距离欣赏人类汽车工业发展遗存的同时，探索历史，追忆经典。
+							</p>
+							<span class="iconfont icon-fankui"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+	</body>
+	<script language="javascript">
+		var mySwiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			paginationType: 'fraction',
+			freeMode: false,
+			autoplay: 3000,
+			loop: true
+		});
+		
+		var LinkList = new coopViewModel();
+		ko.applyBindings(LinkList);
+		LinkList.init();
+	</script>
+
+</html>

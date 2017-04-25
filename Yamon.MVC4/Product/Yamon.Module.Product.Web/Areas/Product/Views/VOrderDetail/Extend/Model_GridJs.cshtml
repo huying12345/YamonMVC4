@@ -1,0 +1,13 @@
+﻿<script type="text/javascript">
+    function ExportToExcelR() {
+        ExportToExcel_AllDetail(0, 1);
+    }
+    function ExportToExcel_AllDetail(showAllField, showValue) {
+        var page = 1;
+        var p = jQuery('#tt').datagrid('getPager');
+        if (p) {
+            page = jQuery(p).pagination('options').pageNumber;
+        }
+        window.open(Data.ApiUrl + "/ExportToExcelR?filterID=" + Data.FilterID + "&page=" + page + "&rows=" + 0 + "&showAllField=" + showAllField + "&ShowValue=" + showValue + GetBaseUrl(_pageUrl, '#searchForm') + "&" + jQuery('#searchForm').formSerialize());
+    }
+</script>

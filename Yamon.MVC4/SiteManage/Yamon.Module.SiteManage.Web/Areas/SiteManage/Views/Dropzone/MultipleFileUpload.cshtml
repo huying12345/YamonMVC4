@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+<div class="jumbotron">
+    <form action="~/Common/Dropzone/SaveUploadedFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+        <div class="fallback">
+            <input name="file" type="file" multiple />
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+</div>
+@section styles
+{
+<link href="~/Resources/JsLib/dropzone/basic.css" rel="stylesheet" />
+<link href="~/Resources/JsLib/dropzone/dropzone.css" rel="stylesheet" />
+   
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+    
+    </style>
+
+}
+@section scripts
+{
+<script src="~/Resources/JsLib/dropzone/dropzone.js"></script>
+    <script type="text/javascript">
+
+        //File Upload response from the server
+        Dropzone.options.dropzoneForm = {
+            maxFiles: 2,
+            dictDefaultMessage: '点击上传或把文件拖到此处',
+            init: function() {
+                this.on("maxfilesexceeded", function(data) {
+                    alert('最多只能上传2个文件！');
+                });
+                this.on("success", function (data) {
+                    alert(data.xhr.responseText);
+                });
+                this.on("addedfile", function(file) {
+                    
+                    // Create the remove button
+                    var removeButton = Dropzone.createElement("<button>Remove file</button>");
+                    // Capture the Dropzone instance as closure.
+                    var _this = this;
+                    // Listen to the click event
+                    removeButton.addEventListener("click", function(e) {
+                        // Make sure the button click doesn't submit the form:
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Remove the file preview.
+                        _this.removeFile(file);
+                        // If you want to the delete the file on the server as well,
+                        // you can do the AJAX request here.
+                    });
+                    // Add the button to the file preview element.
+                    file.previewElement.appendChild(removeButton);
+                });
+            }
+        };
+
+
+    </script>
+}

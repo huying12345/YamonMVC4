@@ -1,0 +1,7 @@
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\bin\Release\Yamon.Module.Product.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\bin\Release\Yamon.Module.Product.Entity.pdb
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\bin\Release\Newtonsoft.Json.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\bin\Release\Yamon.Framework.Common.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\bin\Release\Newtonsoft.Json.xml
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\obj\Release\Yamon.Module.Product.Entity.dll
+D:\git\Yamon.MVC4\Yamon.MVC4\Product\Yamon.Module.Product.Entity\obj\Release\Yamon.Module.Product.Entity.pdb

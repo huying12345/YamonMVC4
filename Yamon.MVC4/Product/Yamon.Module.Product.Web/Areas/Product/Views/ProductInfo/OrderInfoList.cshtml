@@ -1,0 +1,37 @@
+﻿@section styles{
+    <link href="/Resources/JsLib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Static/Product/css/OrderInfoList.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="/Static/Product/js/OrderInfoList.js"></script>
+}
+<div class="row" id="bg">
+        <div class="box-body table-responsive no-padding" id="content">
+            <table class="table table-hover" id="table">
+                <thead>
+                    <tr>
+                        <th>商品条码</th>
+                        <th>商品名称</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>总金额</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:lines">
+                    <tr>
+                        <td data-bind="text:ProductNo" /></td>
+                        <td data-bind="text:productname" /></td>
+                        <td data-bind="text:afterprice" /></td>
+                        <td data-bind="text:Num" /></td>
+                        <td data-bind="text:subtotal" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="total">
+            <ul>
+                <li data-bind="text:TotalMoney"></li><li>小计：</li>
+            </ul>
+        </div>
+</div>

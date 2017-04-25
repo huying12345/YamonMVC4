@@ -1,0 +1,251 @@
+﻿<div region="center" border="true" style="padding: 10px; background: #F6F6F6; border: 1px solid #ccc;">
+    <form id="myForm" name="myForm" action="/api/SiteManage/SubPlan/Create" method="post">
+        <table class="mytable" cellpadding="1" width="100%" cellspacing="0"
+               align="center">
+            <tr class="mytr" id="Container_ExecuteTimeType">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    执行频率：
+                </td>
+                <td class="mytd">
+                    <select id="ExecuteTimeType" name="ExecuteTimeType">
+                        <option value="Day">每天</option>
+                        <option value="Week">每周</option>
+                        <option value="Month">每月</option>
+                    </select><span class="tips"></span>
+                </td>
+            </tr>
+            <tr class="mytr" id="Tr_ExecuteTimeType_Day" style="display:none;">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    执行间隔（天）：
+                </td>
+                <td class="mytd">
+                    <input class="easyui-numberspinner" id="Day_Interval" name="Day_Interval" style="width: 40px;" data-options="min:1,max:31"
+                           value="1" /><span class="tips">天</span>
+                </td>
+            </tr>
+
+            <tr class="mytr" id="Tr_ExecuteTimeType_Month" style="display:none;">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    执行间隔（月）：
+                </td>
+                <td class="mytd">
+                    <select id="MonthLoopType" name="MonthLoopType">
+                        <option value="Day">天</option>
+                        <option value="Week">周</option>
+                        <option value="Tenday">旬</option>
+                    </select>
+                    <span id="Div_MonthLoopType_Day">
+                        <input class="easyui-numberspinner" id="Month_Day_Interval" name="Month_Day_Interval"
+                               style="width: 40px;" data-options="min:1,max:31" value="1" />天
+                    </span><span id="Div_MonthLoopType_Week">
+                        <select id="Month_Week_Num" name="Month_Week_Num">
+                            <option value="1">第一周</option>
+                            <option value="2">第二周</option>
+                            <option value="3">第三周</option>
+                            <option value="4">第四周</option>
+                            <option value="0">最后一周</option>
+                        </select>
+                        <select id="Month_Week_Loop" name="Month_Week_Loop">
+                            <option value="1">星期一</option>
+                            <option value="2">星期二</option>
+                            <option value="3">星期三</option>
+                            <option value="4">星期四</option>
+                            <option value="5">星期五</option>
+                            <option value="6">星期六</option>
+                            <option value="0">星期天</option>
+                            <option value="-1">工作日</option>
+                            <option value="-2">休息日</option>
+                        </select>
+                    </span>
+                    <span id="Div_MonthLoopType_Tenday">
+                        <input class="easyui-numberspinner" id="TenDay_Interval" name="TenDay_Interval"
+                               style="width: 40px;" data-options="min:1,max:10" value="1" />天
+                        <input type="checkbox" id="TendayList_0" name="TendayList" value="0" checked="checked" /><label for="TendayList_0">上旬</label>
+                        <input type="checkbox" id="TendayList_1" name="TendayList" value="1" checked="checked" /><label for="TendayList_1">中旬</label>
+                        <input type="checkbox" id="TendayList_2" name="TendayList" value="2" checked="checked" /><label for="TendayList_2">下旬</label>
+                    </span>
+                    <span class="tips">-每</span>
+                    <input class="easyui-numberspinner" id="Month_Interval" name="Month_Interval"
+                           style="width: 40px;" data-options="min:1,max:31" value="1" /><span class="tips">个月</span>
+                </td>
+            </tr>
+            <tr class="mytr" id="Tr_ExecuteTimeType_Week" style="display:none;">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    执行间隔（周）：
+                </td>
+                <td class="mytd">
+                    <input class="easyui-numberspinner" id="Week_LoopNum" name="Week_LoopNum" style="width: 40px;" data-options="min:1,max:31"
+                           value="1" /><span class="tips">周</span>
+                    <input type="checkbox" id="Week_1" name="Week_Loop" value="1" /><label for="Week_1">星期一</label>
+                    <input type="checkbox" id="Week_2" name="Week_Loop" value="2" /><label for="Week_2">星期二</label>
+                    <input type="checkbox" id="Week_3" name="Week_Loop" value="3" /><label for="Week_3">星期三</label>
+                    <input type="checkbox" id="Week_4" name="Week_Loop" value="4" /><label for="Week_4">星期四</label>
+                    <input type="checkbox" id="Week_5" name="Week_Loop" value="5" /><label for="Week_5">星期五</label>
+                    <input type="checkbox" id="Week_6" name="Week_Loop" value="6" /><label for="Week_6">星期六</label>
+                    <input type="checkbox" id="Week_7" name="Week_Loop" value="0" /><label for="Week_7">星期天</label>
+                </td>
+            </tr>
+            <tr class="mytr" id="Tr4">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    每天频率：
+                </td>
+                <td class="mytd">
+                    <select id="DayExecuteTimeType" name="DayExecuteTimeType">
+                        <option value="Once">一次执行</option>
+                        <option value="Repeatedly">多次执行</option>
+                        <option value="Loop">循环</option>
+                    </select>
+                    <span id="Span_DayExecuteTimeType_Once">
+                        <input class="easyui-timespinner" id="Day_Time" name="Day_Time" style="width: 60px;" value="00:00">
+                    </span><span id="Span_DayExecuteTimeType_Repeatedly">
+                        <input style="width: 200px;" id="Day_TimeList" name="Day_TimeList" value="00:00,12:00">多个以英文逗号隔开
+                    </span><span id="Span_DayExecuteTimeType_Loop">
+                        <input class="easyui-numberspinner" id="Day_LoopNum" name="Day_LoopNum" style="width: 40px;" data-options="min:1,max:60"
+                               value="1" />
+                        <select id="Day_LoopType" name="Day_LoopType">
+                            <option value="Hour">小时</option>
+                            <option value="Minute">分钟</option>
+                            <option value="Second">秒</option>
+                        </select>
+                        开始时间：
+                        <input class="easyui-timespinner" id="Day_BeginTime" name="Day_BeginTime" style="width: 60px;" value="00:00">
+                        结束时间：
+                        <input class="easyui-timespinner" id="Day_EndTime" name="Day_EndTime" style="width: 60px;" value="23:59">
+                    </span>
+                </td>
+            </tr>
+
+            <tr class="mytr" id="Container_Email">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    持续时间：
+                </td>
+                <td class="mytd">
+                    开始日期：<input id="BeginDate" name="BeginDate" class="easyui-datebox" style="width: 100px" value="@DataConverter.ToDate(Model.BeginDate).ToString("yyyy-MM-dd")">
+                    结束日期：<input id="EndDate" name="EndDate" class="easyui-datebox" style="width: 100px" value="@DataConverter.ToDate(Model.BeginDate).ToString("yyyy-MM-dd")"><input type="checkbox" id="NoEndDate" name="NoEndDate" value="1" checked="checked" /><label for="NoEndDate">无结束日期</label><span class="tips"></span>
+                </td>
+            </tr>
+            <tr class="mytr" id="Container_CityID">
+                <td class="mytd" style="white-space: nowrap; word-break: keep-all; width: 50px;">
+                    说明：
+                </td>
+                <td class="mytd">
+                    <textarea class="tips" id="Title" name="Title" readonly="readonly" style="width:90%;height:40px;"></textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" id="SubPlanID" name="SubPlanID" value="@ViewBag.ID" />
+        <input type="hidden" id="GetNewID" name="GetNewID" value="1">
+    </form>
+</div>
+<div region="south" border="false" style="text-align: right; background: #F6F6F6;
+        height: 30px; line-height: 30px;">
+    <a id="btnSubmit" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)">
+        确定
+    </a> <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:CloseDialog();">
+        取消
+    </a>
+</div>
+
+@section scripts{
+    <script src="/Resources/JsLib/jquery.form.js"></script>
+    <script src="/Static/v1/js/form.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            CheckConditions();
+            jQuery('#myForm input,#myForm select').bind('change', CheckConditions).bind('focusout', CheckConditions);
+            jQuery('.easyui-datebox').datebox({
+                onChange: function(newValue, oldValue) {
+                    CheckConditions();
+                }
+            });
+            jQuery('.easyui-numberspinner').numberspinner({
+                onChange: function(newValue, oldValue) {
+                    CheckConditions();
+                }
+            });
+
+            function CheckConditions() {
+                var begindate = jQuery('#BeginDate').datebox('getValue').replace('0:00:00', '');
+                jQuery('#BeginDate').datebox('setValue', begindate);
+                var enddate = jQuery('#EndDate').datebox('getValue').replace('0:00:00', '');
+                jQuery('#EndDate').datebox('setValue', enddate);
+                jQuery('tr[id^=Tr_ExecuteTimeType_]').hide();
+                jQuery('#Tr_ExecuteTimeType_' + jQuery('#ExecuteTimeType').val()).show();
+                jQuery('span[id^=Div_MonthLoopType_]').hide();
+                jQuery('#Div_MonthLoopType_' + jQuery('#MonthLoopType').val()).show();
+                jQuery('span[id^=Span_DayExecuteTimeType_]').hide();
+                jQuery('#Span_DayExecuteTimeType_' + jQuery('#DayExecuteTimeType').val()).show();
+                var txt = '';
+                var timeType = jQuery('#ExecuteTimeType').val();
+                if (timeType == "Day") {
+                    if (jQuery('#Day_Interval').val() > 1) {
+                        txt += '每' + jQuery('#Day_Interval').val() + '天';
+                    } else {
+                        txt += '每天';
+                    }
+                } else if (timeType == "TenDay") {
+                    txt += '每旬第' + jQuery('#TenDay_Interval').val() + '天';
+                } else if (timeType == "Week") {
+                    if (jQuery('#Week_LoopNum').val() > 1) {
+                        txt += '每' + jQuery('#Week_LoopNum').val() + '周的';
+                    } else {
+                        txt += '每周的';
+                    }
+                    jQuery("input[name='Week_Loop']:checked").each(function() { //由于复选框一般选中的是多个,所以可以循环输出
+                        txt += $(this).next('label').text() + " ";
+                    });
+                } else if (timeType == "Month") {
+                    if (jQuery('#Month_Interval').val() > 1) {
+                        txt += '每' + jQuery('#Month_Interval').val() + '月';
+                    } else {
+                        txt += '每月';
+                    }
+                    if (jQuery('#MonthLoopType').val() == "Day") {
+                        txt += '第' + jQuery('#Month_Day_Interval').timespinner('getValue') + '天';
+                    } else if (jQuery('#MonthLoopType').val() == "Week") {
+                        txt += jQuery('#Month_Week_Num option:selected').text() + '的' + jQuery('#Month_Week_Loop option:selected').text();
+                    } else if (jQuery('#MonthLoopType').val() == "Tenday") {
+
+                        jQuery("input[name='TendayList']:checked").each(function() { //由于复选框一般选中的是多个,所以可以循环输出
+                            txt += $(this).next('label').text() + " ";
+                        });
+                        txt += '的第' + jQuery('#TenDay_Interval').val() + '天';
+
+                    }
+                }
+                if (jQuery('#DayExecuteTimeType').val() == "Once") {
+                    txt += '的' + jQuery('#Day_Time').val();
+                } else if (jQuery('#DayExecuteTimeType').val() == "Repeatedly") {
+                    txt += '的' + jQuery('#Day_TimeList').val();
+                } else if (jQuery('#DayExecuteTimeType').val() == "Loop") {
+                    txt += "在" + jQuery('#Day_BeginTime').timespinner('getValue') + "和" + jQuery('#Day_EndTime').timespinner('getValue') + "之间";
+                    txt += '每隔' + jQuery('#Day_LoopNum').val() + jQuery('#Day_LoopType option:selected').text();
+                }
+                txt += "执行。";
+                txt += '从' + jQuery('#BeginDate').datebox('getValue') + '开始';
+                if (jQuery('#NoEndDate').attr("checked") != "checked") {
+                    txt += '到' + jQuery('#EndDate').datebox('getValue') + '之间';
+                }
+                txt += '使用计划。';
+                jQuery('#Title').val(txt);
+            }
+        });
+
+        MyForm.onSubmitSuccess = function(msg) {
+            jQuery.messager.progress('close');
+            if (msg.success) {
+                jQuery.messager.alert('提示', '保存成功！', 'info');
+                parent.CloseThisDialog();
+                parent.SubPlan.UpdateSubPlan(msg.id, jQuery('#Title').val());
+            } else {
+                jQuery.messager.alert('提示', '保存失败：' + msg.message, 'info');
+                return false;
+            }
+        }
+
+        function CloseDialog() {
+            parent.CloseThisDialog();
+            return;
+        }
+    </script>
+}

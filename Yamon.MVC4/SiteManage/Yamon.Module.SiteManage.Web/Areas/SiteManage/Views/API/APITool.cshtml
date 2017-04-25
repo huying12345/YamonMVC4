@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Areas/SiteManage/Views/API/_Layout.cshtml";
+    string apiKey = CookieHelper.GetCookie("UserName");
+    ViewBag.PageName = "APITool";
+
+}
+<div class="col-xs-12">
+
+    <h3 style="text-align: center;">@(Model.APIName)</h3>
+    <!-- 这里开始是内容 -->
+    <div class="" style="padding-top: 10px;">
+        <p>
+            @(Model.Remark)
+        </p>
+        <h4>一、请求URL</h4>
+        <ul>
+            <li><code>@(Model.Url)</code></li>
+        </ul>
+        <h4>二、请求方式</h4>
+        <ul>
+            <li>@(Model.RequestType)</li>
+        </ul>
+        <h4>三、是否需要登录</h4>
+        <ul>
+            <li>@(Model.NeedUserLogin_ShowValue)</li>
+            <li id="ApiToolLoginMsg"></li>
+        </ul>
+        <h4>四、请求参数</h4>
+        <input type="hidden" id="RequestParam" autocomplete="off" value="@(Model.RequestParam)" />
+        <div id="RequestParamDiv">
+            <form id="APIForm">
+                <table id="RequestParamTable">
+                    <tbody data-bind='foreach: params'>
+                        <tr>
+                            <td data-bind='text: title'></td>
+                            <td data-bind='text: name'></td>
+                            <td>
+                                <div data-bind="if: type()=='bool'">
+                                    <select data-bind="attr: { name:name}">
+                                        <option>True</option>
+                                        <option>False</option>
+                                    </select>
+                                </div>
+                                <div data-bind="ifnot: type()=='bool'">
+                                    <input type="text" data-bind="attr: { name:name,'placeholder': requiredmsg,'data-sign': sign,'data-type': type,'required':required}" />
+                                </div>
+                                <div data-bind="if: sign">
+                                    <input type="hidden" name="SignFields" data-bind="value:name" />
+                                </div>
+                                <div data-bind="ifnot: sign">
+                                    <input type="hidden" name="NotSignFields" data-bind="value:name" />
+                                </div>
+                            </td>
+                            <td data-bind='text: desc'></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="hidden" name="AppID" value="@(ViewBag.AppID)" />
+                <input type="hidden" name="Url" value="@(Model.Url)" />
+                <input type="hidden" name="RequestType" value="@(Model.RequestType)" />
+                @if (Model.NeedUserLogin == 1)
+                {
+                    <input type="hidden" name="SignFields" value="Token" />
+                    <input type="hidden" id="Token" name="Token" />
+                }
+                <button id="btnSubmit" type="submit" class="btn btn-primary">提交</button>
+            </form>
+        </div>
+        <h4>五、返回示例</h4>
+        <pre><code id="result"></code></pre>
+    </div>
+</div>
+@section scripts{
+    <script src="/Resources/JsLib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/Resources/JsLib/jquery-validation/localization/messages_zh.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        var myPage = {};
+        myPage.action = '@(ViewContext.RouteData.Values["action"].ToString())';
+        myPage.controller = '@(ViewContext.RouteData.Values["controller"].ToString())';
+        myPage.id = '@(ViewContext.RouteData.Values["id"])';
+        myPage.frame = '@(Request["Frame"])';
+        myPage.APIID = '@(ViewBag.APIID)';
+        myPage.APIType = '@(Model.APIType)';
+        myPage.IsTool = 1;
+        myPage.pageUrl = '/SiteManage/API/APITool/?AppID=';
+    </script>
+    <script src="/Static/SiteManage/js/APIShow.js"></script>
+    <script src="/Static/SiteManage/js/RequestParamModel.js"></script>
+    <script src="/Static/SiteManage/js/ResponseParamModel.js"></script>
+    <script src="/Resources/JsLib/jquery.form.js"></script>
+}

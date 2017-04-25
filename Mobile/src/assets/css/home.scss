@@ -1,0 +1,113 @@
+#home {
+    .section {
+        height: 100%!important;
+        border-top: 8px solid #ccc;
+        .slide{
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+        }
+        .fp-tableCell {
+            height: 100%!important;
+        }
+        .fp-controlArrow.fp-prev {
+            width: 5px;
+            left: 0;
+            border-width: 11.5px 16.5px 11.5px 0 !important;
+            border-color: transparent #fff transparent transparent!important;
+        }
+        .fp-controlArrow.fp-next {
+            right: 0;
+            width: 5px;
+            border-width: 11.5px 0 11.5px 16.5px!important;
+            border-color: transparent transparent transparent #fff!important;
+        }
+        .fp-controlArrow.fp-prev,
+        .fp-controlArrow.fp-next {
+            opacity: 0.7;
+        }
+        .fp-controlArrow.fp-prev:active,
+        .fp-controlArrow.fp-next:active {
+            opacity: 1;
+        }
+        .border {
+            width: 40%;
+            border: 4px solid #F0D066;
+            position: absolute;
+            margin-top: -8px;
+        }
+        .mingche,
+        .guanyu,
+        .huigu{
+            position: absolute;
+            z-index: 9;
+            top: 10px;
+            left: 10px;
+            color: #656562;
+            .font{
+                font-family:'arial narrow';
+                font-size: 0.5rem;
+            }
+        }
+        .lianxi {
+            position: absolute;
+            z-index: 9;
+            top: 50%;
+            left: 50%;
+            margin-left: -115px;
+            margin-top: -78px;
+            color: #d0cece;
+            border-radius: 50%;
+            background: rgba(15, 14, 14, 0.5);
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    }
+    .backtup {
+        z-index: 9;
+    }
+    .up_icon {
+        animation: upshow 2s infinite;
+        position: fixed;
+        bottom: 40px;
+        width: 40px;
+        height: 40px;
+        left: 50%;
+        z-index: 30;
+    }
+    @keyframes upshow {
+        0%,
+        10% {
+            opacity: 0;
+            -webkit-transform: translateY(10px);
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translateY(-10px);
+        }
+    }
+    @-webkit-keyframes upshow {
+        0%,
+        10% {
+            opacity: 0;
+            -webkit-transform: translateY(10px);
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translateY(-10px);
+        }
+    }
+}

@@ -1,0 +1,261 @@
+﻿@section styles{
+    <link href="~/Static/Product/css/CreateOrder.css?2017104" rel="stylesheet" />
+    <link href="~/Static/Product/css/iconfont/iconfont.css" rel="stylesheet" />
+    <link href="~/Static/Product/css/keyboard.css" rel=" stylesheet" />
+}
+@section scripts{
+    <script type="text/javascript">
+        myPage.defaultDiscount = @(ViewBag.DefaultDiscount);
+    </script>
+    <script src="/Static/Product/js/jquery.bootstrap-touchspin.js"></script>
+    <script src="/Resources/JsLib/jquery.form.js"></script>
+    <script src="/Resources/JsLib/artTemplate/template.js"></script>
+    <script src="~/Static/v1/js/form.js"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="~/Resources/JsLib/jquery.query.js"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/jquery.keyboard.js?20170120"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/qwerty.js?20170120"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/number.js?20170120"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/form.js?20170120"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/jquery.selection.js?20170120"></script>
+    <script src="~/Static/Product/js/CreateOrder.js?20170120"></script>
+    <script>
+        $(function () {
+            var tableheight = jQuery("#table-css table").height();
+            var bottomHeight = $('.costNotes').height() + $('.grandTotal').height();
+            var bodyHeight = $(window).height();
+            if (myPage.frame == '2') {
+                var heights = bodyHeight - bottomHeight - 106;
+            } else {
+                var heights = bodyHeight - bottomHeight - 226;
+            }
+            jQuery("#table-css").css("height", heights);
+
+        })
+        $(document).ready(function () {
+            if(myPage.frame =='2'){
+                $('input[type!="submit"],textarea').after('<span class="input-group-addon iconfont icon-459ruanjianpan querytxt" style="padding:8px"></span>');
+                $('body').keyboard({
+                    keyboard: 'qwerty',//默认键盘，可更改
+                    plugin: 'form'
+                });
+            }
+            $('.modal-footer .mission').click(function () {
+                $(this).parent().parent().toggle();
+            });
+        });
+    </script>
+}
+<script type="text/html" id="style_list">
+    <input class="paystyle" name="paystyle" type="radio" id="{{Value}}" value="{{Value}}" />
+    <label for="{{Value}}">{{Name}}</label>&nbsp;&nbsp;
+</script>
+<div class="product-body">
+    <form id="myForm" name="myForm" action="/api/Product/OrderInfo/Create" method="post">
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: closes"><span aria-hidden="true">&times;</span></button>
+                        <span class="modal-title">付款结账</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group">
+                            <span class="input-group-addon">应付金额</span>
+                            <span class="form-control" aria-describedby="basic-addon1" id="payable" name="payable" data-bind="text:payable"></span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">付款方式</span>
+                            <ul type="text" class="form-control" aria-describedby="basic-addon1" id="paystyle" name="paystyle" placeholder="100"></ul>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">付款金额</span>
+                            <input type="text" class="form-control keyboard-num" aria-describedby="basic-addon1" id="payments" name="payments" data-bind="value:payments" placeholder="100">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">找零金额</span>
+                            <span class="form-control" aria-describedby="basic-addon1" id="odd" name="odd" data-bind="text:formatCurrency(odds())"></span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">销售备注</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" name="Comments" id="Comments">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <span style="display:inline-block;float:left;">注：打印出票功能只在客户端使用</span>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: closes">关闭</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: save">结算打印</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="row">
+            <div class="col-xs-6">
+                @if (ViewBag.Config.Menber.Contains(Request["Models"]))
+                {
+                    @*<div class="col-xs-12 productlist-padding">
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">会员基本信息</div>
+                            <div class="input-group margin10">
+                                <span class="input-group-addon">会员卡号</span>
+                                <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" id="Memberid">
+
+                                <button type="button" class="btn btn-primary" data-bind='click: memberSearch' id="Memberbtn">查询(F8)</button><span class="member-text" style="float:left"></span>
+                            </div>
+                            <!-- Table -->
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+
+                                        <td>会员卡号:<input class='required' data-bind='value: MemberID' id="MemberID" name="MemberID" readonly /></td>
+                                        <td>会员姓名:<input class='required' data-bind='value: membername' id="membername" name="membername" readonly /></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>会员等级:<input class='required' data-bind='value: MemberGradeId' id="MemberGradeId" name="MemberGradeId" readonly /></td>
+                                        <td>折扣率:<input class='required' data-bind='value: DiscountPercent' id="DiscountPercent" name="DiscountPercent" readonly /></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>*@
+                }
+                <div class="col-xs-12  productlist-padding" style="margin-bottom:60px;">
+                    <div class="tab-content">
+                        <div class="panel panel-primary active" id="product-list">
+                            <!-- Default panel contents -->
+                            <div class=" panel-heading">商品列表</div>
+                            <div id="table-css">
+                                <!-- Table -->
+                                <table class="table product-table" data-bind='visible: lines().length > 0'>
+                                    <thead>
+                                        <tr>
+                                            <th style="display:none">id</th>
+                                            <th>条码</th>
+                                            <th>名称</th>
+                                            <th>售价</th>
+                                            <th>数量</th>
+                                            @if (ViewBag.Config.Menber.Contains(Request["Models"]))
+                                            {
+                                                <th>折扣率</th>
+                                                @*<th>折后价格</th>*@
+                                            }
+                                            <th colspan="2">总金额</th>
+                                            @*<th>b备注</th>*@
+                                            @*<th style="display:none;">模型</th>*@
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind='foreach: lines'>
+                                        <tr>
+                                            <td style="display:none"><span class='required' data-bind='text: ProductID' name="ProductID"></span></td>
+                                            <td><span class='required' data-bind='text: ProductNo' name="ProductID"></span></td>
+                                            <td><span class='required number' data-bind='text: productname' readonly style="width:130px !important"></span></td>
+
+                                            <td><span class='required number Price' data-bind='text: Price'></span></td>
+
+                                            <td>
+                                                <li class="sub" data-bind="click:$root.subNum">-</li>
+                                                <input class='required number num' data-bind='value: Num' name="Num" style="border:1px solid #d2d6de;height:25px;" />
+                                                <li class="add" data-bind="click:$root.addNum">+</li><input data-bind='value: Num' class="touchspin-control" type="hidden" />
+                                            </td>
+                                            @if (ViewBag.Config.Menber.Contains(Request["Models"]))
+                                            {
+                                                <td>
+                                                    <select data-bind="value:discountPercent">
+                                                        @(Html.Raw(ViewBag.DiscountOptions))
+                                                    </select>
+                                                </td>
+                                                @*<td><span class='required number' data-bind='text: afterprice' name="afterprice"></span></td>*@
+                                            }
+                                            <td><span class='required subtotal' data-bind='text: formatCurrency(subtotal())' name="subtotal"></span> </td>
+                                            <td style="display:none;"><span class='required number Models' data-bind='text: Models' name="Models"></span></td>
+                                            @*<td><input class='required number' data-bind='value: Comment' name="Comments" /></td>*@
+                                            <td><a href='#' data-bind='click: $root.removeGift' class="close"><span aria-hidden="true">&times;</span></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class='grandTotal' style="font-size:20px;padding:20px;position:absolute;right:0px;bottom:0px">
+                            总金额:<span data-bind='text: formatCurrency(grandTotal())' id="TotalMoney"> </span>
+                        </p>
+                    </div>
+                    <div class="col-xs-6 costNotes hide">
+                        <div class="input-group">
+                            <span class="input-group-addon">消费编号</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" name="OrderID" id="OrderID" value="@(DateTime.Now.ToString("yyyyMMddHHmmss"))" readonly>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">消费备注</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" name="Comments" id="Comments">
+                        </div>
+                    </div>
+                    <div class="product-button col-xs-6 costNotes">
+                        <button type="button" data-bind="click:refresh" class="btn btn-success">取消本次消费(F2)</button>
+                    </div>
+                    <div class="product-button col-xs-6 costNotes" id="cancelCost">
+                        <button type="button" data-bind='click: fade' class="btn btn-primary" id="sureCost">
+                            确认消费(F1)
+                        </button>
+                    </div>
+                </div>
+
+                @if (Request["Models"] == "Ticket")
+                { <div class="row hide" style="margin-top:10px;">
+                    <div class="product-button col-xs-6 costNotes">
+                        <input type="text" class="form-control" placeholder="请输入预约编号" id="ProductBookID" style="width:100%; height:100%; display:initial;font-size:18px;border-radius: 5px;" />
+                    </div>
+                    <div class="product-button col-xs-6 costNotes">
+                        <button type="button" data-bind="click:productbook" class="btn btn-info">网上预约(F3)</button>
+                    </div>
+                    <span class="productbooktext" style="padding: 5px; font-size: 14px;"></span>
+                </div>
+                }
+            </div>
+            <div class="col-xs-6 productlist-padding">
+                <div class="tab-content">
+                    <div class="panel panel-primary active" id="product-list">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">商品</div>
+                        <div class="input-group margin10">
+                            <span class="input-group-addon">商品编号</span>
+                            <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1" id="productid">
+                            <button type="button" class="btn btn-primary" data-bind='click: productSearch' style="float:left !important">查询(F9)</button>
+                        </div>
+                        @if (Request["Models"] == "Playground")
+                        {
+                            @RenderPage("CreateOrder_Ticket.cshtml")
+                        }
+                        else
+                        {
+                            @RenderPage("CreateOrder_" + Request["Models"] + ".cshtml")
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </form>
+    <div class="addProduct" style="display:none">
+        <div class="modal-header" style="background:#fff">
+            <ul>
+                <li>商品搜索</li>
+            </ul>
+        </div>
+        <div class="modal-body" style="background:#fff">
+            没有找到匹配的商品
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn mission" style="background:#ABA3A3">取消</button>
+        </div>
+    </div>
+</div>

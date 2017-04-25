@@ -1,0 +1,99 @@
+<header class="bar bar-nav">
+	<div class="header-content">
+		<div class="weui-row">
+			<div class="weui-col-50 xs-4">
+				<img alt="img" src="./assets/images/sprite/index/LOGO.png" />
+			</div>
+			<div class="weui-col-25 xs-4" id="search">
+				<label for="search_input" class="search_bar" id="search_text">
+					<i class="iconfont icon-sousuo-sousuo"></i>
+					<span>搜索</span>
+				</label>
+			</div>
+			<div class="weui-col-20 xs-4 lanmu">
+				<i class="iconfont icon-caidan01"></i>
+			</div>
+		</div>
+		<div class="weui_cells weui_cells_access" id="foot">
+			<a class="weui_cell" href="./index.html">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>首页</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</a>
+
+			<a class="weui_cell" href="./Cars.html">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>馆藏名车</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</a>
+			<a class="weui_cell" href="./conduct.html">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>宣传展示</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</a>
+			<div class="weui_cell" id="carCulture">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>汽车文化</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</div>
+			<div id="artList" style="display:none;">
+				<a class="weui_cell" href="./carculture.html">
+					<div class="weui_cell_bd weui_cell_primary">
+						<p style="text-indent:32px;">汽车文化</p>
+					</div>
+					<div class="weui_cell_ft"></div>
+				</a>
+				<a class="weui_cell" href="./cooperateList.html?id=section7">
+					<div class="weui_cell_bd weui_cell_primary">
+						<p style="text-indent:32px;">艺术画廊</p>
+					</div>
+					<div class="weui_cell_ft"></div>
+				</a>
+			</div>
+			<div class="weui_cell" id="aboutus">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>关于我们</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</div>
+			<div id="aboutsList" style="display:none;">
+				<a class="weui_cell" href="./aboutUS.html">
+					<div class="weui_cell_bd weui_cell_primary">
+						<p style="text-indent:32px;">馆场概况</p>
+					</div>
+					<div class="weui_cell_ft"></div>
+				</a>
+				<a class="weui_cell" href="./address.html">
+					<div class="weui_cell_bd weui_cell_primary">
+						<p style="text-indent:32px;">联系我们</p>
+					</div>
+					<div class="weui_cell_ft"></div>
+				</a>
+			</div>
+			<a class="weui_cell" href="./order.html">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>门票预约</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</a>
+			<div class="weui_cell" data-bind="visible:linkShop().length>0">
+				<!--ko foreach:linkShop-->
+				<a data-bind="attr:{href:ColHref}" target="_blank" class="weui_cell_bd weui_cell_primary">
+					<p>线上商店</p>
+				</a>
+				<!--/ko-->
+				<div class="weui_cell_ft"></div>
+			</div>
+			<a class="weui_cell cooperate" href="./cooperate.html" style="padding-bottom:10px;">
+				<div class="weui_cell_bd weui_cell_primary">
+					<p>商务合作</p>
+				</div>
+				<div class="weui_cell_ft"></div>
+			</a>
+		</div>
+	</div>
+</header>

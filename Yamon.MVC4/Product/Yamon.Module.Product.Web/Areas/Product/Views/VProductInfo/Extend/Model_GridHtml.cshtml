@@ -1,0 +1,28 @@
+﻿
+<script>
+    jQuery(function () {
+        Data.DictTypeID = "@(RequestHelper.GetString("DictTypeID"))";
+        jQuery("#span_ProductTypeId").hide();
+        $("#tt").wrap('<div id="FormDiv" class="col-md-10"></div>');
+        $("#FormDiv").wrap('<div class="row"></div>');
+        $("#FormDiv").after('<div class="col-md-2"><div id="groupTree" style="text-align:left"></div></div>');
+        LoadGrid();
+        jQuery('#groupTree').tree({
+            url: '/api/Product/ProductType/EditTree_Models?iscombo=2&RootName=全部&Models=' + "@(RequestHelper.GetString("Models"))",
+            onSelect: function (node) {
+                //console.log(node.id);
+                if (node.id == 0 || node.id == 2 || node.id == 6 || node.id == 8) {
+                    jQuery("#span_ProductTypeId span input").next().val("")
+                } else {
+                    jQuery("#span_ProductTypeId span input").next().val(node.id)
+                }
+
+                SubmitSearchForm();
+            },
+        onLoadSuccess: function (data) {
+            //jQuery('#groupTree').tree('collapseAll');
+        }
+        });
+    })
+</script>
+   

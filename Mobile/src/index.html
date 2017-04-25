@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html> 
+	<head>  
+		<title>首页-三和老爷车博物馆</title>
+		<meta content="telephone=no" name="format-detection" />
+		<link rel="import" href="include/headercss.html?__inline" />
+		<link rel="stylesheet" type="text/css" href="./assets/libs/jquery-fullPage/jquery.fullPage.css" />
+	</head>
+	<body> 
+		<div class="weui_tab" id="home">
+			<link rel="import" href="include/header.html?__inline">
+			<div class="weui_tab_bd">
+				<div id="dowebok">  
+					<div class="section fp-section active fp-completely" onclick="window.location.href='./cars.html'">
+						<div class="border"></div>
+						<div class="fp-slides">
+							<div class="fp-slidesContainer">
+								<!--ko foreach:homeImgList1-->
+								<div class="slide fp-slide active"> 
+									<img data-bind="attr:{src:'http://www.shlycmuseum.com/'+adLeftImg}" />
+								</div> 
+								<!--/ko-->  
+							</div> 
+							<a href="#" class="mingche">
+								<p>馆藏名车</p>
+								<p class="font"><i>CLASSIC CAR</i></p>
+							</a>
+						</div>
+					</div>  
+					<div class="section" onclick="window.location.href='./conduct.html'">
+						<div class="border"></div>
+						<div class="fp-slides">
+							<div class="fp-slidesContainer">
+								<!--ko foreach:homeImgList2-->
+								<div class="slide fp-slide active">
+									<img data-bind="attr:{src:'http://www.shlycmuseum.com/'+adLeftImg}" />
+								</div>
+								<!--/ko-->
+							</div>
+							<a href="#" class="huigu">
+								<p>历史精彩回顾</p>
+								<p class="font"><i>HISTORICAL REVIEW</i></p>
+							</a>
+						</div>
+					</div>
+					<div class="section" onclick="window.location.href='./aboutus.html'">
+						<div class="border"></div>
+						<div class="fp-slides">
+							<div class="fp-slidesContainer">
+								<!--ko foreach:homeImgList3-->
+								<div class="slide fp-slide active">
+									<img data-bind="attr:{src:'http://www.shlycmuseum.com/'+adLeftImg}" />
+								</div>
+								<!--/ko-->
+							</div>
+							<a href="#" class="guanyu">
+								<p>关于我们</p>
+								<p class="font"><i>ABOUT US</i></p>
+							</a>
+						</div>  
+					</div>     
+					<div class="section" onclick="window.location.href='./address.html'">
+						<div class="border"></div>
+						<div class="fp-slides">
+							<div class="fp-slidesContainer">
+								<!--ko foreach:homeImgList4-->
+								<div class="slide fp-slide active">
+									<img data-bind="attr:{src:'http://www.shlycmuseum.com/'+adLeftImg}" />
+								</div> 
+								<!--/ko-->   
+							</div>   
+							<div class="lianxi">
+								<h3>联系我们</h3> 
+								<p>地址：四川省成都市高新区机场路<br/>新加坡工业园区南一路2号</p>
+								<p>电话：028-83165566</p>
+								<p>邮编：610000</p>
+							</div>
+						</div>  
+					</div>
+				</div>
+				<div class="up_icon" id="up_icon" style="display:block;">
+					<img alt="img" src="./assets/images/other/up_icon.png" />
+				</div>
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+	</body>
+	<script language="javascript">
+		var HomeImgViewModel = new homeImgViewModel();
+		ko.applyBindings(HomeImgViewModel);
+		HomeImgViewModel.init();
+
+		$(function() {
+			$('#img').hide();
+			$('.header').show();
+			$('#dowebok').fullpage({
+				scrollingSpeed: 400,
+				'verticalCentered': false,
+				'css3': true,
+				anchors: ['page1', 'page2', 'page3', 'page4'],
+				afterLoad: function(anchorLink, index) {
+					if(index == 4) {
+						$('.up_icon').hide();
+						$('.Shop').show();
+					} else {
+						$('.up_icon').show();
+						$('.Shop').hide();
+					}
+				}
+			})
+			$('.backUp').on('click', function() {
+				$('#dowebok').fullpage.moveTo(1, 0);
+				$('#dowebok2').fullpage.moveTo(1, 0);
+			});
+			$('#up_icon').on('click', function() {
+				$('#dowebok').fullpage.moveSectionDown();
+			});
+		});
+
+	</script>
+
+</html>

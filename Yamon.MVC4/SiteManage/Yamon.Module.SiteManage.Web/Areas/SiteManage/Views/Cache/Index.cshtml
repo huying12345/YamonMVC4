@@ -1,0 +1,120 @@
+﻿
+<table id="tt"></table>
+@section scripts{
+    <script src="~/Static/v1/js/GridUtils.js"></script>
+    <script type="text/javascript">
+        var _ListActionUrl = '/api/SiteManage/Cache/CacheList';
+        var _DelActionUrl = '/api/SiteManage/Cache/Del';
+        var _ClearActionUrl = '/api/SiteManage/Cache/Clear';
+
+        jQuery(function () {
+            window.onresize = setGridHeight;
+            jQuery('#tt').datagrid({
+                url: _ListActionUrl,
+                fitColumns: false, //设置横向滚动条没有，宽度永远只有那么大
+                striped: true, //行是否隔行换样式
+                pagination: false, //显示分页
+                pageSize: 20,
+                loadMsg: '数据加载中，请稍等...', //显示加载信息
+                rownumbers: true, //显示序号
+                singleSelect: false, //单选一行
+
+                sortName: 'CacheName',
+                sortOrder: 'asc',
+                remoteSort: false,
+
+                idField: 'CacheName',
+                frozenColumns: [
+                    [
+                        { field: 'ck', checkbox: true }
+                    ]
+                ],
+                columns: [
+                    [
+                        { field: 'CacheName', title: '缓存名称', sortable: true, width: 200 },
+                        { field: 'CacheValue', title: '缓存内容', sortable: true, width: 300 },
+                        {
+                            field: 'operator',
+                            title: '操作',
+                            width: 120,
+                            align: 'center',
+                            formatter: function (value, row, index) {
+                                return "<a href=\"javascript:void(0)\" style=\"color:red;\" onclick=\"delData('" + row.CacheName + "')\">删除</a>";
+                            }
+                        }
+                    ]
+                ],
+                toolbar: [
+                    {
+                        id: 'btncut',
+                        text: '删除',
+                        iconCls: 'icon-remove',
+                        handler: function () {
+                            delData(getSelectIds());
+                        }
+                    }, {
+                        id: 'btncut',
+                        text: '清空',
+                        iconCls: 'icon-cut',
+                        handler: function () {
+                            clearData();
+                        }
+                    }
+                ]
+            });
+            setGridHeight();
+        });
+
+
+        //删除数据
+        function delData(id) {
+            if (id == "" || id == "undefined") return;
+            jQuery.messager.confirm('Confirm', '确定要删除[缓存名称为' + id + ' ]的缓存吗?', function (r) {
+                if (r) {
+                    jQuery.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        url: _DelActionUrl + '/' + id,
+                        success: function (msg) {
+                            if (msg.success) {
+                                jQuery.messager.alert('提示', '删除成功！', 'info');
+                                $('#tt').datagrid('reload');
+                                $('#tt').datagrid('unselectAll');
+                            } else {
+                                jQuery.messager.alert('提示', '删除失败！', 'error');
+                                return;
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        //清空数据
+        function clearData() {
+            jQuery.messager.confirm('Confirm', '确定要清空缓存吗?', function (r) {
+                if (r) {
+                    jQuery.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        url: _ClearActionUrl,
+                        success: function (msg) {
+                            if (msg.success) {
+                                //jQuery.messager.alert('提示', '清空成功！', 'info');
+                                $('#tt').datagrid('reload');
+                                $('#tt').datagrid('unselectAll');
+                            } else {
+                                jQuery.messager.alert('提示', '清空失败！', 'error');
+                                return;
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        function reloadData() {
+            jQuery('#tt').datagrid('reload');
+        }
+    </script>
+}

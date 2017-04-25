@@ -1,0 +1,83 @@
+﻿@section styles{
+    <link href="~/Static/Product/css/Refund.css" rel="stylesheet" />
+    <link href="~/Static/Product/css/iconfont/iconfont.css" rel="stylesheet" />
+    <link href="~/Static/Product/css/keyboard.css" rel=" stylesheet" />
+}
+@section scripts{
+    <script>
+        myPage.Models = "@(Request["Models"])";
+    </script>
+    <script src="/Resources/JsLib/jquery.form.js"></script>
+    <script src="/Resources/JsLib/artTemplate/template.js"></script>
+    <script src="~/Static/v1/js/form.js"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="~/Resources/JsLib/jquery.query.js"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/jquery.keyboard.js"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/qwerty.js"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/number.js"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/form.js"></script>
+    <script src="/Resources/JsLib/jquery.keyboard/jquery.selection.js"></script>
+    <script src="~/Static/Product/js/Refund.js"></script>
+    <script>
+        $(document).ready(function () {
+            if (myPage.frame == '2') {
+                $('input[type!="submit"],textarea').after('<span class="input-group-addon iconfont icon-459ruanjianpan querytxt" style="padding:8px"></span>');
+                $('body').keyboard({
+                    keyboard: 'qwerty',//默认键盘，可更改
+                    plugin: 'form'
+                })
+            }
+        })
+    </script>
+}
+
+<form>
+    <div class="rows">
+        <div class="col-xs-12">
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label class="col-sm-3 labelsm">订单编号：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control keyboard-num" id="selectid">
+                    </div>
+                </div>
+            </div>
+            @if (Request["Models"] != "Ticket")
+            {
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label class="col-sm-3 labelsm">&nbsp;商品编号:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control keyboard-num" id="productno">
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-default" data-bind="click:line">订单查询</button><span class="noseleft" style="color:#ff0000;font-size:14px;font-weight:bold;display:none;">&nbsp;未查到该订单！</span>
+            </div>
+
+        </div>
+
+        <div id="refundspan" class="col-xs-12">
+            <ul>
+
+                <li>订单编号&nbsp;:&nbsp;<span data-bind="text:OrderID"></span><input type="hidden" data-bind="value:OrderDetailID" /></li>
+                <li>商品名称&nbsp;:&nbsp;<span data-bind="text:ProductName"></span></li>
+                
+                <li>总金额&nbsp;:&nbsp;&nbsp;<span data-bind="text:TotalMoney"></span>元</li>
+                <li>创建时间&nbsp;:&nbsp;<span data-bind="text:CreateTime"></span></li>
+                <li>状态&nbsp;:&nbsp;&nbsp;<span data-bind="text:Status"></span></li>
+                <li>退款金额&nbsp;:&nbsp;<span data-bind="text:TotalMoney"></span>元</li>
+            </ul>
+
+
+        </div>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary" data-bind="click: save">退单</button>
+            <button type="button" class="btn btn-primary" onclick="location.href = '/Product/VOrderRefund/Grid1?Models=@(Request["Models"])&Frame=@(Request["Frame"])&Menu=c73def3a-db51-4c22-a848-0cf7ec0f2e18'">退单审核</button>
+        </div>
+
+    </div>
+</form>

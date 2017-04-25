@@ -1,0 +1,59 @@
+#Login {
+    .weui_cells_form{
+        .weui_cell {
+        padding: 15px;
+    }
+    }
+    .btn_checkbox {
+        width: 100%;
+        margin-left: 1%;
+        margin-top: 10px;
+        font-size: 14px;
+        float: left;
+        a {
+            margin-left: 10px;
+            text-decoration: underline;
+        }
+    }
+    .weui-popup-modal {
+        h4 {
+            font-weight: 700;
+            color: #666;
+            text-align: center;
+            padding-top: 10px;
+            margin-bottom: 10px;
+        }
+        p {
+            text-indent: 2em;
+            padding: 0 10px;
+            line-height: 20px;
+            color: #645A5A;
+            font-size: 14px;
+        }
+    }
+    .btn_login {
+        width: 100%;
+        margin-top: 10px;
+        button {
+            width: 100%;
+        }
+    }
+    .close-popup {
+        margin-left: 45%;
+    }
+    .bottom {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+        list-style: none;
+        margin-top: 10px;
+        font-size: 15px;
+        li:first-child{
+            float: right;
+            margin-right: 10px;
+        }
+        a {
+            text-decoration: underline;
+        }
+    }
+}

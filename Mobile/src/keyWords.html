@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head> 
+		<link rel="import" href="include/headercss.html?__inline">
+		<title>搜索</title>
+	</head>
+	<body style="height: 100%;">
+		<div class="weui_tab" id="keyWords">
+			<div class="weui_tab_bd" style="height: 100%;">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1" style="position: relative;"></div>
+				<div class="border2"></div>
+				<div class="content">
+					<div class="weui_titl">
+						<p>搜索结果：</p>
+					</div> 
+					<div class="weui_bd_item">
+						<div class="weui_cells">
+							<!--ko foreach:keywordList-->
+							<div class="weui_cell">
+								<div class="weui_cell_bd">
+									<a data-bind="text:title,attr:{href:'./conductList.html?ID='+id}" style="color: #000;text-decoration: underline;"></a>
+								</div>
+							</div>
+							<!--/ko-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+ 	</body>
+	<script>
+		$(function() {
+			$.showLoading();
+			var viewModel = new keyWordsViewModel();
+			ko.applyBindings(viewModel);
+			viewModel.init();
+		})
+	</script>
+
+</html>

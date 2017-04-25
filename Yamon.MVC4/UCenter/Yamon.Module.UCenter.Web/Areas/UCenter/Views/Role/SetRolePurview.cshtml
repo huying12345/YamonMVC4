@@ -1,0 +1,47 @@
+﻿@using System.Data
+@using Yamon.Module.UCenter.Entity
+@{
+    ViewBag.BodyClass = "";
+}
+<form id="myForm" name="myForm" action="" method="post">
+    <table id="tt"></table>
+    <input type="hidden" id="RoleID" name="RoleID" value="@ViewBag.RoleID" />
+</form>
+<div id="toolbar" style="padding: 5px; height: auto">
+    <a href="javascript:void(0)" id="Menu_New" class="easyui-linkbutton" iconcls="icon-save" plain="true" onclick="saveData(); return false; ">保存</a>
+    <a href="javascript:void(0)" id="Menu_Update" class="easyui-linkbutton" iconcls="icon-reload" plain="true" onclick="reloadData(); return false; ">刷新</a>
+    <a href="javascript:void(0)" id="Menu_Order" class="easyui-linkbutton" iconcls="icon-ok" plain="true" onclick="selectAll(); return false; ">全选</a>
+    <a href="javascript:void(0)" id="Menu_Delete" class="easyui-linkbutton" iconcls="icon-redo" plain="true" onclick="unSelect(); return false; ">反选</a>
+    <a href="javascript:void(0)" id="Menu_ExportToExcel" class="easyui-linkbutton" iconcls="icon-no" plain="true" onclick="noSelect(); return false; ">不选</a>
+    <a href="javascript:void(0)" id="Menu_SetToolBar" class="easyui-linkbutton" iconcls="icon-back" plain="true" onclick="goBack(); return false; ">返回角色列表</a>
+    当前角色：
+    <select id="myRoleID" onchange="roleChange()">
+        @foreach (Role role in (List<Role>)ViewData["RoleList"])
+        {
+            <option value="@(role.RoleID)">@(role.RoleName)</option>
+        }
+    </select>
+</div>
+@section scripts{
+
+    <script type="text/javascript">
+        var _DataUrl = '/api/UCenter/Role/GetRolePurivewTreeGridJson?RoleID=@ViewBag.RoleID';
+        var Data = {
+            ModuleID: "SiteManage",
+            ModelID: "Menu",
+            PageSize: 20,
+            DialogWidth: 700,
+            DialogHeight: 400,
+            FieldShowType_Name_FieldName: 'MenuName',
+            FieldShowType_Name_Title: '菜单名称',
+            ItemName: "菜单",
+            PrimaryKey: "MenuID",
+            SortField: "MenuID",
+            OrderType: "asc"
+        }
+    </script>
+    <script src="~/Resources/JsLib/jquery.form.js"></script>
+    <script src="~/Static/v1/js/TreeGridUtils.js"></script>
+    <script src="~/Static/UCenter/js/SetRolePuview.js"></script>
+
+}

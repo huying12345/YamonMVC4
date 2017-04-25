@@ -1,0 +1,53 @@
+﻿<script src="/Resources/JsLib/Underscore/underscore-min.js"></script>
+<script src="/Resources/JsLib/knockout/knockout.js"></script>
+<script src="/Resources/JsLib/artTemplate/template.js"></script>
+<script src="/Static/SiteManage/js/RequestParamModel.js"></script>
+<script src="/Static/SiteManage/js/ResponseParamModel.js"></script>
+<script src="/static/SiteManage/js/ErrorParamModel.js"></script>
+<link href="/Resources/JsLib/editormd/css/editormd.min.css" rel="stylesheet" />javascript:void(0)
+<script src="/Resources/JsLib/editormd/editormd.min.js"></script>
+<script>
+    var testEditor;
+    $(function () {
+        var apiType = $('#APIType').val();
+        if (apiType == 2) {
+            $('#Label_ResponseBody').remove();
+            $("#ResponseBody").parent().attr('colspan', 2);
+            $("#ResponseBody").after("<div id=\"test-editormd\"></div>");
+            $("#ResponseBody").hide();
+            testEditor = editormd("test-editormd", {
+                width: "100%",
+                height: 440,
+                syncScrolling: "single",
+                path: "/Resources/JsLib/",
+                pluginPath: '/Resources/JsLib/editormd/plugins/',
+                appendMarkdown: $("#ResponseBody").val(),
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "/SiteManage/API/UploadImage"
+            });
+        }
+        $('#RequestParam').hide();
+        var html = template('RequestParamHtml');
+        $('#RequestParam').before(html);
+
+        $('#ResponseParam').hide();
+        html = template('ResponseParamHtml');
+        $('#ResponseParam').before(html);
+
+        $('#ErrorCodeParam').hide();
+        html = template('ErrorCodeHtml');
+        $('#ErrorCodeParam').before(html);
+
+        InitRequestParam();
+        InitResponseParam();
+        InitErrorParam();
+    });
+
+    MyForm.onBeforeSubmit = function () {
+        if ($('#APIType').val() == 2) {
+            $("#ResponseBody").val(testEditor.getMarkdown());
+        }
+        return true;
+    };
+</script>

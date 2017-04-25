@@ -1,0 +1,26 @@
+﻿
+<div id="tick">
+    <div class="panel panel-default" >
+
+        <div class="panel-heading" data-bind="foreach:productType">
+            <h3 class="panel-title" data-bind='text: TypeName'></h3>
+
+            <div class="panel-body panel-lists ">
+                <ul class="tab-pane active" role="tabpanel" data-bind="foreach:products">
+                    <li class="ul-list" productinfono="" id="productType" data-bind='click: $root.listaddGift,attr: {class: ProductTypeId }'>
+
+                        <span href="#" name="ProductNames" data-bind="text:ProductName"></span>
+                        <br /><span name="Price" data-bind="text:SalePrice"></span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+   
+
+  
+
+</div>
+

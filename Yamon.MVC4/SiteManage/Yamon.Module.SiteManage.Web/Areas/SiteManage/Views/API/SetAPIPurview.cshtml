@@ -1,0 +1,97 @@
+﻿<div region="center" border="true" style="padding: 10px; background: #F6F6F6; border: 1px solid #ccc;">
+    <ul id="apiTree"></ul>
+</div>
+<div region="south" border="false" style="text-align: right; background: #F6F6F6; height: 30px; line-height: 30px;">
+    <label>双击全选或取消选择子节点</label>
+    <a id="btnSubmit"
+       class="easyui-linkbutton" icon="icon-save" href="javascript:SetAPIPurview();">
+        保存
+    </a>
+    <a id="btnCancel"
+       class="easyui-linkbutton" icon="icon-cancel" href="javascript:CloseDialog();">
+        关闭
+    </a>
+</div>
+<script type="text/javascript">
+    var _baseUrl = '/SiteManage/API';
+    var _apiUrl = '/api/SiteManage/API';
+    var apiList = ',@(ViewBag.APIList),';
+    var ischecked = false;
+    jQuery(function () {
+        jQuery('#apiTree').tree({
+            url: _apiUrl + '/EditTree?iscombo=123',
+            animate: true,
+            checkbox: true,
+            cascadeCheck: false,
+            onDblClick: function (node) {
+                checkAllChild(node, ischecked ? 'uncheck' : 'check');
+            },
+            onLoadSuccess: function (node, data) {
+                jQuery("#apiTree").tree('collapseAll');
+                checkTree();
+            },
+            onCheck: function (node, checked) {
+                if (checked) {
+                    var parent = $("#apiTree").tree('getParent', node.target);
+                    if (parent) {
+                        $("#apiTree").tree('check', parent.target);
+                    }
+                }
+            }
+        });
+    });
+
+    function SetAPIPurview() {
+        jQuery.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: '/api/SiteManage/API/SetAPIPurview/' + myPage.id,
+            data: { "APIID": getChecked() },
+            success: function (data) {
+                if (data.success) {
+                    alert("操作成功！");
+                    parent.CloseDialog();
+                } else {
+                    alert("操作失败：" + data.message);
+                    return;
+                }
+            }
+        });
+    }
+
+    function getChecked() {
+        var nodes = $('#apiTree').tree('getChecked');
+        var s = '';
+        for (var i = 0; i < nodes.length; i++) {
+            if (s != '') s += ',';
+            s += nodes[i].id;
+        }
+        return s;
+    }
+
+    function checkTree() {
+        var roots = $('#apiTree').tree('getRoots');
+        for (var i = 0; i < roots.length; i++) {
+            checkChild(roots[i].target);
+        }
+    }
+
+    function checkChild(node) {
+        if (apiList.indexOf(',' + node.id + ',') != -1) {
+            $('#apiTree').tree('check', node.target);
+        }
+        var childs = $('#apiTree').tree('getChildren', node.target);
+        for (var i = 0; i < childs.length; i++) {
+            checkChild(childs[i]);
+        }
+    }
+
+    function checkAllChild(node, checkType) {
+        ischecked = checkType == 'check';
+        $('#apiTree').tree(checkType, node.target);
+        var childs = $('#apiTree').tree('getChildren', node.target);
+        for (var i = 0; i < childs.length; i++) {
+            checkAllChild(childs[i], checkType);
+        }
+    }
+</script>

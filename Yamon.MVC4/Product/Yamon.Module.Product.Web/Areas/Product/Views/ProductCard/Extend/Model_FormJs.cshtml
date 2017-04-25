@@ -1,0 +1,35 @@
+﻿<script src="/Static/Product/js/ReadCard.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#CardSN').textbox({ 'readonly': true });
+        $('#CardSN').parent().append('<button  type="button" id="ReadCard" class="btn btn-primary" onclick="InitCard()">读IC卡</button>');
+        $('#myForm').append("<input type='hidden' id='returnData' name='returnData' value='true'/>");
+   
+    
+            if ($('#MemberID').val() != '0') {
+                $('#CardType_4').prop('checked', true);
+                $('#Container_CardType').hide();
+                $('#Container_Times').hide();
+                $('#Container_Balance').show();
+
+            } else {
+                
+            }
+        });
+
+    MyForm.onSubmitSuccess = function (msg) {
+        jQuery.messager.progress('close');
+        if (msg.success) {
+            alert("发卡成功");
+            if ($('#MemberID').val() != '0') {
+                CloseDialog();
+            } else {
+                location.reload();
+            }
+        } else {
+            jQuery.messager.alert('提示', '保存失败：' + msg.message, 'info');
+            return false;
+        }
+    }
+
+</script>

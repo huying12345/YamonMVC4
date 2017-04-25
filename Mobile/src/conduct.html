@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<title>宣传展示</title>
+		<link rel="import" href="include/headercss.html?__inline">
+	</head> 
+	<body>  
+		<div class="weui_tab" id="page"> 
+			<div class="weui_tab_bd">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<div class="weui_item" style="margin-top:10px;" id="display">
+					<img alt="img" src="./assets/images/culture/mtzx-8.png" alt="classic car infomation" style="width:160%;margin-left:10px" />
+					<img alt="img" src="./assets/images/culture/695b4996-7dff-478a-ae3c-bbe87ec0733f.jpg" style="border-top: 3px solid #888A86;" />
+					<ul class="firstpage">
+						<!--ko foreach:listcarculture1-->
+						<li> 
+							◆&nbsp;<a data-bind="text:title,attr:{href:'./conductList.html?ID='+id}"></a>
+						</li>
+						<!--/ko-->
+					</ul> 
+				</div>
+				<div class="weui_item" style="margin-top:10px;">
+					<ul class="pageTurn" style="display: none;">
+						<li>
+							<a data-bind="click:$root.firstPage">首页</a>
+						</li>
+						<li>
+							<a data-bind="click:$root.prevPage">上一页</a>
+						</li>
+					</ul>
+					<ul class="Page">
+						<!--ko foreach:pageList-->
+						<li>
+							<a data-bind="text:page,click:$root.pageClick,css: { active: page==currentPage}">1</a>
+						</li>
+						<!--/ko-->
+					</ul> 
+					<ul class="pageTurn">
+						<li class="active2">
+							<a data-bind='click:$root.nextPage'>下一页</a>
+						</li>
+						<li>
+							<a data-bind='click:$root.lastPage'>末页</a>
+						</li>
+					</ul>
+				</div> 
+				<div class="weui_item" style="margin-top:20px;margin-bottom:20px;"  id="media">
+					<img alt="img" src="./assets/images/culture/mtzx-1.png" alt="classic car history" style="width:160%;margin-left:10px;" />
+					<img alt="img" src="./assets/images/culture/434c45ba-0e9e-4702-ac8a-c356e3b591a6.jpg" style="border-top: 3px solid #888A86;" />
+					<ul class="fivepage "> 
+						<!--ko foreach:listcarculture4-->
+						<li>
+							◆&nbsp;<a data-bind="text:title,attr:{href:'./conductList.html?ID='+id}">仕品 | 中国藏家的劳斯莱斯银魂，为何能在圆石滩获奖？</a>
+						</li>  
+		 				<!--/ko-->
+					</ul>
+				</div>
+			</div>   
+			<div style="height: 20px;"></div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<link rel="import" href="include/footerjs.html?__inline">
+	</body>
+	<script src="./assets/js/page/conduct.js"></script>
+	<script>
+		$(function() {
+			$.showLoading();
+			var culViewModel = new CarViewModel();
+			ko.applyBindings(culViewModel);
+			culViewModel.init();
+		});
+	</script>
+
+</html>

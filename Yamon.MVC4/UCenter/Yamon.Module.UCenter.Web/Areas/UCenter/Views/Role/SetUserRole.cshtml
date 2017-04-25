@@ -1,0 +1,194 @@
+﻿@using Yamon.Module.UCenter.DAL
+@using Yamon.Module.UCenter.Entity
+@{
+    string roleId = RequestHelper.GetString("RoleID");
+    RoleDAL roleDal = new RoleDAL();
+    Role role = roleDal.GetModelByID(roleId);
+    string roleName = role.RoleName;
+}
+
+<div id="tabs" region="center" title="待选用户" split="true">
+    <div id="UserList" style="padding: 5px;">
+    </div>
+</div>
+<div region="east" title="@(roleName)--已选用户" split="true" style="width: 400px;">
+    <div id="SelectedUserList">
+    </div>
+    <input type="hidden" id="SelectUserID" name="SelectUserID" />
+</div>
+<div region="south" border="false" style="text-align: right; background: #F6F6F6;
+            height: 30px; line-height: 30px;">
+    <a id="btnOK" class="easyui-linkbutton" icon="icon-ok" href="javascript:Save()">确定</a>
+    <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:CloseDialog();">
+        关闭
+    </a>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+        var roleId = "@(roleId)";
+        jQuery(function () {
+            jQuery('#UserList').datagrid({
+                url: '/api/UCenter/User/GetUserListByRoleID?RoleID=' + roleId + '&selected=0',
+                queryParams: { "ModelId": "Employee" },
+                height: 440,
+                fitColumns: true, //设置横向滚动条没有，宽度永远只有那么大
+                striped: true, //行是否隔行换样式
+                nowrap: true,
+                loadMsg: '数据加载中，请稍等...', //显示加载信息
+                rownumbers: true, //显示序号
+                singleSelect: true, //单选一行
+
+                sortName: 'userid',
+                sortOrder: 'desc',
+                remoteSort: true,
+                idField: 'userid',
+                frozenColumns: [
+                    [
+                        {
+                            field: 'Role_NodePurview',
+                            title: '选择',
+                            width: 50,
+                            align: 'center',
+                            formatter: function (value, row, index) {
+
+                                return "<a href='#' onclick='AppendRow(" + row.userid + ")' style='color:red;'>选择</a>";
+                            }
+                        }
+                    ]
+                ],
+                columns: [
+                    [
+                        { field: 'userid', title: '用户编号', sortable: true, width: 60, align: 'left' },
+                        { field: 'username', title: '用户名', sortable: true, width: 60, align: 'left' },
+                        { field: 'truename', title: '真实姓名', sortable: true, width: 100, align: 'left' },
+                        { field: 'departmentid_showvalue', title: '所属部门', sortable: true, width: 100, align: 'left' },
+                        { field: 'position_showvalue', title: '岗位', sortable: true, width: 100, align: 'left' }
+                    ]
+                ],
+                onBeforeLoad: function (row, param) {
+                    jQuery(this).datagrid('unselectAll');
+                },
+
+                onDblClickRow: function (rowIndex, rowData) {
+                    //viewData(rowData.UserID);
+                },
+                onClickRow: function (rowIndex) {
+
+                }
+            });
+
+
+            var pager = jQuery('#UserList').datagrid("getPager");
+            pager.pagination({
+                showPageList: false,
+                displayMsg: "{from}-{to}/{total}"
+            });
+
+
+            jQuery('#SelectedUserList').datagrid({
+                url: '/api/UCenter/User/GetUserListByRoleID?RoleID=' + roleId + '&selected=1',
+                queryParams: { "ModelId": "Employee" },
+                height: 440,
+                fitColumns: true, //设置横向滚动条没有，宽度永远只有那么大
+                striped: true, //行是否隔行换样式
+                nowrap: true,
+                loadMsg: '数据加载中，请稍等...', //显示加载信息
+                rownumbers: true, //显示序号
+                singleSelect: true, //单选一行
+                sortName: 'userid',
+                sortOrder: 'desc',
+                remoteSort: true,
+                idField: 'userid',
+                frozenColumns: [
+                    [
+                        {
+                            field: 'Role_NodePurview',
+                            title: '删除',
+                            width: 50,
+                            align: 'center',
+                            formatter: function (value, row, index) {
+                                return "<a href='#' onclick='DeleteRow(" + row.userid + ");' style='color:red;'>删除</a>";
+                            }
+                        }
+                    ]
+                ],
+                columns: [
+                    [
+                        { field: 'userid', title: '用户编号', sortable: true, width: 60, align: 'left' },
+                        { field: 'username', title: '用户名', sortable: true, width: 60, align: 'left' },
+                        { field: 'truename', title: '真实姓名', sortable: true, width: 100, align: 'left' },
+                        { field: 'departmentid_showvalue', title: '所属部门', sortable: true, width: 100, align: 'left' },
+                        { field: 'position_showvalue', title: '岗位', sortable: true, width: 100, align: 'left' }
+                    ]
+                ],
+                onBeforeLoad: function (row, param) {
+                    jQuery(this).datagrid('unselectAll');
+                },
+
+                onDblClickRow: function (rowIndex, rowData) {
+                    //viewData(rowData.UserID);
+                },
+                onClickRow: function (rowIndex) {
+
+                }
+
+            });
+            var pager1 = jQuery('#SelectedUserList').datagrid("getPager");
+            pager1.pagination({
+                showPageList: false,
+                displayMsg: "{from}-{to}/{total}"
+            });
+        });
+
+        function AppendRow(userId) {
+            try {
+                jQuery("#UserList").datagrid("selectRecord", userId);
+                var row = jQuery('#UserList').datagrid("getSelected");
+                jQuery('#SelectedUserList').datagrid("appendRow", row);
+
+                jQuery('#UserList').datagrid("deleteRow", jQuery('#UserList').datagrid("getRowIndex", userId));
+                jQuery('#UserList').datagrid("unselectAll");
+            } catch (e) {
+            }
+        }
+
+        function DeleteRow(userId) {
+            try {
+                jQuery("#SelectedUserList").datagrid("selectRecord", userId);
+                var row = jQuery('#SelectedUserList').datagrid("getSelected");
+                var index = jQuery('#SelectedUserList').datagrid("getRowIndex", row);
+                jQuery('#UserList').datagrid("appendRow", row);
+                jQuery('#SelectedUserList').datagrid("deleteRow", jQuery('#SelectedUserList').datagrid("getRowIndex", userId));
+            } catch (e) {
+            }
+
+        }
+
+        //保存
+        function Save() {
+            var rows = jQuery('#SelectedUserList').datagrid("getRows");
+            var ids = "";
+            for (var i = 0; i < rows.length; i++) {
+                ids += rows[i].userid + ",";
+            }
+            jQuery.ajax({
+                url: "/api/UCenter/Role/SetUserRole",
+                data: { "UserID": ids, "RoleID": roleId  },
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        alert("操作成功！");
+                        CloseDialog();
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            });
+        }
+
+
+    </script>
+}

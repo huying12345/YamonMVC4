@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>版本更新日志</title>
+    <meta name="description" content="jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.">
+    <meta name="keywords" content="jquery,library,ajax,framework,toolkit,popular">
+    <link href="/Resources/JsLib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Resources/JsLib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Static/SiteManage/css/version.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="~/Resources/JsLib/html5shiv.min.js"></script>
+    <script src="~/Resources/JsLib/respond.min.js"></script>
+            <![endif]-->
+    <script>var _hmt = _hmt || [];</script>
+</head>
+<body class="">
+    <div class="navbar navbar-inverse navbar-fixed-top hidden-print navbar-back">
+        <div class="container-fluid">
+            <a href="/" class="btn btn-default navbar-btn btn-back">返回首页</a>
+        </div>
+    </div>
+    <header class="site-header jumbotron">
+        <div class="site-nav">
+        </div>
+        <div class="container">
+            <h1>版本更新日志</h1>
+            <p>我们一直在努力!</p>
+        </div>
+    </header>
+    <div class="package-info well well-md">
+        <div class="container">
+            <ul class="list-inline">
+                @*<li><i class="fa fa-code-fork" title="最新版本"></i> <a href="#3.0.0-alpha1">3.0.0-alpha1</a></li>
+                    <li><i class="fa fa-home" title="项目主页"></i> <a href="http://jquery.com/" target="_blank">http://jquery.com/</a></li>
+                    <li><i class="fa fa-github" title="Github"></i> <a href="https://github.com/jquery/jquery" target="_blank">https://github.com/jquery/jquery</a></li>*@
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+
+        @foreach (Yamon.Module.SiteManage.Entity.VersionInfo row in ViewBag.VersionList)
+        {
+            <a class="version-anchor" id="3.0.0-alpha1"></a>
+            <h3>版本：V@(row.Major).@(row.Minor).@(row.Build).@(row.Revision) Build@(row.CreatedDate.Value.ToString("yyyyMMdd"))</h3>
+            <div class="package-version">
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1 col-sm-12">
+                        <pre>@(Html.Raw(row.ChangeLog))</pre>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </main>
+    <footer id="footer" class="footer hidden-print">
+        <div class="container">
+            <div class="row">
+                <div class="about footer-col col-md-5 col-sm-12" id="about">
+
+                </div>
+
+            </div>
+        </div>
+    </footer><a href="#" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <script src="~/Resources/JsLib/jquery.min.js"></script>
+    <script src="/Resources/JsLib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Static/SiteManage/js/version.js"></script>
+</body>
+</html>

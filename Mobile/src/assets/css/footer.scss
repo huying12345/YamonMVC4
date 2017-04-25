@@ -1,0 +1,43 @@
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    .Shop{
+        display: none;
+        border: 2px solid #000;
+        .shop{
+            position: absolute;
+            color:rgba(245, 174, 33,0.8);
+            font-size: 30px;
+            display: block;
+            bottom: 85px;
+            right: 10px;
+        }
+        .backUp{
+            position:absolute;
+            bottom:45px;
+            right:5px;
+            a{
+                font-size:22px;
+                padding: 6px;
+                color: #fff;
+                font-weight:bold;
+                border-radius:50%;
+                background:rgba(245, 174, 33,0.8);
+                text-decoration:none;
+            }
+        
+        }
+    }
+}
+.weui_tabbar{
+    position: fixed;
+    a{
+        color: #000;
+    }
+    .weui_tabbar_item{
+        p{
+            font-size: 13px;
+        }
+    }
+}

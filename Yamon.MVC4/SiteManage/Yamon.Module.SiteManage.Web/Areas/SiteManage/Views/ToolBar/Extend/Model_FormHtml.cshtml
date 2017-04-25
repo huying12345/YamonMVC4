@@ -1,0 +1,62 @@
+﻿<style type="text/css">
+        #sp div{float:left;width:16px;height:16px;margin:2px;}
+    </style>
+	<script>
+
+	    jQuery(function() {
+	        jQuery('#ClassName').combo({
+	            editable: false,
+	            width: 150
+	        });
+            jQuery('#sp').show();
+	        jQuery('#sp').appendTo(jQuery('#ClassName').combo('panel'));
+	        jQuery('#ClassName').combo('setText', jQuery('#ClassName').val());
+	        jQuery('#ClassName').before("<span id='ClassNameIcon' class=\"" + jQuery('#ClassName').val() + "\" style='width:16px;height:16px;margin:2px;display:inline-block;'></span>");
+	        jQuery('#sp div').click(function() {
+	            var v = jQuery(this).attr("class");
+	            jQuery("#ClassNameIcon").attr("class", v);
+	            jQuery('#ClassName').combo('setValue', v).combo('setText', v).combo('hidePanel');
+	        });
+	    });
+	</script>
+	
+	<div id="sp" style="display:none">
+        <div class="icon-add"></div>
+        <div class="icon-edit"></div>
+        <div class="icon-remove"></div>
+        <div class="icon-save"></div>
+        <div class="icon-cut"></div>
+        <div class="icon-ok"></div>
+        <div class="icon-no"></div>
+        <div class="icon-cancel"></div>
+        <div class="icon-reload"></div>
+        <div class="icon-search"></div>
+        <div class="icon-print"></div>
+        <div class="icon-help"></div>
+        <div class="icon-undo"></div>
+        <div class="icon-redo"></div>
+        <div class="icon-back"></div>
+        <div class="icon-sum"></div>
+        <div class="icon-up"></div>
+        <div class="icon-rotateright"></div>
+        <div class="icon-rotateleft"></div>
+        <div class="icon-rotateUp"></div>
+        <div class="icon-rotateDown"></div>
+        <div class="icon-users"></div>
+        <div class="icon-delete"></div>
+        <div class="icon-new"></div>
+        <div class="icon-deny"></div>
+        <div class="icon-down"></div>
+        <div class="icon-dynamic"></div>
+        <div class="icon-update"></div>
+        <div class="icon-extension"></div>
+        <div class="icon-find"></div>
+        <div class="icon-right"></div>
+        <div class="icon-sound"></div>
+        <div class="icon-tick"></div>
+        <div class="icon-page_up"></div>
+        <div class="icon-light"></div>
+        <div class="icon-dialog"></div>
+        <div class="icon-addTable"></div>
+        <div class="icon-reaTable"></div>
+	</div>

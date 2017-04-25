@@ -1,0 +1,14 @@
+﻿@{
+    if (Request["Frame"] == "1")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else if (Request["Frame"] == "2")
+    {
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+}

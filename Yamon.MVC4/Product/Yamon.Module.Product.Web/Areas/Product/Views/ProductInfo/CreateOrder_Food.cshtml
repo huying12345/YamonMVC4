@@ -1,0 +1,52 @@
+﻿@* 餐饮 *@
+<div>
+
+    <ul class="nav nav-tabs" role="tablist" style="float:left;">
+        <li role="presentation" id="presentation" class="active" data-bind="click: presentation">
+            <a href="#arrproduct" aria-controls="arrproduct" role="tab" data-toggle="tab">
+                全部商品
+            </a>
+        </li>
+    </ul>
+    <div role="tablist" id="nav-list" >
+        <ul class="nav nav-tabs" role="tablist" data-bind="foreach:productType">
+            <li role="presentation" data-bind="attr: {id:ProductTypeId },click: $root.productype">
+                <a href="#arrproduct" aria-controls="arrproduct" role="tab" data-toggle="tab">
+                    <span name="parentname" data-bind='text: TypeName'></span>
+                </a>
+            </li>
+        </ul>
+    
+    </div>
+    <div class="panel-list tab-content" id="arrproducts">
+        <ul class="tab-pane active Maxheight" role="tabpanel" data-bind="foreach: allProductInfos" style="float:left;">
+
+            <li data-bind='click: $root.listaddGift' class="ul-list">
+                <span name="producttypeid"></span>
+                <span name="ProductNames" data-bind='text: ProductName'></span>
+                <br /><span name="Price" data-bind='text: SalePrice'></span>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="panel-list tab-content" data-bind="foreach:productType" id="arrproduct" style="display:none;">
+        <ul class="tab-pane active Maxheight" role="tabpanel" data-bind="foreach:products" style="float:left;">
+
+            <li data-bind='click: $root.listaddGift,attr: {class: ProductTypeId }' class="ul-list">
+                <span name="producttypeid"></span>
+                <span name="ProductNames" data-bind='text: ProductName'></span>
+                <br /><span name="Price" data-bind='text: SalePrice'></span>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+</div>
+
+<!-- Table -->
+
+
+

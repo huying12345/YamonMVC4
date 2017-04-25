@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<title>宣传展示</title>
+		<link rel="import" href="include/headercss.html?__inline">
+	</head>
+	<body>  
+		<div class="weui_tab" id="conductList">
+			<div class="weui_tab_bd">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1" style="position: relative;"></div>
+				<div class="border2"></div>
+				<!--ko foreach:ListArry-->
+				<div style="margin-top:0px;">
+					<div class="weui_titl">
+						<h4 data-bind='text:title'></h4>
+						<p data-bind="text:getMyDate(postTime)"></p>
+					</div>
+					<div class="weui_title">
+						<div data-bind='html:HTMLDecode(Content)'></div>
+					</div>
+				</div> 
+				<!--/ko-->
+			</div>
+			<div class="backUp"><a href="#" class="iconfont icon-fanhuidingbu2"></a></div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div> 
+		<link rel="import" href="include/footerjs.html?__inline">
+	</body>
+	<script src="./assets/js/page/conductList.js"></script>
+	<script>
+		$(function() {
+			$.showLoading();
+			var listEssay = new essayViewmodel();
+			ko.applyBindings(listEssay);
+			listEssay.init();
+		})
+	</script>
+
+</html>

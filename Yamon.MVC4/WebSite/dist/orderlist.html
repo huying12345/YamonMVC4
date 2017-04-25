@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>三和老爷车博物馆</title>
+		<link rel="stylesheet" href="assets/css/page/common.css" />
+<link href="assets/libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="assets/libs/bootstrap/css/bootstrapValidator.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/page/order.css" />
+	</head>
+	<body>
+		<div class="header">
+	<div class="header-content ">
+		<div class="row">
+			<div class="col-xs-8">
+				<img src="assets/images/sprite/index/LOGO.png" />
+			</div>
+			<div class="col-xs-3" style="height:70px; line-height: 70px;" id="backlogin">
+				<span id="phonename"></span>
+				<a id="backl">[退出登录]</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="top-menu">
+	<div style="width: 1000px; ">
+		<ul class="nav ">
+			<li role="presentation" class="active" id="vbook">
+				<a href="" style="color:#fff" id="yuyue">预约</a>
+			</li>
+			<li role="presentation" class="active" id="vbookd">
+				<a href="" style="color:#fff" id="myyy">我的预约</a>
+			</li>
+		</ul>
+	</div>
+</div>
+		<div class="content">
+	<div class="panel panel-primary" data-bind="foreach: lines" style="padding: 10px;">
+		<!-- Default panel contents -->
+		<div class="panel-heading" style="height:40px;">
+			<div class="col-xs-8">预约单号:<span data-bind="text:ProductBookID">201609051349</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span data-bind="text:CreateTime"></span>&nbsp;&nbsp;|&nbsp;&nbsp;状态:<span>未取票</span></div>
+
+			<div class="col-xs-4" style="text-align: center;">总金额:<span data-bind="text:TotalMoney">18</span>元</div>
+		</div>
+		<!-- Table -->
+		<table class="table" style="margin-bottom: 20px;">
+			<thead>
+				<tr>
+					<th>
+						预约票号
+					</th>
+					<th>票类</th>
+					<th>
+						票名
+					</th>
+
+					<th>
+						金额
+					</th>
+					<th>
+						预约时间
+					</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach:products">
+				<tr>
+					<td data-bind="text:ProductBookDetailID"></td>
+					<td data-bind="text:TypeName"></td>
+					<td data-bind="text:ProductName"></td>
+					<td data-bind="text:Price"></td>
+					<td data-bind="text:MakeTime"></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr />
+	</div>
+</div>
+		<div class="footer">
+	<div class="footer-content">
+		<div class="rows">
+			<div class="col-xs-8">
+				<p>四川省成都市高新区机场路新加坡工业园区新园南一路2号 邮编：610000 联系电话：028-83165566</p>
+				<p>Copyright ©2014-2015 三和老爷车博物馆 版权所有 蜀ICP备16021836号</p>
+			</div>
+			<div class="col-xs-3">
+
+				<span><img src="assets/images/sprite/index/ewm-1.png" /></span>
+				<span> <img src="assets/images/sprite/index/ewm-2.png" /></span>
+			</div>
+			<div class="col-xs-1">
+				<select>
+					<option>友情链接</option>
+					<option value="http://www.sanhegroup.com/">三和集团</option>
+					<option value="http://www.sanhegroup.com/">上海汽车博物馆</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+		<script src="assets/libs/jquery-1.11.1.min.js"></script>
+<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/libs/jquery.cookie.js"></script>
+<script src="assets/js/YamonAPI.js"></script>
+
+<script src="assets/libs/knockout.js"></script>
+<script src="assets/libs/knockout.validation.min.js"></script>
+<script src="assets/js/page/public.js"></script>
+		<script src="assets/js/page/orderlist.js"></script>
+	</body>
+</html>

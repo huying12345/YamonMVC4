@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%;">
+
+	<head>
+		<title>登录</title>
+		<link rel="import" href="include/headercss.html?__inline" />
+	</head>
+
+	<body style="height: 100%;">
+		<div class="weui_tab" id="Login">
+			<div class="weui_tab_bd" style="height:100%;">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<!--表单验证-->
+				<div class="weui_cells weui_cells_form">
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">用户名：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input id="Phone" class="weui_input" type="tel" placeholder="请输入手机号">
+						</div> 
+					</div>
+					<div class="weui_cell">
+						<div class="weui_cell_hd"><label class="weui_label">密码：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input id="password" class="weui_input" type="password" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="weui_cell weui_vcode">
+						<div class="weui_cell_hd hide"><label class="weui_label">验证码：</label></div>
+						<div class="weui_cell_bd weui_cell_primary">
+							<input id="validate" placeholder="验证码" class="weui_input" type="number">
+						</div>
+						<div class="weui_cell_ft">
+							<img alt="img" id="changeImg" data-bind="click:img" alt="验证码">
+						</div>
+					</div>
+				</div> 
+				<div class="btn_login">
+					<a id="btn_login" data-bind="click:login" class="weui_btn weui_btn_primary">登录</a>
+				</div>
+				<ul class="bottom">
+					<li>   
+						<a href="./register.html">新用户注册</a>
+					</li>
+					<li>  
+						<a href="javascript:;" class="open-popup" data-target="">忘记密码？</a>
+					</li>
+				</ul> 
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+		<div id="about" class="weui-popup-container popup-bottom">
+			<div class="weui-popup-overlay"></div>
+			<div class="weui-popup-modal" style="bottom: 30px;color: red;">
+				密码重置请联系客服：11111111
+			</div>
+		</div> 
+		<link rel="import" href="include/footerjs.html?__inline">
+		<script>
+			var LoginViewModel = new loginViewModel();
+			ko.applyBindings(LoginViewModel);
+			LoginViewModel.init();
+
+			
+			$('.open-popup').click(function() {
+				$("#about").popup();
+			});
+			$('.weui-popup-overlay').click(function(){
+				$("#about").closePopup()
+			})
+		</script>
+	</body>
+
+</html>

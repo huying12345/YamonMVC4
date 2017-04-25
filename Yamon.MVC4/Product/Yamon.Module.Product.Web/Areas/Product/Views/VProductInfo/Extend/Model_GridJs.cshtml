@@ -1,0 +1,26 @@
+﻿@using Yamon.Framework.Common
+<script type="text/javascript">
+    jQuery(function () {
+        Data.EditUrl ='/Product/ProductInfo/Edit/{id}?'+_pageUrl;
+        Data.CreateUrl = '/Product/ProductInfo/Create?' + _pageUrl;
+        Data.DeleteUrl = '/api/Product/ProductInfo/Delete?' + _pageUrl;
+        Data.BatchDeleteUrl = '/api/Product/ProductInfo/BatchDelete?' + _pageUrl;
+    });
+
+
+    function Print() {
+        var id = getSelectId();
+        if (id == "" || id == undefined)
+            return;
+
+        $.messager.prompt('请输入', '请输入新的打印张数', function (text) {
+            if (text) {
+                if (typeof (jsObj) == 'undefined') {
+                    alert("此功能要暂只在客户端下使用！");
+                } else {
+                    jsObj.PrintProductLabel(id, parseInt(text));
+                }
+            }
+        }, '10');
+    }
+</script>

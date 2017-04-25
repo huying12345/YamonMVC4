@@ -1,0 +1,17 @@
+﻿<script type="text/javascript">
+   
+    function OpenToolbarInRow(value, row, index) {
+        return '<a href="/SiteManage/ToolBar/Grid?Menu=ToolBar_List&Frame=1&MenuID='+row[Data.PrimaryKey] +'" style="color:red;">设置工具栏</a>';
+    }
+
+    function Menu_ImportFromExcel() {
+        OpenMyDialog("/SiteManage/Menu/ImportFromExcel", '从Excel导入', 400, 240);
+    }
+
+    function Menu_ExportToExcel() {
+        var ids = getSelectIds();
+        if (ids == "" || ids == undefined)
+            return;
+        window.open("/api/SiteManage/Menu/ExportToExcel/" + ids);
+    }
+</script>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录-三和老爷车博物馆网上预约系统</title>
+		<link rel="stylesheet" href="assets/css/page/common.css" />
+<link href="assets/libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="assets/libs/bootstrap/css/bootstrapValidator.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/page/login.css?20160829" />
+	</head>
+	<body>
+		<div class="header">
+	<div class="header-content ">
+		<div class="row">
+			<div class="col-xs-8">
+				<img src="assets/images/sprite/index/LOGO.png" />
+			</div>
+			<div class="col-xs-3" style="height:70px; line-height: 70px;" id="backlogin">
+				<span id="phonename"></span>
+				<a id="backl">[退出登录]</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="top-menu">
+	<div style="width: 1000px; ">
+		<ul class="nav ">
+			<li role="presentation" class="active" id="vbook">
+				<a href="" style="color:#fff" id="yuyue">预约</a>
+			</li>
+			<li role="presentation" class="active" id="vbookd">
+				<a href="" style="color:#fff" id="myyy">我的预约</a>
+			</li>
+		</ul>
+	</div>
+</div>
+		<div class="tab-login">
+	<ul class="nav nav-tabs">
+		<li role="presentation" class="active">
+			<a href="#">登录</a>
+		</li>
+	</ul>
+</div>
+<div class="content content-login">
+	<div class="content-table row">
+		<form method="POST" class='form-condensed'>
+			<div class="col-xs-8">
+				<div class="form-group col-xs-12">
+					<label for="inputEmail3" class="col-sm-3 control-label">手机号码:</label>
+					<div class="col-sm-9">
+						<input class='form-control' type='text' name='phone' id='phone' data-bind='textInput: phone' />
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<label for="inputPassword3" class="col-sm-3 control-label">密码:</label>
+					<div class="col-sm-9">
+						<input class='form-control' type='password' name='password' id="password" data-bind='textInput: password' />
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<label for="inputPassword3" class="col-sm-3 control-label">验证码:</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="validate" name='validate' data-bind='textInput: validate'>
+					</div>
+					<div class="col-sm-2">
+						<div class="content-img"><img data-bind='click: validatecode' style="height:31px;width:100%" /></div>
+					</div>
+					<div class="col-sm-3">
+						<a href="#" data-bind='click: validatecode'>看不清楚,换一张</a>
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<div class="col-xs-3"></div>
+					<div class="col-xs-9">
+						<button type='submit' id='btn_login' data-bind='click: submit' class="btn btn-default">登录</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="col-xs-3">
+			<div class="xs2">
+				<label>您还没有注册？</label>
+				<a href="index.html"><button type="button" class="btn btn-default">立即注册</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="footer">
+	<div class="footer-content">
+		<div class="rows">
+			<div class="col-xs-8">
+				<p>四川省成都市高新区机场路新加坡工业园区新园南一路2号 邮编：610000 联系电话：028-83165566</p>
+				<p>Copyright ©2014-2015 三和老爷车博物馆 版权所有 蜀ICP备16021836号</p>
+			</div>
+			<div class="col-xs-3">
+
+				<span><img src="assets/images/sprite/index/ewm-1.png" /></span>
+				<span> <img src="assets/images/sprite/index/ewm-2.png" /></span>
+			</div>
+			<div class="col-xs-1">
+				<select>
+					<option>友情链接</option>
+					<option value="http://www.sanhegroup.com/">三和集团</option>
+					<option value="http://www.sanhegroup.com/">上海汽车博物馆</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<script src="assets/libs/jquery-1.11.1.min.js"></script>
+<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/libs/jquery.cookie.js"></script>
+<script src="assets/js/YamonAPI.js"></script>
+
+<script src="assets/libs/knockout.js"></script>
+<script src="assets/libs/knockout.validation.min.js"></script>
+<script src="assets/js/page/public.js"></script>
+		<script src="assets/js/page/login.js"></script>
+		<script>
+			$(function() {
+				$("#top-menu").hide();
+				viewModel.validatecode();
+				ko.applyBindings(viewModel);
+			})
+		</script>
+	</body>
+</html>

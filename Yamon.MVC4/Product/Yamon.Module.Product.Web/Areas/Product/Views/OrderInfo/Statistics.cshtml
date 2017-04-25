@@ -1,0 +1,68 @@
+﻿@section styles{
+    <link href="~/Static/Product/css/Statistics.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="/Resources/JsLib/echarts/echarts.min.js"></script>
+    <script src="~/Static/Product/js/Statistics.js?201609271118"></script>
+    <script src="/Resources/JsLib/knockout/knockout.js"></script>
+    <script src="/Resources/JsLib/artTemplate/template.js"></script>
+    <script src="/Resources/JsLib/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Resources/JsLib/jquery.query.js"></script>
+    <script src="/Static/Member/js/DatePicker.js"></script>
+    <script src="/Resources/JsLib/jquery.tablesorter.js"></script>
+    <script id="t-list" type="text/html">
+        <tr>
+            <td>{{CreateTime}}</td>
+            <td>{{TotalMoney_Food}}</td>
+            <td>{{TotalMoney_Good}}</td>
+            <td>{{TotalMoney_Ticket}}</td>
+            <td>{{TotalMoney_Playground}}</td>
+        </tr>
+    </script>
+}
+
+<div>
+    <div>
+        @if (Request["Type"] == "Day")
+        {
+            <span style="font-size:14px; font-weight:bold;">选择日期:</span><input class="Wdate" type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" id="StarTime" name="StarTime" value="">
+            <span>
+                至
+            </span>
+            <span> <input class="Wdate" type="text" onclick="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="EndTime" name="EndTime" value=""></span>
+        }
+        else if (Request["Type"] == "Month")
+        {
+            <span style="font-size:14px; font-weight:bold;">选择日期:</span>
+            <span id="EndTime"></span>
+
+        }
+        else if (Request["Type"] == "Year")
+        {
+            <span style="font-size:14px; font-weight:bold; ">选择年份:</span>
+
+            <span id="EndTime"></span>
+        }
+
+        <button data-bind="click:clicklist" class="btn btn-info"> 查询</button>
+    </div>
+    <div id="main" style="height:300px; width:100%;"></div>
+    <div id="main1" style="height:200px; width:100%;font-weight:bold;font-size:40px;text-align:center;line-height:200px; display:none;">暂无数据</div>
+
+    <div class="table-responsive">
+
+        <table class="table table-striped tablesorter" id="tableList">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>餐饮</th>
+                    <th>商品</th>
+                    <th>门票</th>
+                    <th>游乐场</th>
+                </tr>
+            </thead>
+            <tbody id="line"></tbody>
+
+        </table>
+    </div>
+</div>

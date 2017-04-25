@@ -1,0 +1,31 @@
+﻿<script type="text/javascript">
+    function CreateCard() {
+        var id = getSelectId();
+        if (id == "" || id == undefined)
+            return;
+
+        OpenMyDialog('/Product/ProductCard/Create?MemberID=' + id, '发会员卡', 600, 400);
+    }
+
+    function MemberInfoReset(value, row, index) {
+        return "<a href='#' style='color:red;' onclick=\"OpenDialog_MemberInfoReset('" + row[Data.PrimaryKey] + "')\">重置密码</a>";
+    }
+
+    function OpenDialog_MemberInfoReset(id) {
+        jQuery.messager.confirm('重置密码', '您确定要重置密码吗?', function (r) {
+            if (r) {
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    url: '/api/Member/MemberInfo/MemberInfoReset?MemberInfoId=' + id,
+                    success: function (data) {
+                        alert(data.message);
+                    },
+                    error: function (error) {
+                    }
+                });
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>我的预约-三和老爷车博物馆网上预约系统</title>
+		<link rel="stylesheet" href="assets/css/page/common.css" />
+<link href="assets/libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<link href="assets/libs/bootstrap/css/bootstrapValidator.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/page/order.css" />
+
+		<link href="assets/libs/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+		<link href="assets/libs/bootstrap/css/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="header">
+	<div class="header-content ">
+		<div class="row">
+			<div class="col-xs-8">
+				<img src="assets/images/sprite/index/LOGO.png" />
+			</div>
+			<div class="col-xs-3" style="height:70px; line-height: 70px;" id="backlogin">
+				<span id="phonename"></span>
+				<a id="backl">[退出登录]</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="top-menu">
+	<div style="width: 1000px; ">
+		<ul class="nav ">
+			<li role="presentation" class="active" id="vbook">
+				<a href="" style="color:#fff" id="yuyue">预约</a>
+			</li>
+			<li role="presentation" class="active" id="vbookd">
+				<a href="" style="color:#fff" id="myyy">我的预约</a>
+			</li>
+		</ul>
+	</div>
+</div>
+		<div class="content">
+	<div class="content-table">
+		<div id="order-btn">
+			<label>选择浏览日期:</label>
+			<input class="Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',maxDate:'%y-%M-{%d+7}'})" id="MakeTime" name="MakeTime" value="">
+			<input type="hidden"  value="0" id="typess">
+		</div>
+		<div class="table-responsive">
+			<table id="sample-table-2" class="table table-striped table-bordered table-hover" >
+				<thead>
+					<tr>
+						<td>票类</td>
+						<td class="no-border">票名</td>
+						<td class="no-border">售价</td>
+						<td class="no-border">总金额</td>
+						<td class="no-border">票数</td>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: lines">
+					<tr >
+						<td data-bind="text:TypeName">套票<input type="hidden" data-bind="value:ProductID"><input type="hidden" data-bind="value:ProductNo"></td>
+						<td class="no-border name" data-bind="text: ProductName">成人票</td>
+						<td class="no-border" data-bind="text: SalePrice">￥200.00</td>
+						<td class="no-border" name="TotalMoney" data-bind=' text:  formatCurrency(TotalMoney())'>￥200.00</td>
+						<td class="no-border"><input id="Num" type="text" value="1" name="Num" class="Num" data-bind=' value: Num'></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr />
+		<div id="order-btn">
+				<p class='grandTotal' style="font-size:22px;text-align:right;padding:10px;">
+					总金额:<span data-bind='text: formatCurrency(grandTotal())' id="TotalMoney"> </span>
+				</p>
+				<button class="btn" data-bind='click: save'>立即预订</button>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="footer">
+	<div class="footer-content">
+		<div class="rows">
+			<div class="col-xs-8">
+				<p>四川省成都市高新区机场路新加坡工业园区新园南一路2号 邮编：610000 联系电话：028-83165566</p>
+				<p>Copyright ©2014-2015 三和老爷车博物馆 版权所有 蜀ICP备16021836号</p>
+			</div>
+			<div class="col-xs-3">
+
+				<span><img src="assets/images/sprite/index/ewm-1.png" /></span>
+				<span> <img src="assets/images/sprite/index/ewm-2.png" /></span>
+			</div>
+			<div class="col-xs-1">
+				<select>
+					<option>友情链接</option>
+					<option value="http://www.sanhegroup.com/">三和集团</option>
+					<option value="http://www.sanhegroup.com/">上海汽车博物馆</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+		<script src="assets/libs/jquery-1.11.1.min.js"></script>
+<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/libs/jquery.cookie.js"></script>
+<script src="assets/js/YamonAPI.js"></script>
+
+<script src="assets/libs/knockout.js"></script>
+<script src="assets/libs/knockout.validation.min.js"></script>
+<script src="assets/js/page/public.js"></script>
+		<script src="assets/libs/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+		<script src="assets/libs/My97DatePicker/WdatePicker.js"></script>
+
+		<script src="assets/libs/bootstrap/js/jquery.bootstrap-touchspin.js"></script>
+
+		<script src="assets/libs/rowspan.js"></script>
+		<script src="assets/js/page/order.js"></script>
+		<script>
+			var viewModel;
+			$(function() {
+				viewModel = new indexViewModel();
+				viewModel.init();
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>商务合作</title>
+		<link rel="import" href="include/headercss.html?__inline">
+		<link rel="stylesheet" type="text/css" href="./assets/libs/jquery-fullPage/jquery.fullPage.css" />
+	</head>
+	<body> 
+		<div class="weui_tab" id="cooperateList">
+			<div class="weui_tab_bd">
+				<link rel="import" href="include/header.html?__inline">
+				<div class="border1"></div>
+				<div class="border2"></div>
+				<div id="dowebok2">
+					<div class="section" id="section1">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>多媒体影视中心</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/5-1.png" />
+					</div>
+					<div class="section" id="section2">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>儿童游乐体验区</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/4--1.png" />
+					</div>
+					<div class="section" id="section3">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>老爷车陈列馆</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/2--1.png" />
+					</div>
+					<div class="section" id="section4">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>复古文化街</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/3--1.png" />
+					</div>
+					<div class="section" id="section5">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>纪念品商店</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/7-1.png" />
+					</div>
+					<div class="section" id="section6">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>汽车图书馆</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/8-1.png" />
+					</div>
+					<div class="section" id="section7">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>艺术画廊</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/1-1.png" />
+					</div>
+					<div class="section" id="section8">
+						<div style="height: 10px;"></div>
+						<div class="my-section">
+							<h3>咖啡馆</h3>
+							<p>三和艺术画廊位于博物馆二层，占地约为700平方 米，画廊未来一方面将会为国内外知名画家建展示平台，定期举办各类主题画展，另一方面还将为 艺术爱好者提供展示平台，创作与汽车相关的艺术作品。
+							</p>
+						</div>
+						<img src="./assets/images/cooperate/6-1.png" />
+					</div>
+				</div>
+				<link rel="import" href="include/footer.html?__inline">
+			</div>
+			<link rel="import" href="include/footer.html?__inline">
+		</div>
+	</body>
+	<link rel="import" href="include/footerjs.html?__inline">
+	<script>
+		var LinkList = new coopViewModel();
+		ko.applyBindings(LinkList);
+		LinkList.init();
+
+		var id = GetQueryString("id");
+		$(".section").css("display", "none");
+		$("#" + id).css("display", "");
+
+		$('#dowebok2').fullpage({
+			'verticalCentered': false,
+			'css3': true,
+		})
+	</script>
+
+</html>
