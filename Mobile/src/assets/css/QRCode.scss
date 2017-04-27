@@ -16,7 +16,7 @@ html,body{
             width: 100%;
             z-index: 99;
             .audioplayer-bar {
-                height: 0.4rem;
+                height: 16px;
             }
             .audioplayer-bar-played {
                 background: yellow;
@@ -63,5 +63,27 @@ html,body{
                 }
             }
         }
+    }
+    .weui_tabbar{
+        height: 32px;
+        background: #000;
+        .weui_tabbar_item{
+            padding: 0px;
+            span{
+                color: #fff;
+                vertical-align: bottom;
+                font-size: 12px;
+                padding-left: 5px;
+            }
+            a>img{
+                height:20px;
+                width: 20px;
+                margin: 0px 8px;
+                vertical-align: middle;
+            }   
+        }
+    }
+    .weui_tabbar:before{
+        border-top:1px solid #262424;
     }
 }

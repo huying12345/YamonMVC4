@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<title>车辆导览</title> 
+		<title>车辆导览</title>
 		<meta content="telephone=no" name="format-detection" />
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="/assets/libs/audio/audio.css" />
 		<link rel="stylesheet" type="text/css" href="./assets/css/QRCode.css?20170413" />
 	</head>
+
 	<body>
 		<div class="weui_tab" id="QRCode">
 			<div class="weui_tab_bd">
@@ -20,10 +21,11 @@
 					<div class="weui-navbar">
 						<a class="weui-navbar__item" href="#">
 							<audio preload="auto" controls>
-								<source id="js_audioCon_1" src="assets/audio/CA770.mp3" />
+								<source id="js_audioCon_1" src="/assets/audio/CA770.mp3" />
+								<!--http://m10.music.126.net/20170427100419/a0eacb23892dfd38260536c65796fbc5/ymusic/2ed6/dbdd/97ae/dd9345a6d7320f7aefa2dc60301af89d.mp3-->
 							</audio>
 						</a>
-					</div> 
+					</div>
 				</div>
 				<!--汽车展示-->
 				<div class="carDisplay">
@@ -51,7 +53,17 @@
 					</div>
 				</div>
 			</div>
-		</div>
+			<div class="weui_tabbar">
+				<div class="weui_tabbar_item weui_bar_item_on">
+					<p><span>纪念品商店：</span>
+						<a href="./index.html" target="_blank"><img src="/assets/images/sprite/login/baidu_hover.png" alt="纪念品商店" title="纪念品商店"/></a>
+						<!--&nbsp;|&nbsp;-->
+						<a href="./index.html" target="_blank"><img src="/assets/images/sprite/login/qq_hover.png" alt="纪念品商店" title="纪念品商店"/></a>
+						<!--&nbsp;|&nbsp;-->
+						<a href="./index.html" target="_blank"><img src="/assets/images/sprite/login/weibo_hover.png" alt="纪念品商店" title="纪念品商店"/></a>
+					</p>
+				</div>
+			</div>
 		</div>
 		<script src="/assets/libs/jquery-1.11.1.min.js"></script>
 		<script src="/assets/libs/swiper/swiper.jquery.min.js"></script>
